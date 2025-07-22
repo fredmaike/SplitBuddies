@@ -1,84 +1,81 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using SplitBuddies.Models;
-using SplitBuddies.Controllers;
 
 namespace SplitBuddies.Views
 {
-    public partial class GroupForm : Form
+    public class GroupForm : Form
     {
-        private string imagePath = "";
+        private TextBox txtGroupName;
+        private Button btnCreate;
+        private CheckedListBox clbUsers;
 
-        public GroupForm()
+        public Group NuevoGrupo { get; private set; }
+
+        private List<User> usuarios;
+
+        public GroupForm(List<User> users)
         {
-            InitializeComponent();
+            usuarios = users;
 
-            // Llenar la lista con usuarios
-            foreach (var user in UserController.Users)
+            this.Text = "Crear Grupo";
+            this.Size = new Size(350, 400);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            Label lblName = new Label();
+            lblName.Text = "Nombre del grupo:";
+            lblName.Location = new Point(10, 20);
+            this.Controls.Add(lblName);
+
+            txtGroupName = new TextBox();
+            txtGroupName.Location = new Point(10, 45);
+            txtGroupName.Width = 300;
+            this.Controls.Add(txtGroupName);
+
+            Label lblUsers = new Label();
+            lblUsers.Text = "Seleccione miembros:";
+            lblUsers.Location = new Point(10, 80);
+            this.Controls.Add(lblUsers);
+
+            clbUsers = new CheckedListBox();
+            clbUsers.Location = new Point(10, 105);
+            clbUsers.Size = new Size(300, 180);
+            foreach (var user in users)
+                clbUsers.Items.Add(user);
+
+            clbUsers.DisplayMember = "Name"; // <-- Importante para mostrar nombres reales
+            this.Controls.Add(clbUsers);
+
+            btnCreate = new Button();
+            btnCreate.Text = "Crear Grupo";
+            btnCreate.Location = new Point(10, 300);
+            btnCreate.Click += BtnCreate_Click;
+            this.Controls.Add(btnCreate);
+        }
+
+        private void BtnCreate_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtGroupName.Text) || clbUsers.CheckedItems.Count == 0)
             {
-                clbMembers.Items.Add(user, false);
-            }
-        }
-
-        private void btnChooseImage_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Imágenes (*.png;*.jpg)|*.png;*.jpg";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                imagePath = ofd.FileName;
-                picGroupImage.ImageLocation = imagePath;
-            }
-        }
-
-        private void btnCreateGroup_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void GroupForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCreateGroup_Click(object sender, EventArgs e)
-        {
-            string name = txtGroupName.Text.Trim();
-
-            if (string.IsNullOrEmpty(name) || clbMembers.CheckedItems.Count == 0)
-            {
-                MessageBox.Show("Complete todos los campos y seleccione al menos un miembro.");
+                MessageBox.Show("Ingrese un nombre y seleccione al menos un miembro.");
                 return;
             }
 
-            List<User> selectedUsers = new List<User>();
-            foreach (var item in clbMembers.CheckedItems)
-            {
-                selectedUsers.Add((User)item);
-            }
+            List<User> seleccionados = new List<User>();
+            foreach (var item in clbUsers.CheckedItems)
+                seleccionados.Add((User)item);
 
-            Group newGroup = new Group
+            NuevoGrupo = new Group
             {
-                Name = name,
-                ImagePath = imagePath,
-                Members = selectedUsers
+                Name = txtGroupName.Text.Trim(),
+                Members = seleccionados,
+                Expenses = new List<Expense>()
             };
 
-            GroupController.AddGroup(newGroup);
-            MessageBox.Show("Grupo creado correctamente.");
+            this.DialogResult = DialogResult.OK;
             this.Close();
-        }
-
-        private void btnChooseImage_Click_1(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Imágenes (*.png;*.jpg)|*.png;*.jpg";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                imagePath = ofd.FileName;
-                picGroupImage.ImageLocation = imagePath;
-            }
         }
     }
 }

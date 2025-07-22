@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace SplitBuddies.Models
@@ -8,9 +8,8 @@ namespace SplitBuddies.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
-        public User Payer { get; set; }  // Quién pagó
-        public List<User> Participants { get; set; }  // A quiénes afecta
+        public User Payer { get; set; }
+        public List<User> Participants { get; set; } = new();
         public DateTime Date { get; set; }
-        public string ReferenceUrl { get; set; }  // Opcional: URL o comprobante
     }
 }

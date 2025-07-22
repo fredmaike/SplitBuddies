@@ -1,0 +1,14 @@
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfoInputs.cache
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfo.cs
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.CoreCompileInputs.cache
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.exe
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.deps.json
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.runtimeconfig.json
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.dll
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.dll
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\refint\SplitBuddies.dll
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.pdb
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.genruntimeconfig.cache
+C:\Users\Jose2\OneDrive\Desktop\SplitBuddies\obj\Debug\net9.0-windows\ref\SplitBuddies.dll

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using SplitBuddies.Models;
@@ -7,45 +8,40 @@ namespace SplitBuddies.Data
 {
     public static class DataLoader
     {
-        private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "usuarios.json");
-
+        private static string userFile = "usuarios.json";
+        private static string groupFile = "grupos.json";
 
         public static List<User> LoadUsers()
         {
-            try
-            {
-                string json = File.ReadAllText(filePath);
-                return JsonSerializer.Deserialize<List<User>>(json);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al leer usuarios.json: " + ex.Message);
+            if (!File.Exists(userFile))
                 return new List<User>();
-            }
 
+            string json = File.ReadAllText(userFile);
+            return JsonSerializer.Deserialize<List<User>>(json);
         }
 
         public static void SaveUsers(List<User> users)
         {
             string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(filePath, json);
+            File.WriteAllText(userFile, json);
         }
 
         public static List<Group> LoadGroups()
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "grupos.json");
-            if (!File.Exists(path)) return new List<Group>();
+            if (!File.Exists(groupFile))
+                return new List<Group>();
 
-            string json = File.ReadAllText(path);
-            return JsonSerializer.Deserialize<List<Group>>(json);
+            string json = File.ReadAllText(groupFile);
+            return JsonSerializer.Deserialize<List<Group>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
         }
 
         public static void SaveGroups(List<Group> groups)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "grupos.json");
             string json = JsonSerializer.Serialize(groups, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(path, json);
+            File.WriteAllText(groupFile, json);
         }
-
     }
 }

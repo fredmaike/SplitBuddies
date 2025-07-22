@@ -1,63 +1,113 @@
-﻿using SplitBuddies.Controllers;
-using SplitBuddies.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Linq;
+using SplitBuddies.Models;
+using SplitBuddies.Data;
 
 namespace SplitBuddies.Views
 {
-    public partial class ExpenseForm : Form
+    public class ExpenseForm : Form
     {
-        private Group currentGroup;
+        private TextBox txtName;
+        private TextBox txtAmount;
+        private ComboBox cbPayer;
+        private CheckedListBox clbParticipants;
+        private Button btnAdd;
 
-        public ExpenseForm(Group group)
+        public Expense NewExpense { get; private set; }
+
+        private List<User> allUsers;
+
+        public ExpenseForm()
         {
-            InitializeComponent();
-            currentGroup = group;
+            allUsers = DataLoader.LoadUsers();
 
-            // Llenar combo de pagadores
-            foreach (var user in group.Members)
-            {
+            this.Text = "Registrar Gasto";
+            this.Size = new Size(350, 400);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            Label lblName = new Label();
+            lblName.Text = "Nombre del gasto:";
+            lblName.Location = new Point(10, 20);
+            this.Controls.Add(lblName);
+
+            txtName = new TextBox();
+            txtName.Location = new Point(10, 45);
+            txtName.Width = 300;
+            this.Controls.Add(txtName);
+
+            Label lblAmount = new Label();
+            lblAmount.Text = "Monto:";
+            lblAmount.Location = new Point(10, 80);
+            this.Controls.Add(lblAmount);
+
+            txtAmount = new TextBox();
+            txtAmount.Location = new Point(10, 105);
+            txtAmount.Width = 300;
+            this.Controls.Add(txtAmount);
+
+            Label lblPayer = new Label();
+            lblPayer.Text = "Pagado por:";
+            lblPayer.Location = new Point(10, 140);
+            this.Controls.Add(lblPayer);
+
+            cbPayer = new ComboBox();
+            cbPayer.Location = new Point(10, 165);
+            cbPayer.Width = 300;
+            cbPayer.DropDownStyle = ComboBoxStyle.DropDownList;
+            foreach (var user in allUsers)
                 cbPayer.Items.Add(user);
-                clbParticipants.Items.Add(user);
-            }
-
             cbPayer.DisplayMember = "Name";
+            this.Controls.Add(cbPayer);
+
+            Label lblParticipants = new Label();
+            lblParticipants.Text = "Participantes:";
+            lblParticipants.Location = new Point(10, 200);
+            this.Controls.Add(lblParticipants);
+
+            clbParticipants = new CheckedListBox();
+            clbParticipants.Location = new Point(10, 225);
+            clbParticipants.Size = new Size(300, 100);
+            foreach (var user in allUsers)
+                clbParticipants.Items.Add(user);
+            clbParticipants.DisplayMember = "Name";
+            this.Controls.Add(clbParticipants);
+
+            btnAdd = new Button();
+            btnAdd.Text = "Agregar Gasto";
+            btnAdd.Location = new Point(10, 340);
+            btnAdd.Click += BtnAdd_Click;
+            this.Controls.Add(btnAdd);
         }
 
-
-        private void btnAddExpense_Click_1(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text.Trim();
-            string description = txtDescription.Text.Trim();
-            string amountText = txtAmount.Text.Trim();
-            decimal amount;
-
-            if (string.IsNullOrEmpty(name) || !decimal.TryParse(amountText, out amount) || cbPayer.SelectedItem == null || clbParticipants.CheckedItems.Count == 0)
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtAmount.Text) ||
+                cbPayer.SelectedItem == null || clbParticipants.CheckedItems.Count == 0 ||
+                !decimal.TryParse(txtAmount.Text, out decimal amount))
             {
-                MessageBox.Show("Por favor complete todos los campos correctamente.");
+                MessageBox.Show("Complete todos los campos correctamente.");
                 return;
             }
 
-            List<User> participants = new List<User>();
+            List<User> selectedParticipants = new List<User>();
             foreach (var item in clbParticipants.CheckedItems)
             {
-                participants.Add((User)item);
+                selectedParticipants.Add((User)item);
             }
 
-            Expense newExpense = new Expense
+            NewExpense = new Expense
             {
-                Name = name,
-                Description = description,
+                Name = txtName.Text.Trim(),
                 Amount = amount,
+                Description = "Registrado manualmente",
+                Date = DateTime.Now,
                 Payer = (User)cbPayer.SelectedItem,
-                Participants = participants,
-                Date = DateTime.Now
+                Participants = selectedParticipants
             };
 
-            ExpenseController.AddExpense(currentGroup, newExpense);
-            MessageBox.Show("Gasto registrado.");
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

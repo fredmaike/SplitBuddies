@@ -1,20 +1,31 @@
-﻿
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace SplitBuddies.Views
 {
-    partial class DashboardForm
+    /// <summary>
+    /// Representa el formulario principal del panel de control de SplitBuddies.
+    /// </summary>
+    public partial class DashboardForm : Form
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Inicializa una nueva instancia del formulario DashboardForm.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        public DashboardForm()
+        {
+            InitializeComponent();
+        }
+
+        /// <summary>
+        /// Libera los recursos utilizados por el formulario.
+        /// </summary>
+        /// <param name="disposing">True si se deben liberar recursos administrados.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing && components != null)
             {
                 components.Dispose();
             }
@@ -24,44 +35,63 @@ namespace SplitBuddies.Views
         #region Windows Form Designer generated code
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Método que inicializa y configura los componentes del formulario.
         /// </summary>
         private void InitializeComponent()
         {
-            lblWelcome = new Label();
+            lblWelcomeMessage = new Label();
             SuspendLayout();
             // 
-            // lblWelcome
+            // lblWelcomeMessage
             // 
-            lblWelcome.AutoSize = true;
-            lblWelcome.Location = new Point(331, 169);
-            lblWelcome.Name = "lblWelcome";
-            lblWelcome.Size = new Size(50, 20);
-            lblWelcome.TabIndex = 0;
-            lblWelcome.Text = "label1";
-            lblWelcome.Click += lblWelcome_Click;
+            lblWelcomeMessage.AutoSize = true;
+            lblWelcomeMessage.Location = new Point(290, 127);
+            lblWelcomeMessage.Name = "lblWelcomeMessage";
+            lblWelcomeMessage.Size = new Size(183, 15);
+            lblWelcomeMessage.TabIndex = 0;
+            lblWelcomeMessage.Text = "¡Haz clic para darte la bienvenida!";
+            lblWelcomeMessage.Click += lblWelcomeMessage_Click;
             // 
             // DashboardForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(lblWelcome);
+            ClientSize = new Size(958, 487);
+            Controls.Add(lblWelcomeMessage);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "DashboardForm";
-            Text = "DashboardForm";
+            Text = "Panel de Control - SplitBuddies";
             Load += DashboardForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
-        private void DashboardForm_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
-        private Label lblWelcome;
+        /// <summary>
+        /// Evento que se ejecuta al hacer clic sobre el mensaje de bienvenida.
+        /// </summary>
+        private void lblWelcomeMessage_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("¡Bienvenido a SplitBuddies!", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        /// <summary>
+        /// Evento que se ejecuta al cargar el formulario.
+        /// </summary>
+        private void DashboardForm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // Aquí puedes colocar cualquier lógica necesaria al cargar el formulario
+                Console.WriteLine("Formulario Dashboard cargado correctamente.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error al cargar el formulario: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private Label lblWelcomeMessage;
     }
 }

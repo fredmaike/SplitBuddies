@@ -1,0 +1,287 @@
+[
+  {
+    "Name": "Grupo de Prueba",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": [
+      {
+        "Name": "HOLIS",
+        "Description": "Registrado manualmente",
+        "Amount": 10000,
+        "Payer": {
+          "Name": "Ana",
+          "Email": null
+        },
+        "Participants": [
+          {
+            "Name": "Ana",
+            "Email": null
+          },
+          {
+            "Name": "Carlos",
+            "Email": null
+          },
+          {
+            "Name": "Luc\u00EDa",
+            "Email": null
+          }
+        ],
+        "Date": "2025-07-05T19:56:19.231578-06:00"
+      }
+    ]
+  },
+  {
+    "Name": "Grupo de Prueba",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": []
+  },
+  {
+    "Name": "Grupo de Prueba",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": []
+  },
+  {
+    "Name": "Grupo de Prueba",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": []
+  },
+  {
+    "Name": "H",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": [
+      {
+        "Name": "H",
+        "Description": "Registrado manualmente",
+        "Amount": 2000,
+        "Payer": {
+          "Name": "Ana",
+          "Email": null
+        },
+        "Participants": [
+          {
+            "Name": "Ana",
+            "Email": null
+          },
+          {
+            "Name": "Carlos",
+            "Email": null
+          },
+          {
+            "Name": "Luc\u00EDa",
+            "Email": null
+          }
+        ],
+        "Date": "2025-07-05T20:05:49.7652174-06:00"
+      }
+    ]
+  },
+  {
+    "Name": "holis",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": "ana@email.com"
+      },
+      {
+        "Name": "Carlos",
+        "Email": "carlos@email.com"
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": "lucia@email.com"
+      },
+      {
+        "Name": "Pedro",
+        "Email": "pedro@email.com"
+      }
+    ],
+    "Expenses": [
+      {
+        "Name": "holis",
+        "Description": "Registrado manualmente",
+        "Amount": 3000,
+        "Payer": {
+          "Name": "Carlos",
+          "Email": "carlos@email.com"
+        },
+        "Participants": [
+          {
+            "Name": "Ana",
+            "Email": "ana@email.com"
+          },
+          {
+            "Name": "Carlos",
+            "Email": "carlos@email.com"
+          },
+          {
+            "Name": "Luc\u00EDa",
+            "Email": "lucia@email.com"
+          },
+          {
+            "Name": "Pedro",
+            "Email": "pedro@email.com"
+          }
+        ],
+        "Date": "2025-07-05T20:23:07.0593706-06:00"
+      }
+    ]
+  },
+  {
+    "Name": "xdd",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": "ana@email.com"
+      },
+      {
+        "Name": "Carlos",
+        "Email": "carlos@email.com"
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": "lucia@email.com"
+      },
+      {
+        "Name": "Pedro",
+        "Email": "pedro@email.com"
+      }
+    ],
+    "Expenses": [
+      {
+        "Name": "xdd",
+        "Description": "Registrado manualmente",
+        "Amount": 10000,
+        "Payer": {
+          "Name": "Ana",
+          "Email": "ana@email.com"
+        },
+        "Participants": [
+          {
+            "Name": "Ana",
+            "Email": "ana@email.com"
+          },
+          {
+            "Name": "Carlos",
+            "Email": "carlos@email.com"
+          },
+          {
+            "Name": "Luc\u00EDa",
+            "Email": "lucia@email.com"
+          },
+          {
+            "Name": "Pedro",
+            "Email": "pedro@email.com"
+          }
+        ],
+        "Date": "2025-07-05T20:28:29.1944516-06:00"
+      }
+    ]
+  },
+  {
+    "Name": "11",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": "ana@email.com"
+      },
+      {
+        "Name": "Carlos",
+        "Email": "carlos@email.com"
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": "lucia@email.com"
+      },
+      {
+        "Name": "Pedro",
+        "Email": "pedro@email.com"
+      }
+    ],
+    "Expenses": [
+      {
+        "Name": "11",
+        "Description": "Registrado manualmente",
+        "Amount": 1111111,
+        "Payer": {
+          "Name": "Ana",
+          "Email": "ana@email.com"
+        },
+        "Participants": [
+          {
+            "Name": "Ana",
+            "Email": "ana@email.com"
+          },
+          {
+            "Name": "Carlos",
+            "Email": "carlos@email.com"
+          }
+        ],
+        "Date": "2025-07-05T20:32:36.7709793-06:00"
+      }
+    ]
+  }
+]
