@@ -47,20 +47,18 @@ namespace SplitBuddies.Views
             lblWelcomeMessage.AutoSize = true;
             lblWelcomeMessage.Location = new Point(290, 127);
             lblWelcomeMessage.Name = "lblWelcomeMessage";
-            lblWelcomeMessage.Size = new Size(183, 15);
+            lblWelcomeMessage.Size = new Size(0, 15);
             lblWelcomeMessage.TabIndex = 0;
-            lblWelcomeMessage.Text = "¡Haz clic para darte la bienvenida!";
             lblWelcomeMessage.Click += lblWelcomeMessage_Click;
             // 
             // DashboardForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 487);
+            ClientSize = new Size(1366, 651);
             Controls.Add(lblWelcomeMessage);
             Margin = new Padding(3, 2, 3, 2);
             Name = "DashboardForm";
-            Text = "Panel de Control - SplitBuddies";
             Load += DashboardForm_Load;
             ResumeLayout(false);
             PerformLayout();
