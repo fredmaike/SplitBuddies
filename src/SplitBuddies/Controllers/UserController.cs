@@ -1,22 +1,31 @@
 ﻿using SplitBuddies.Data;
 using SplitBuddies.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
-public static class UserController
+namespace SplitBuddies.Controllers
 {
-    public static List<User> Users = DataLoader.LoadUsers();
-
-    public static bool Register(User user)
+    public class UserController
     {
-        if (Users.Any(u => u.Email == user.Email))
-            return false;
+        private List<User> usuarios = new List<User>();
 
-        Users.Add(user);
-        DataLoader.SaveUsers(Users);
-        return true;
-    }
+        public void LoadUsers()
+        {
+            usuarios = DataStorage.LoadUsers();
+        }
 
-    public static User Login(string email)
-    {
-        return Users.FirstOrDefault(u => u.Email == email);
+        public User Login(string email, string password)
+        {
+            var user = usuarios.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+
+            if (user == null)
+                throw new Exception("Usuario no encontrado.");
+
+            if (user.Password != password)
+                throw new Exception("Contraseña incorrecta.");
+
+            return user;
+        }
     }
 }
