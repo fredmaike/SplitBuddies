@@ -9,7 +9,6 @@ namespace SplitBuddies.Views
     {
         private User currentUser;
 
-        
         public MainForm(User user)
         {
             InitializeComponent();
@@ -49,9 +48,9 @@ namespace SplitBuddies.Views
             var mostrarForm = new MostrarForm();
             mostrarForm.ShowDialog();
         }
+
         private void btnLogout_Click(object sender, EventArgs e)
         {
-       
             this.Hide();
 
             using (var loginForm = new LoginForm())
@@ -60,15 +59,19 @@ namespace SplitBuddies.Views
                 {
                     currentUser = loginForm.LoggedInUser;
                     lblWelcome.Text = $"Bienvenido, {currentUser.Name}!";
+                    this.Show(); // Aquí sí se puede usar
                 }
                 else
                 {
-                    
                     Application.Exit();
                 }
             }
+        }
 
-            this.Show();
+        private void btnEditGroups_Click(object sender, EventArgs e)
+        {
+            var editForm = new EditGroupsForm();
+            editForm.ShowDialog();
         }
     }
 }

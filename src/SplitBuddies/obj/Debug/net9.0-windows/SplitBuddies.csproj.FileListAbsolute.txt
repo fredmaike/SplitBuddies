@@ -60,3 +60,4 @@ E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-win
 E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\grupos.json
 E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\usuarios.json
 E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources
+E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources

@@ -7,7 +7,6 @@ using SplitBuddies.Data;
 using System.Drawing;
 using System.IO;
 
-
 namespace SplitBuddies.Views
 {
     public partial class GroupForm : Form
@@ -22,7 +21,6 @@ namespace SplitBuddies.Views
             groupController = new GroupController(DataManager.Instance.Groups);
         }
 
-    
         private void GroupForm_Load(object sender, EventArgs e)
         {
             LoadGroups();
@@ -31,15 +29,12 @@ namespace SplitBuddies.Views
         private void LoadGroups()
         {
             var userGroups = groupController.GetGroupsForUser(currentUser.Email);
-            MessageBox.Show($"Grupos para usuario {currentUser.Email}: {userGroups.Count}");
 
             lstGrupos.DataSource = null;
             lstGrupos.DataSource = userGroups;
             lstGrupos.DisplayMember = "GroupName";
         }
 
-
-     
         private void btnCreateGroup_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtGroupName.Text))
@@ -60,13 +55,11 @@ namespace SplitBuddies.Views
             MessageBox.Show("Grupo creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-    
         private void btnDeleteGroup_Click(object sender, EventArgs e)
         {
             if (lstGrupos.SelectedItem == null)
             {
-                MessageBox.Show("Seleccione un grupo para eliminar.", "Aviso",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccione un grupo para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -83,46 +76,93 @@ namespace SplitBuddies.Views
                 groupController.DeleteGroup(selectedGroup.GroupId);
                 DataManager.Instance.SaveGroups("grupos.json");
                 LoadGroups();
-                pbGroupImage.Image = null; 
+                LimpiarImagen();
                 MessageBox.Show("Grupo eliminado correctamente.", "Éxito");
             }
         }
 
-        private readonly string baseImagePath = @"E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies";
-
-        private void lstGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void LstGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstGrupos.SelectedItem is Group selectedGroup && selectedGroup != null)
+            if (lstGrupos.SelectedItem is Group selectedGroup)
             {
-                try
-                {
-                    string basePath = @"E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\";
-                    string imagePath = Path.Combine(basePath, selectedGroup.IMAGE?.Replace('/', Path.DirectorySeparatorChar) ?? "");
-
-                    if (!string.IsNullOrEmpty(selectedGroup.IMAGE) && File.Exists(imagePath))
-                    {
-                        pbGroupImage.Image?.Dispose();  
-                        pbGroupImage.Image = Image.FromFile(imagePath);
-                    }
-                    else
-                    {
-                        pbGroupImage.Image?.Dispose();
-                        pbGroupImage.Image = null;
-                    }
-                }
-                catch
-                {
-                    pbGroupImage.Image?.Dispose();
-                    pbGroupImage.Image = null;
-                }
+                MostrarImagenGrupo(selectedGroup);
+                txtGroupName.Text = selectedGroup.GroupName;
+                txtImagePath.Text = selectedGroup.IMAGE;
             }
             else
             {
-                pbGroupImage.Image?.Dispose();
-                pbGroupImage.Image = null;
+                LimpiarImagen();
+                txtGroupName.Clear();
+                txtImagePath.Clear();
+            }
+        }
+
+        private void MostrarImagenGrupo(Group grupo)
+        {
+            try
+            {
+                string imagePath = ObtenerRutaImagen(grupo);
+                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath))
+                {
+                    using (var ms = new MemoryStream(File.ReadAllBytes(imagePath)))
+                    {
+                        var imgTemp = Image.FromStream(ms);
+                        pbGroupImage.Image?.Dispose();
+                        pbGroupImage.Image = new Bitmap(imgTemp);
+                    }
+                }
+                else
+                {
+                    LimpiarImagen();
+                }
+            }
+            catch
+            {
+                LimpiarImagen();
+            }
+        }
+
+        private string ObtenerRutaImagen(Group grupo)
+        {
+            if (grupo == null || string.IsNullOrWhiteSpace(grupo.IMAGE))
+                return null;
+
+            string basePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IMAGE");
+            return Path.Combine(basePath, grupo.IMAGE.Replace('/', Path.DirectorySeparatorChar));
+        }
+
+        private void LimpiarImagen()
+        {
+            pbGroupImage.Image?.Dispose();
+            pbGroupImage.Image = null;
+        }
+
+        private void BtnSelectImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Seleccionar imagen del grupo";
+                ofd.Filter = "Archivos de imagen (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string selectedPath = ofd.FileName;
+
+                    string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IMAGE");
+                    Directory.CreateDirectory(imageFolder);
+
+                    string fileName = Path.GetFileName(selectedPath);
+                    string destinationPath = Path.Combine(imageFolder, fileName);
+
+                    if (!File.Exists(destinationPath))
+                    {
+                        File.Copy(selectedPath, destinationPath);
+                    }
+
+                    txtImagePath.Text = fileName;
+                    MostrarImagenGrupo(new Group { IMAGE = fileName });
+                }
             }
         }
     }
 }
-         
-

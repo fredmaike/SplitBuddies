@@ -12,7 +12,8 @@ namespace SplitBuddies.Views
         private Button btnExpenses;
         private Button btnSave;
         private Button btnMostrar;
-        private Button btnLogout;  
+        private Button btnLogout;
+        private Button btnEditGroups;
 
         private void InitializeComponent()
         {
@@ -21,7 +22,8 @@ namespace SplitBuddies.Views
             btnExpenses = new Button();
             btnSave = new Button();
             btnMostrar = new Button();
-            btnLogout = new Button();  
+            btnLogout = new Button();
+            btnEditGroups = new Button();
 
             SuspendLayout();
             // 
@@ -71,22 +73,34 @@ namespace SplitBuddies.Views
             // 
             // btnLogout
             // 
-            btnLogout.Location = new Point(20, 100); 
+            btnLogout.Location = new Point(20, 100);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(100, 30);
             btnLogout.TabIndex = 5;
             btnLogout.Text = "Cerrar Sesión";
             btnLogout.Click += btnLogout_Click;
+
+            // 
+            // btnEditGroups
+            // 
+            btnEditGroups.Location = new Point(20, 140);
+            btnEditGroups.Name = "btnEditGroups";
+            btnEditGroups.Size = new Size(360, 30);
+            btnEditGroups.TabIndex = 6;
+            btnEditGroups.Text = "Modificar Grupos";
+            btnEditGroups.Click += btnEditGroups_Click;
+
             // 
             // MainForm
             // 
-            ClientSize = new Size(400, 150);
+            ClientSize = new Size(400, 190); // Se ajusta la altura
             Controls.Add(lblWelcome);
             Controls.Add(btnGroups);
             Controls.Add(btnExpenses);
             Controls.Add(btnSave);
             Controls.Add(btnMostrar);
             Controls.Add(btnLogout);
+            Controls.Add(btnEditGroups); // Agregar el nuevo botón
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "MainForm";
@@ -95,3 +109,4 @@ namespace SplitBuddies.Views
         }
     }
 }
+

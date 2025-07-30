@@ -4,6 +4,10 @@ using System.Windows.Forms;
 
 namespace SplitBuddies.Views
 {
+    /// <summary>
+    /// Formulario para registrar un nuevo usuario.
+    /// Contiene campos de entrada para nombre, correo electrónico y tipo de cuenta.
+    /// </summary>
     partial class FormAgregarUser
     {
         private Label lblNombre;
@@ -15,6 +19,10 @@ namespace SplitBuddies.Views
         private Button btnGuardar;
         private Button btnCancelar;
 
+        /// <summary>
+        /// Inicializa todos los controles del formulario.
+        /// Este método es generado por el diseñador, pero puede personalizarse.
+        /// </summary>
         private void InitializeComponent()
         {
             lblNombre = new Label();
@@ -25,48 +33,55 @@ namespace SplitBuddies.Views
             cmbTipo = new ComboBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
+
             SuspendLayout();
+
             // 
             // lblNombre
-            // 
+            // Etiqueta para el campo "Nombre"
             lblNombre.Location = new Point(49, 142);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(100, 23);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre";
+
             // 
             // txtNombre
-            // 
+            // Caja de texto para ingresar el nombre del usuario
             txtNombre.Location = new Point(160, 140);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(150, 23);
             txtNombre.TabIndex = 1;
+
             // 
             // lblEmail
-            // 
+            // Etiqueta para el campo "Email"
             lblEmail.Location = new Point(49, 180);
             lblEmail.Name = "lblEmail";
             lblEmail.Size = new Size(100, 23);
             lblEmail.TabIndex = 2;
             lblEmail.Text = "Email";
+
             // 
             // txtEmail
-            // 
+            // Caja de texto para ingresar el correo electrónico del usuario
             txtEmail.Location = new Point(160, 180);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(150, 23);
             txtEmail.TabIndex = 3;
+
             // 
             // lblTipo
-            // 
+            // Etiqueta para el campo "Tipo"
             lblTipo.Location = new Point(49, 220);
             lblTipo.Name = "lblTipo";
             lblTipo.Size = new Size(100, 23);
             lblTipo.TabIndex = 4;
             lblTipo.Text = "Tipo";
+
             // 
             // cmbTipo
-            // 
+            // ComboBox con los tipos de usuario disponibles
             cmbTipo.Items.AddRange(new object[] { "Normal", "Premium" });
             cmbTipo.Location = new Point(160, 220);
             cmbTipo.Name = "cmbTipo";
@@ -74,27 +89,30 @@ namespace SplitBuddies.Views
             cmbTipo.TabIndex = 5;
             cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipo.SelectedIndex = 0;
+
             // 
             // btnGuardar
-            // 
+            // Botón para guardar el nuevo usuario
             btnGuardar.Location = new Point(80, 270);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(100, 30);
             btnGuardar.TabIndex = 6;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
+
             // 
             // btnCancelar
-            // 
+            // Botón para cancelar la operación y cerrar el formulario
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Location = new Point(200, 270);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(100, 30);
             btnCancelar.TabIndex = 7;
             btnCancelar.Text = "Cancelar";
+
             // 
             // FormAgregarUser
-            // 
+            // Propiedades del formulario
             ClientSize = new Size(400, 350);
             Controls.Add(lblNombre);
             Controls.Add(txtNombre);
@@ -106,11 +124,10 @@ namespace SplitBuddies.Views
             Controls.Add(btnCancelar);
             Name = "FormAgregarUser";
             Text = "Registrar Usuario";
-            Load += FormAgregarUser_Load;  
+            Load += FormAgregarUser_Load;
+
             ResumeLayout(false);
             PerformLayout();
         }
-
-       
     }
 }

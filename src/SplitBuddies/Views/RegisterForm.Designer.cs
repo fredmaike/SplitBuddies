@@ -18,8 +18,6 @@ namespace SplitBuddies.Views
         private TextBox txtPassword;
         private Label lblConfirmPassword;
         private TextBox txtConfirmPassword;
-        private Label lblType;
-        private ComboBox cmbType;
         private Button btnRegister;
         private Button btnCancel;
 
@@ -103,18 +101,6 @@ namespace SplitBuddies.Views
             txtConfirmPassword.Location = new Point(controlX, y);
             txtConfirmPassword.PasswordChar = '●';
 
-            // Type
-            lblType = new Label();
-            lblType.Text = "Tipo:";
-            lblType.Size = new Size(labelWidth, 23);
-            lblType.Location = new Point(labelX, y += spacing);
-
-            cmbType = new ComboBox();
-            cmbType.Items.AddRange(new string[] { "Normal", "Premium" });
-            cmbType.SelectedIndex = 0;
-            cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbType.Size = new Size(controlWidth, 23);
-            cmbType.Location = new Point(controlX, y);
 
             // Register Button
             btnRegister = new Button();
@@ -140,8 +126,6 @@ namespace SplitBuddies.Views
             Controls.Add(txtPassword);
             Controls.Add(lblConfirmPassword);
             Controls.Add(txtConfirmPassword);
-            Controls.Add(lblType);
-            Controls.Add(cmbType);
             Controls.Add(btnRegister);
             Controls.Add(btnCancel);
         }
