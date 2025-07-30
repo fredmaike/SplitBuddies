@@ -1,17 +1,29 @@
-﻿
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
 namespace SplitBuddies.Views
 {
     partial class RegisterForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
+       
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        private Label lblTitle;
+        private Label lblName;
+        private TextBox txtName;
+        private Label lblEmail;
+        private TextBox txtEmail;
+        private Label lblPassword;
+        private TextBox txtPassword;
+        private Label lblConfirmPassword;
+        private TextBox txtConfirmPassword;
+        private Label lblType;
+        private ComboBox cmbType;
+        private Button btnRegister;
+        private Button btnCancel;
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -23,95 +35,116 @@ namespace SplitBuddies.Views
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+
         private void InitializeComponent()
         {
-            btnRegister = new Button();
-            txtEmail = new TextBox();
+            components = new System.ComponentModel.Container();
+            this.Text = "Register";
+            this.ClientSize = new Size(350, 340);
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterParent;
+
+            int labelWidth = 120;
+            int controlWidth = 180;
+            int labelX = 20;
+            int controlX = 140;
+            int y = 25;
+            int spacing = 32;
+
+            // Title
+            lblTitle = new Label();
+            lblTitle.Text = "Registro de usuario";
+            lblTitle.Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold);
+            lblTitle.Size = new Size(310, 32);
+            lblTitle.Location = new Point(20, 10);
+            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+
+            // Name
+            lblName = new Label();
+            lblName.Text = "Nombre:";
+            lblName.Size = new Size(labelWidth, 23);
+            lblName.Location = new Point(labelX, y += 40);
+
             txtName = new TextBox();
-            Nombre = new Label();
-            Correo = new Label();
-            SuspendLayout();
-            // 
-            // btnRegister
-            // 
-            btnRegister.Location = new Point(208, 322);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new Size(125, 29);
-            btnRegister.TabIndex = 0;
-            btnRegister.Text = "Agregar";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click_1;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(170, 248);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(191, 27);
-            txtEmail.TabIndex = 1;
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(170, 146);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(191, 27);
-            txtName.TabIndex = 2;
-            // 
-            // Nombre
-            // 
-            Nombre.AutoSize = true;
-            Nombre.Location = new Point(231, 97);
-            Nombre.Name = "Nombre";
-            Nombre.Size = new Size(64, 20);
-            Nombre.TabIndex = 3;
-            Nombre.Text = "Nombre";
-            Nombre.Click += label1_Click;
-            // 
-            // Correo
-            // 
-            Correo.AutoSize = true;
-            Correo.Location = new Point(241, 213);
-            Correo.Name = "Correo";
-            Correo.Size = new Size(54, 20);
-            Correo.TabIndex = 4;
-            Correo.Text = "Correo";
-            // 
-            // RegisterForm
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(519, 450);
-            Controls.Add(Correo);
-            Controls.Add(Nombre);
+            txtName.Size = new Size(controlWidth, 23);
+            txtName.Location = new Point(controlX, y);
+
+            // Email
+            lblEmail = new Label();
+            lblEmail.Text = "Correo electrónico:";
+            lblEmail.Size = new Size(labelWidth, 23);
+            lblEmail.Location = new Point(labelX, y += spacing);
+
+            txtEmail = new TextBox();
+            txtEmail.Size = new Size(controlWidth, 23);
+            txtEmail.Location = new Point(controlX, y);
+
+            // Password
+            lblPassword = new Label();
+            lblPassword.Text = "Contraseña:";
+            lblPassword.Size = new Size(labelWidth, 23);
+            lblPassword.Location = new Point(labelX, y += spacing);
+
+            txtPassword = new TextBox();
+            txtPassword.Size = new Size(controlWidth, 23);
+            txtPassword.Location = new Point(controlX, y);
+            txtPassword.PasswordChar = '●';
+
+            // Confirm Password
+            lblConfirmPassword = new Label();
+            lblConfirmPassword.Text = "Confirmar contraseña:";
+            lblConfirmPassword.Size = new Size(labelWidth, 23);
+            lblConfirmPassword.Location = new Point(labelX, y += spacing);
+
+            txtConfirmPassword = new TextBox();
+            txtConfirmPassword.Size = new Size(controlWidth, 23);
+            txtConfirmPassword.Location = new Point(controlX, y);
+            txtConfirmPassword.PasswordChar = '●';
+
+            // Type
+            lblType = new Label();
+            lblType.Text = "Tipo:";
+            lblType.Size = new Size(labelWidth, 23);
+            lblType.Location = new Point(labelX, y += spacing);
+
+            cmbType = new ComboBox();
+            cmbType.Items.AddRange(new string[] { "Normal", "Premium" });
+            cmbType.SelectedIndex = 0;
+            cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbType.Size = new Size(controlWidth, 23);
+            cmbType.Location = new Point(controlX, y);
+
+            // Register Button
+            btnRegister = new Button();
+            btnRegister.Text = "Registrar";
+            btnRegister.Size = new Size(110, 32);
+            btnRegister.Location = new Point(70, y += spacing + 18);
+            btnRegister.Click += btnRegister_Click;
+
+            // Cancel Button
+            btnCancel = new Button();
+            btnCancel.Text = "Cancelar";
+            btnCancel.Size = new Size(110, 32);
+            btnCancel.Location = new Point(180, y);
+            btnCancel.DialogResult = DialogResult.Cancel;
+
+            // Add Controls
+            Controls.Add(lblTitle);
+            Controls.Add(lblName);
             Controls.Add(txtName);
+            Controls.Add(lblEmail);
             Controls.Add(txtEmail);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
+            Controls.Add(lblConfirmPassword);
+            Controls.Add(txtConfirmPassword);
+            Controls.Add(lblType);
+            Controls.Add(cmbType);
             Controls.Add(btnRegister);
-            Name = "RegisterForm";
-            Text = "RegisterForm";
-            Load += Form1_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            Controls.Add(btnCancel);
         }
-
-
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            // Implementación inicial vacía para evitar el error CS0103.  
-        }
-        #endregion
-
-        private Button btnRegister;
-        private TextBox txtEmail;
-        private TextBox txtName;
-        private Label Nombre;
-        private Label Correo;
     }
+    #endregion
 }

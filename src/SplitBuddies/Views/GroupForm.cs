@@ -1,81 +1,128 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
+using SplitBuddies.Controllers;
 using SplitBuddies.Models;
+using SplitBuddies.Data;
+using System.Drawing;
+using System.IO;
+
 
 namespace SplitBuddies.Views
 {
-    public class GroupForm : Form
+    public partial class GroupForm : Form
     {
-        private TextBox txtGroupName;
-        private Button btnCreate;
-        private CheckedListBox clbUsers;
+        private GroupController groupController;
+        private User currentUser;
 
-        public Group NuevoGrupo { get; private set; }
-
-        private List<User> usuarios;
-
-        public GroupForm(List<User> users)
+        public GroupForm(User user)
         {
-            usuarios = users;
-
-            this.Text = "Crear Grupo";
-            this.Size = new Size(350, 400);
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            Label lblName = new Label();
-            lblName.Text = "Nombre del grupo:";
-            lblName.Location = new Point(10, 20);
-            this.Controls.Add(lblName);
-
-            txtGroupName = new TextBox();
-            txtGroupName.Location = new Point(10, 45);
-            txtGroupName.Width = 300;
-            this.Controls.Add(txtGroupName);
-
-            Label lblUsers = new Label();
-            lblUsers.Text = "Seleccione miembros:";
-            lblUsers.Location = new Point(10, 80);
-            this.Controls.Add(lblUsers);
-
-            clbUsers = new CheckedListBox();
-            clbUsers.Location = new Point(10, 105);
-            clbUsers.Size = new Size(300, 180);
-            foreach (var user in users)
-                clbUsers.Items.Add(user);
-
-            clbUsers.DisplayMember = "Name"; // <-- Importante para mostrar nombres reales
-            this.Controls.Add(clbUsers);
-
-            btnCreate = new Button();
-            btnCreate.Text = "Crear Grupo";
-            btnCreate.Location = new Point(10, 300);
-            btnCreate.Click += BtnCreate_Click;
-            this.Controls.Add(btnCreate);
+            currentUser = user;
+            InitializeComponent();
+            groupController = new GroupController(DataManager.Instance.Groups);
         }
 
-        private void BtnCreate_Click(object sender, EventArgs e)
+    
+        private void GroupForm_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtGroupName.Text) || clbUsers.CheckedItems.Count == 0)
+            LoadGroups();
+        }
+
+        private void LoadGroups()
+        {
+            var userGroups = groupController.GetGroupsForUser(currentUser.Email);
+            MessageBox.Show($"Grupos para usuario {currentUser.Email}: {userGroups.Count}");
+
+            lstGrupos.DataSource = null;
+            lstGrupos.DataSource = userGroups;
+            lstGrupos.DisplayMember = "GroupName";
+        }
+
+
+     
+        private void btnCreateGroup_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtGroupName.Text))
             {
-                MessageBox.Show("Ingrese un nombre y seleccione al menos un miembro.");
+                MessageBox.Show("Ingrese un nombre para el grupo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            List<User> seleccionados = new List<User>();
-            foreach (var item in clbUsers.CheckedItems)
-                seleccionados.Add((User)item);
+            groupController.CreateGroup(
+                txtGroupName.Text,
+                txtImagePath.Text,
+                new List<string> { currentUser.Email }
+            );
 
-            NuevoGrupo = new Group
+            DataManager.Instance.SaveGroups("grupos.json");
+            LoadGroups();
+
+            MessageBox.Show("Grupo creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+    
+        private void btnDeleteGroup_Click(object sender, EventArgs e)
+        {
+            if (lstGrupos.SelectedItem == null)
             {
-                Name = txtGroupName.Text.Trim(),
-                Members = seleccionados,
-                Expenses = new List<Expense>()
-            };
+                MessageBox.Show("Seleccione un grupo para eliminar.", "Aviso",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            var selectedGroup = (Group)lstGrupos.SelectedItem;
+
+            var confirm = MessageBox.Show(
+                $"¿Está seguro de eliminar el grupo '{selectedGroup.GroupName}'?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirm == DialogResult.Yes)
+            {
+                groupController.DeleteGroup(selectedGroup.GroupId);
+                DataManager.Instance.SaveGroups("grupos.json");
+                LoadGroups();
+                pbGroupImage.Image = null; 
+                MessageBox.Show("Grupo eliminado correctamente.", "Éxito");
+            }
+        }
+
+        private readonly string baseImagePath = @"E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies";
+
+        private void lstGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstGrupos.SelectedItem is Group selectedGroup && selectedGroup != null)
+            {
+                try
+                {
+                    string basePath = @"E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\";
+                    string imagePath = Path.Combine(basePath, selectedGroup.IMAGE?.Replace('/', Path.DirectorySeparatorChar) ?? "");
+
+                    if (!string.IsNullOrEmpty(selectedGroup.IMAGE) && File.Exists(imagePath))
+                    {
+                        pbGroupImage.Image?.Dispose();  
+                        pbGroupImage.Image = Image.FromFile(imagePath);
+                    }
+                    else
+                    {
+                        pbGroupImage.Image?.Dispose();
+                        pbGroupImage.Image = null;
+                    }
+                }
+                catch
+                {
+                    pbGroupImage.Image?.Dispose();
+                    pbGroupImage.Image = null;
+                }
+            }
+            else
+            {
+                pbGroupImage.Image?.Dispose();
+                pbGroupImage.Image = null;
+            }
         }
     }
 }
+         
+

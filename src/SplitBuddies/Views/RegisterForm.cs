@@ -1,68 +1,52 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Windows.Forms;
-using SplitBuddies.Models;
+﻿using SplitBuddies.Models;
 using SplitBuddies.Data;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace SplitBuddies.Views
 {
-    public class RegisterForm : Form
+    public partial class RegisterForm : Form
     {
-        private TextBox txtName;
-        private TextBox txtEmail;
-        private Button btnRegister;
+        public User RegisteredUser { get; private set; }
 
         public RegisterForm()
         {
-            this.Text = "Registrar Usuario";
-            this.Size = new Size(300, 250);
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            Label lblName = new Label();
-            lblName.Text = "Nombre:";
-            lblName.Location = new Point(10, 20);
-            this.Controls.Add(lblName);
-
-            txtName = new TextBox();
-            txtName.Location = new Point(10, 45);
-            txtName.Width = 250;
-            this.Controls.Add(txtName);
-
-            Label lblEmail = new Label();
-            lblEmail.Text = "Correo:";
-            lblEmail.Location = new Point(10, 80);
-            this.Controls.Add(lblEmail);
-
-            txtEmail = new TextBox();
-            txtEmail.Location = new Point(10, 105);
-            txtEmail.Width = 250;
-            this.Controls.Add(txtEmail);
-
-            btnRegister = new Button();
-            btnRegister.Text = "Registrar";
-            btnRegister.Location = new Point(10, 150);
-            btnRegister.Click += BtnRegister_Click;
-            this.Controls.Add(btnRegister);
+            InitializeComponent();
         }
 
-        private void BtnRegister_Click(object sender, EventArgs e)
+        private void btnRegister_Click(object sender, EventArgs e)
         {
             string name = txtName.Text.Trim();
             string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email))
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Complete todos los campos.");
+                MessageBox.Show("Por favor complete todos los campos.");
                 return;
             }
 
-            List<User> usuarios = DataLoader.LoadUsers();
-            usuarios.Add(new User { Name = name, Email = email });
-            DataLoader.SaveUsers(usuarios);
+            var usuarios = DataStorage.LoadUsers();
 
-            MessageBox.Show($"Usuario '{name}' agregado correctamente.");
-            this.Close();
+            if (usuarios.Exists(u => u.Email == email))
+            {
+                MessageBox.Show("Este correo ya está registrado.");
+                return;
+            }
+
+            RegisteredUser = new User
+            {
+                Name = name,
+                Email = email,
+                Password = password
+            };
+
+            usuarios.Add(RegisteredUser);
+            DataStorage.SaveUsers(usuarios);
+
+            MessageBox.Show("Usuario registrado correctamente.");
+            Close();
         }
     }
 }

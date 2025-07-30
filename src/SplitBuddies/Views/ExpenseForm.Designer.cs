@@ -1,179 +1,72 @@
-﻿
+﻿using System.Drawing;
+using System.Windows.Forms;
+
 namespace SplitBuddies.Views
 {
     partial class ExpenseForm
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private Label lblGroup;
+        private ComboBox cmbGroups;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        private Label lblPaidBy;
+        private ComboBox cmbPaidBy;
 
-        #region Windows Form Designer generated code
+        private Label lblIncludedMembers;
+        private CheckedListBox clbIncludedMembers;
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
+        private Label lblExpenseName;
+        private TextBox txtExpenseName;
+
+        private Label lblDescription;
+        private TextBox txtDescription;
+
+        private Label lblAmount;
+        private TextBox txtAmount;
+
+        private Button btnAddExpense;
+
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            txtName = new TextBox();
-            txtDescription = new TextBox();
-            txtAmount = new TextBox();
-            cbPayer = new ComboBox();
-            clbParticipants = new CheckedListBox();
-            btnAddExpense = new Button();
-            SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(28, 6);
-            label1.Name = "label1";
-            label1.Size = new Size(130, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre del gasto";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(56, 114);
-            label2.Name = "label2";
-            label2.Size = new Size(53, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Monto";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(204, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(87, 20);
-            label3.TabIndex = 2;
-            label3.Text = "Descripcion";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(220, 114);
-            label4.Name = "label4";
-            label4.Size = new Size(86, 20);
-            label4.TabIndex = 3;
-            label4.Text = "Pagado por";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(476, 9);
-            label5.Name = "label5";
-            label5.Size = new Size(93, 20);
-            label5.TabIndex = 4;
-            label5.Text = "Principiantes";
-            // 
-            // txtName
-            // 
-            txtName.Location = new Point(28, 47);
-            txtName.Name = "txtName";
-            txtName.Size = new Size(125, 27);
-            txtName.TabIndex = 5;
-            // 
-            // txtDescription
-            // 
-            txtDescription.Location = new Point(204, 47);
-            txtDescription.Name = "txtDescription";
-            txtDescription.Size = new Size(125, 27);
-            txtDescription.TabIndex = 6;
-            // 
-            // txtAmount
-            // 
-            txtAmount.Location = new Point(12, 161);
-            txtAmount.Name = "txtAmount";
-            txtAmount.Size = new Size(125, 27);
-            txtAmount.TabIndex = 7;
-            // 
-            // cbPayer
-            // 
-            cbPayer.FormattingEnabled = true;
-            cbPayer.Location = new Point(204, 161);
-            cbPayer.Name = "cbPayer";
-            cbPayer.Size = new Size(151, 28);
-            cbPayer.TabIndex = 10;
-            // 
-            // clbParticipants
-            // 
-            clbParticipants.FormattingEnabled = true;
-            clbParticipants.Location = new Point(476, 47);
-            clbParticipants.Name = "clbParticipants";
-            clbParticipants.Size = new Size(150, 114);
-            clbParticipants.TabIndex = 11;
-            // 
-            // btnAddExpense
-            // 
-            btnAddExpense.Location = new Point(234, 327);
-            btnAddExpense.Name = "btnAddExpense";
-            btnAddExpense.Size = new Size(94, 29);
-            btnAddExpense.TabIndex = 12;
-            btnAddExpense.Text = "Guardar";
-            btnAddExpense.UseVisualStyleBackColor = true;
-            btnAddExpense.Click += btnAddExpense_Click_1;
-            // 
-            // ExpenseForm
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(btnAddExpense);
-            Controls.Add(clbParticipants);
-            Controls.Add(cbPayer);
-            Controls.Add(txtAmount);
-            Controls.Add(txtDescription);
-            Controls.Add(txtName);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Name = "ExpenseForm";
-            Text = "ExpenseForm";
-            Load += ExpenseForm_Load;
-            ResumeLayout(false);
-            PerformLayout();
+            this.Text = "Agregar Gasto";
+            this.Size = new Size(400, 500);
+
+            lblGroup = new Label() { Text = "Grupo:", Left = 25, Top = 20, Width = 100 };
+            cmbGroups = new ComboBox() { Left = 140, Top = 20, Width = 200 };
+            cmbGroups.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbGroups.SelectedIndexChanged += new System.EventHandler(this.CmbGroups_SelectedIndexChanged);
+
+            lblPaidBy = new Label() { Text = "Pagado por:", Left = 25, Top = 60, Width = 100 };
+            cmbPaidBy = new ComboBox() { Left = 140, Top = 60, Width = 200 };
+            cmbPaidBy.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            lblIncludedMembers = new Label() { Text = "Miembros incluidos:", Left = 25, Top = 100, Width = 120 };
+            clbIncludedMembers = new CheckedListBox() { Left = 140, Top = 100, Width = 200, Height = 100 };
+
+            lblExpenseName = new Label() { Text = "Nombre:", Left = 25, Top = 210, Width = 100 };
+            txtExpenseName = new TextBox() { Left = 140, Top = 210, Width = 200 };
+
+            lblDescription = new Label() { Text = "Descripción:", Left = 25, Top = 250, Width = 100 };
+            txtDescription = new TextBox() { Left = 140, Top = 250, Width = 200 };
+
+            lblAmount = new Label() { Text = "Monto:", Left = 25, Top = 330, Width = 100 };
+            txtAmount = new TextBox() { Left = 140, Top = 330, Width = 200 };
+
+            btnAddExpense = new Button() { Text = "Agregar Gasto", Left = 140, Top = 380, Width = 120 };
+            btnAddExpense.Click += new System.EventHandler(this.btnAddExpense_Click);
+
+            this.Controls.Add(lblGroup);
+            this.Controls.Add(cmbGroups);
+            this.Controls.Add(lblPaidBy);
+            this.Controls.Add(cmbPaidBy);
+            this.Controls.Add(lblIncludedMembers);
+            this.Controls.Add(clbIncludedMembers);
+            this.Controls.Add(lblExpenseName);
+            this.Controls.Add(txtExpenseName);
+            this.Controls.Add(lblDescription);
+            this.Controls.Add(txtDescription);
+            this.Controls.Add(lblAmount);
+            this.Controls.Add(txtAmount);
+            this.Controls.Add(btnAddExpense);
         }
-
-        private void ExpenseForm_Load(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
-
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txtName;
-        private TextBox txtDescription;
-        private TextBox txtAmount;
-        private ComboBox cbPayer;
-        private CheckedListBox clbParticipants;
-        private Button btnAddExpense;
     }
 }

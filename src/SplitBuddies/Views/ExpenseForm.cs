@@ -1,114 +1,147 @@
-using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System;
+using System.Linq;
 using System.Windows.Forms;
+using SplitBuddies.Controllers;
 using SplitBuddies.Models;
 using SplitBuddies.Data;
+using System.Collections.Generic;
 
 namespace SplitBuddies.Views
 {
-    public class ExpenseForm : Form
+    public partial class ExpenseForm : Form
     {
-        private TextBox txtName;
-        private TextBox txtAmount;
-        private ComboBox cbPayer;
-        private CheckedListBox clbParticipants;
-        private Button btnAdd;
+        private readonly ExpenseController expenseController = new ExpenseController();
+        private readonly GroupController groupController;
+        private readonly User currentUser;
 
-        public Expense NewExpense { get; private set; }
-
-        private List<User> allUsers;
-
-        public ExpenseForm()
+        public ExpenseForm(User user)
         {
-            allUsers = DataLoader.LoadUsers();
+            currentUser = user;
+            InitializeComponent();
 
-            this.Text = "Registrar Gasto";
-            this.Size = new Size(350, 400);
-            this.StartPosition = FormStartPosition.CenterScreen;
+            groupController = new GroupController(DataManager.Instance.Groups);
 
-            Label lblName = new Label();
-            lblName.Text = "Nombre del gasto:";
-            lblName.Location = new Point(10, 20);
-            this.Controls.Add(lblName);
+           
+            cmbGroups.SelectedIndexChanged += CmbGroups_SelectedIndexChanged;
 
-            txtName = new TextBox();
-            txtName.Location = new Point(10, 45);
-            txtName.Width = 300;
-            this.Controls.Add(txtName);
-
-            Label lblAmount = new Label();
-            lblAmount.Text = "Monto:";
-            lblAmount.Location = new Point(10, 80);
-            this.Controls.Add(lblAmount);
-
-            txtAmount = new TextBox();
-            txtAmount.Location = new Point(10, 105);
-            txtAmount.Width = 300;
-            this.Controls.Add(txtAmount);
-
-            Label lblPayer = new Label();
-            lblPayer.Text = "Pagado por:";
-            lblPayer.Location = new Point(10, 140);
-            this.Controls.Add(lblPayer);
-
-            cbPayer = new ComboBox();
-            cbPayer.Location = new Point(10, 165);
-            cbPayer.Width = 300;
-            cbPayer.DropDownStyle = ComboBoxStyle.DropDownList;
-            foreach (var user in allUsers)
-                cbPayer.Items.Add(user);
-            cbPayer.DisplayMember = "Name";
-            this.Controls.Add(cbPayer);
-
-            Label lblParticipants = new Label();
-            lblParticipants.Text = "Participantes:";
-            lblParticipants.Location = new Point(10, 200);
-            this.Controls.Add(lblParticipants);
-
-            clbParticipants = new CheckedListBox();
-            clbParticipants.Location = new Point(10, 225);
-            clbParticipants.Size = new Size(300, 100);
-            foreach (var user in allUsers)
-                clbParticipants.Items.Add(user);
-            clbParticipants.DisplayMember = "Name";
-            this.Controls.Add(clbParticipants);
-
-            btnAdd = new Button();
-            btnAdd.Text = "Agregar Gasto";
-            btnAdd.Location = new Point(10, 340);
-            btnAdd.Click += BtnAdd_Click;
-            this.Controls.Add(btnAdd);
+            LoadGroups();
         }
 
-        private void BtnAdd_Click(object sender, EventArgs e)
+        private void LoadGroups()
         {
-            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtAmount.Text) ||
-                cbPayer.SelectedItem == null || clbParticipants.CheckedItems.Count == 0 ||
-                !decimal.TryParse(txtAmount.Text, out decimal amount))
+            var groups = groupController.GetGroupsForUser(currentUser.Email);
+
+            cmbGroups.DataSource = null;
+            cmbGroups.DataSource = groups;
+            cmbGroups.DisplayMember = "GroupName";
+            cmbGroups.ValueMember = "GroupId";
+        }
+
+        private class UserItem
+        {
+            public string Name { get; set; }
+            public string Email { get; set; }
+            public override string ToString() => string.IsNullOrWhiteSpace(Name) ? Email : Name;
+        }
+
+        private void CmbGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbGroups.SelectedItem is Group selectedGroup)
             {
-                MessageBox.Show("Complete todos los campos correctamente.");
+                MessageBox.Show($"Grupo seleccionado: {selectedGroup.GroupName}");
+
+               
+                var users = DataManager.Instance.Users
+                    .Select(u => new UserItem { Name = u.Name, Email = u.Email })
+                    .ToList();
+
+                MessageBox.Show($"Usuarios encontrados: {users.Count}");
+
+                cmbPaidBy.DataSource = null;
+                cmbPaidBy.DataSource = users;
+                cmbPaidBy.DisplayMember = "Name";
+                cmbPaidBy.ValueMember = "Email";
+
+                clbIncludedMembers.Items.Clear();
+                foreach (var userItem in users)
+                {
+                    clbIncludedMembers.Items.Add(userItem, true);
+                }
+            }
+            else
+            {
+                cmbPaidBy.DataSource = null;
+                clbIncludedMembers.Items.Clear();
+            }
+        }
+
+       
+        private void btnAddExpense_Click(object sender, EventArgs e)
+        {
+            if (cmbGroups.SelectedItem is not Group selectedGroup)
+            {
+                MessageBox.Show("Seleccione un grupo.");
                 return;
             }
 
-            List<User> selectedParticipants = new List<User>();
-            foreach (var item in clbParticipants.CheckedItems)
+            if (cmbPaidBy.SelectedItem == null)
             {
-                selectedParticipants.Add((User)item);
+                MessageBox.Show("Seleccione quién pagó.");
+                return;
             }
 
-            NewExpense = new Expense
+            if (string.IsNullOrWhiteSpace(txtExpenseName.Text))
             {
-                Name = txtName.Text.Trim(),
-                Amount = amount,
-                Description = "Registrado manualmente",
-                Date = DateTime.Now,
-                Payer = (User)cbPayer.SelectedItem,
-                Participants = selectedParticipants
-            };
+                MessageBox.Show("Ingrese un nombre para el gasto.");
+                return;
+            }
 
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (!decimal.TryParse(txtAmount.Text, out decimal amount))
+            {
+                MessageBox.Show("Ingrese un monto válido.");
+                return;
+            }
+
+            var involvedEmails = clbIncludedMembers.CheckedItems
+                .Cast<UserItem>()
+                .Select(u => u.Email)
+                .ToList();
+
+            if (involvedEmails.Count == 0)
+            {
+                MessageBox.Show("Seleccione al menos un miembro incluido.");
+                return;
+            }
+
+            string payerEmail = (cmbPaidBy.SelectedItem as UserItem)?.Email;
+
+            try
+            {
+                var expense = expenseController.AddExpense(
+                    txtExpenseName.Text.Trim(),
+                    txtDescription.Text.Trim(),
+                    payerEmail,
+                    involvedEmails,
+                    amount,
+                    DateTime.Now,
+                    selectedGroup.GroupId
+                );
+
+                MessageBox.Show($"Gasto '{expense.Name}' agregado exitosamente.");
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al agregar gasto: {ex.Message}");
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtExpenseName.Clear();
+            txtDescription.Clear();
+            txtAmount.Clear();
+            if (cmbGroups.Items.Count > 0) cmbGroups.SelectedIndex = 0;
         }
     }
 }

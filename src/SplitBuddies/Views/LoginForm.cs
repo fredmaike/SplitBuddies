@@ -1,54 +1,46 @@
-using System;
-using System.Drawing;
+﻿using System;
 using System.Windows.Forms;
+using SplitBuddies.Controllers;
 using SplitBuddies.Models;
 
 namespace SplitBuddies.Views
 {
-    public class LoginForm : Form
+    public partial class LoginForm : Form
     {
-        private TextBox txtEmail;
-        private Button btnLogin;
+        private UserController userController = new UserController();
+
+        public User LoggedInUser { get; private set; }
 
         public LoginForm()
         {
-            this.Text = "Iniciar Sesión";
-            this.Size = new Size(300, 200);
-            this.StartPosition = FormStartPosition.CenterScreen;
-
-            Label lblEmail = new Label();
-            lblEmail.Text = "Correo electrónico:";
-            lblEmail.Location = new Point(10, 20);
-            lblEmail.Size = new Size(120, 20);
-            this.Controls.Add(lblEmail);
-
-            txtEmail = new TextBox();
-            txtEmail.Location = new Point(10, 45);
-            txtEmail.Width = 250;
-            this.Controls.Add(txtEmail);
-
-            btnLogin = new Button();
-            btnLogin.Text = "Iniciar sesión";
-            btnLogin.Location = new Point(10, 80);
-            btnLogin.Click += BtnLogin_Click;
-            this.Controls.Add(btnLogin);
+            InitializeComponent();
+            userController.LoadUsers(); 
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            string email = txtEmail.Text.Trim();
-            if (string.IsNullOrEmpty(email))
+            try
             {
-                MessageBox.Show("Ingrese su correo.");
+                string email = txtEmail.Text.Trim();
+                string password = txtPassword.Text.Trim();
+
+                LoggedInUser = userController.Login(email, password);
+
+                MessageBox.Show($"Bienvenido {LoggedInUser.Name}!", "Login exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            else
+            catch (Exception ex)
             {
-                User usuario = new User { Name = email, Email = email };
-                this.Hide();
-                DashboardForm dashboard = new DashboardForm(usuario);
-                dashboard.FormClosed += (s, args) => this.Show();
-                dashboard.Show();
+                MessageBox.Show(ex.Message, "Error de inicio de sesión", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            var registerForm = new RegisterForm();
+            registerForm.ShowDialog();
         }
     }
 }
