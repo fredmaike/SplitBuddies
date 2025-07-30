@@ -6,7 +6,7 @@ namespace SplitBuddies.Controllers
 {
     public class GroupController
     {
-        private List<Group> groups;
+        private readonly List<Group> groups;
 
         public GroupController(List<Group> groups)
         {
@@ -24,7 +24,7 @@ namespace SplitBuddies.Controllers
             {
                 GroupId = groups.Count > 0 ? groups.Max(g => g.GroupId) + 1 : 1,  
                 GroupName = name,
-                Members = memberEmails,
+                Members = memberEmails, 
                 Expenses = new List<int>()
             };
 

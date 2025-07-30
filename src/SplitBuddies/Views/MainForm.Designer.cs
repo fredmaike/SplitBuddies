@@ -93,14 +93,14 @@ namespace SplitBuddies.Views
             // 
             // MainForm
             // 
-            ClientSize = new Size(400, 190); // Se ajusta la altura
+            ClientSize = new Size(400, 190); 
             Controls.Add(lblWelcome);
             Controls.Add(btnGroups);
             Controls.Add(btnExpenses);
             Controls.Add(btnSave);
             Controls.Add(btnMostrar);
             Controls.Add(btnLogout);
-            Controls.Add(btnEditGroups); // Agregar el nuevo botón
+            Controls.Add(btnEditGroups); 
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             Name = "MainForm";

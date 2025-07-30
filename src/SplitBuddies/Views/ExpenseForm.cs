@@ -41,7 +41,7 @@ namespace SplitBuddies.Views
         }
 
         // Clase auxiliar para mostrar usuarios en combos y listas
-        private class UserItem
+        private sealed class UserItem
         {
             public string Name { get; set; }
             public string Email { get; set; }

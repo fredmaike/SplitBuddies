@@ -17,13 +17,18 @@ namespace SplitBuddies.Controllers
 
         public User Login(string email, string password)
         {
-            var user = usuarios.FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+            User user = usuarios.FirstOrDefault(u =>
+                u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
 
             if (user == null)
-                throw new Exception("Usuario no encontrado.");
+            {
+                throw new InvalidOperationException("Usuario no encontrado.");
+            }
 
             if (user.Password != password)
-                throw new Exception("Contraseña incorrecta.");
+            {
+                throw new UnauthorizedAccessException("Contraseña incorrecta.");
+            }
 
             return user;
         }

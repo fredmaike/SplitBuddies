@@ -122,7 +122,7 @@ namespace SplitBuddies.Views
             }
         }
 
-        private string ObtenerRutaImagen(Group grupo)
+        private static string ObtenerRutaImagen(Group grupo)
         {
             if (grupo == null || string.IsNullOrWhiteSpace(grupo.IMAGE))
                 return null;

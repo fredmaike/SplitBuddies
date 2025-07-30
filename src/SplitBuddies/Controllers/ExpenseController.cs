@@ -44,7 +44,7 @@ namespace SplitBuddies.Controllers
             return expense;
         }
 
-        public List<Expense> GetExpensesForGroup(int groupId)
+        public static List<Expense> GetExpensesForGroup(int groupId)
         {
             var group = DataManager.Instance.Groups.FirstOrDefault(g => g.GroupId == groupId);
             if (group == null) return new List<Expense>();

@@ -1,7 +1,8 @@
+using System;
+using System.IO;
+using System.Windows.Forms;
 using SplitBuddies.Data;
 using SplitBuddies.Views;
-using System;
-using System.Windows.Forms;
 
 namespace SplitBuddies
 {
@@ -13,13 +14,13 @@ namespace SplitBuddies
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-           
-            DataManager.Instance.BasePath = @"E:\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\Data\";
+            
+            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+            DataManager.Instance.BasePath = Path.Combine(baseDir, "Data");
 
-          
-            DataManager.Instance.LoadUsers();    
-            DataManager.Instance.LoadGroups();   
-            DataManager.Instance.LoadExpenses(); 
+            DataManager.Instance.LoadUsers();
+            DataManager.Instance.LoadGroups();
+            DataManager.Instance.LoadExpenses();
 
             using (var loginForm = new LoginForm())
             {

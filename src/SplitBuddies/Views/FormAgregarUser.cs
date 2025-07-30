@@ -28,9 +28,9 @@ namespace SplitBuddies.Views
             string nombre = txtNombre.Text.Trim();
             string email = txtEmail.Text.Trim();
             string tipo = cmbTipo.SelectedItem.ToString();
-            string password = "123";
+            string password = txtPassword.Text.Trim();
 
-            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Por favor completa todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

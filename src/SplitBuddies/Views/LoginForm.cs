@@ -1,7 +1,9 @@
-﻿using System;
-using System.Windows.Forms;
-using SplitBuddies.Controllers;
+﻿using SplitBuddies.Controllers;
+using SplitBuddies.Data;
 using SplitBuddies.Models;
+using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace SplitBuddies.Views
 {
@@ -14,6 +16,8 @@ namespace SplitBuddies.Views
         public LoginForm()
         {
             InitializeComponent();
+
+            DataManager.Instance.BasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
             userController.LoadUsers(); 
         }
 

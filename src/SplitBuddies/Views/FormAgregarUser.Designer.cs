@@ -6,7 +6,7 @@ namespace SplitBuddies.Views
 {
     /// <summary>
     /// Formulario para registrar un nuevo usuario.
-    /// Contiene campos de entrada para nombre, correo electrónico y tipo de cuenta.
+    /// Contiene campos de entrada para nombre, correo electrónico, tipo de cuenta y contraseña.
     /// </summary>
     partial class FormAgregarUser
     {
@@ -16,6 +16,8 @@ namespace SplitBuddies.Views
         private TextBox txtEmail;
         private Label lblTipo;
         private ComboBox cmbTipo;
+        private Label lblPassword;       // Nueva etiqueta para contraseña
+        private TextBox txtPassword;     // Nuevo TextBox para contraseña
         private Button btnGuardar;
         private Button btnCancelar;
 
@@ -31,6 +33,8 @@ namespace SplitBuddies.Views
             txtEmail = new TextBox();
             lblTipo = new Label();
             cmbTipo = new ComboBox();
+            lblPassword = new Label();
+            txtPassword = new TextBox();
             btnGuardar = new Button();
             btnCancelar = new Button();
 
@@ -91,12 +95,30 @@ namespace SplitBuddies.Views
             cmbTipo.SelectedIndex = 0;
 
             // 
+            // lblPassword
+            // Etiqueta para el campo "Contraseña"
+            lblPassword.Location = new Point(49, 260);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(100, 23);
+            lblPassword.TabIndex = 6;
+            lblPassword.Text = "Contraseña";
+
+            // 
+            // txtPassword
+            // Caja de texto para ingresar la contraseña, oculta el texto
+            txtPassword.Location = new Point(160, 260);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(150, 23);
+            txtPassword.TabIndex = 7;
+            txtPassword.UseSystemPasswordChar = true;
+
+            // 
             // btnGuardar
             // Botón para guardar el nuevo usuario
-            btnGuardar.Location = new Point(80, 270);
+            btnGuardar.Location = new Point(80, 300);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(100, 30);
-            btnGuardar.TabIndex = 6;
+            btnGuardar.TabIndex = 8;
             btnGuardar.Text = "Guardar";
             btnGuardar.Click += btnGuardar_Click;
 
@@ -104,10 +126,10 @@ namespace SplitBuddies.Views
             // btnCancelar
             // Botón para cancelar la operación y cerrar el formulario
             btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(200, 270);
+            btnCancelar.Location = new Point(200, 300);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(100, 30);
-            btnCancelar.TabIndex = 7;
+            btnCancelar.TabIndex = 9;
             btnCancelar.Text = "Cancelar";
 
             // 
@@ -120,6 +142,8 @@ namespace SplitBuddies.Views
             Controls.Add(txtEmail);
             Controls.Add(lblTipo);
             Controls.Add(cmbTipo);
+            Controls.Add(lblPassword);
+            Controls.Add(txtPassword);
             Controls.Add(btnGuardar);
             Controls.Add(btnCancelar);
             Name = "FormAgregarUser";

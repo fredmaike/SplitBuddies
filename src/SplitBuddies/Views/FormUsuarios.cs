@@ -16,27 +16,50 @@ namespace SplitBuddies.Views
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) || string.IsNullOrWhiteSpace(txtEmail.Text))
+            string nombre = txtNombre.Text.Trim();
+            string email = txtEmail.Text.Trim();
+            string password = txtPassword.Text.Trim();  
+            string tipo = cmbTipo.SelectedItem?.ToString() ?? "Regular";
+
+            // Validar que no falte ningún campo
+            if (string.IsNullOrWhiteSpace(nombre) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Por favor complete todos los campos.");
+                MessageBox.Show("Por favor complete todos los campos, incluida la contraseña.");
                 return;
             }
 
             var usuarios = SplitBuddies.Data.DataStorage.LoadUsers();
 
+            // Validar que el correo no exista ya
+            if (usuarios.Exists(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
+            {
+                MessageBox.Show("El correo ya está registrado.");
+                return;
+            }
+
             UsuarioAgregado = new User
             {
-                Name = txtNombre.Text.Trim(),
-                Email = txtEmail.Text.Trim(),
-                Password = "default",
-                Type = cmbTipo.SelectedItem?.ToString() ?? "Regular"
+                Name = nombre,
+                Email = email,
+                Password = password,  // Guardamos la contraseña ingresada
+                Type = tipo
             };
 
             usuarios.Add(UsuarioAgregado);
-            SplitBuddies.Data.DataStorage.SaveUsers(usuarios);
 
-            DialogResult = DialogResult.OK;
-            Close();
+            try
+            {
+                SplitBuddies.Data.DataStorage.SaveUsers(usuarios);
+                MessageBox.Show("Usuario agregado correctamente.");
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error guardando usuario: {ex.Message}");
+            }
         }
     }
 }
