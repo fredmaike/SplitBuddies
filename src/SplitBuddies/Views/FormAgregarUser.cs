@@ -19,23 +19,25 @@ namespace SplitBuddies.Views
 
         private void FormAgregarUser_Load(object sender, EventArgs e)
         {
-            cmbTipo.SelectedIndex = 0;
+            // Cargar usuarios existentes al iniciar
             usuarios = JsonDataService.LoadUsers();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            // Obtener valores de los campos
             string nombre = txtNombre.Text.Trim();
             string email = txtEmail.Text.Trim();
-            string tipo = cmbTipo.SelectedItem.ToString();
             string password = txtPassword.Text.Trim();
 
+            // Validar campos obligatorios
             if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Por favor completa todos los campos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            // Verificar que el email no esté registrado
             bool existe = usuarios.Exists(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
             if (existe)
             {
@@ -43,13 +45,16 @@ namespace SplitBuddies.Views
                 return;
             }
 
-            var nuevoUsuario = UsuarioFactory.CrearUsuario(tipo, nombre, email, password);
+            // Crear usuario sin tipo (la fábrica sin parámetro tipo)
+            var nuevoUsuario = UsuarioFactory.CrearUsuario(nombre, email, password);
 
             usuarios.Add(nuevoUsuario);
 
+            // Guardar la lista actualizada
             JsonDataService.SaveUsers(usuarios);
 
             MessageBox.Show("Usuario creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             this.Close();
         }
     }

@@ -18,7 +18,7 @@ namespace SplitBuddies.Views
             InitializeComponent();
 
             DataManager.Instance.BasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
-            userController.LoadUsers(); 
+            userController.LoadUsers();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

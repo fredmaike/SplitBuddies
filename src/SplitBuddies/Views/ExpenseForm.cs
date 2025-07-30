@@ -10,11 +10,12 @@ namespace SplitBuddies.Views
 {
     public partial class ExpenseForm : Form
     {
+        // Controladores para manejar la lógica de gastos y grupos
         private readonly ExpenseController expenseController = new ExpenseController();
         private readonly GroupController groupController;
         private readonly User currentUser;
 
-        // Constructor del formulario, recibe al usuario actual
+        // Constructor que recibe el usuario actual y configura el formulario
         public ExpenseForm(User user)
         {
             currentUser = user;
@@ -22,72 +23,69 @@ namespace SplitBuddies.Views
 
             groupController = new GroupController(DataManager.Instance.Groups);
 
-            // Evento que maneja cuando cambia el grupo seleccionado
+            // Asignar el evento para cambio de selección de grupo
             cmbGroups.SelectedIndexChanged += CmbGroups_SelectedIndexChanged;
 
-            // Cargar los grupos del usuario al iniciar
+            // Cargar los grupos a los que pertenece el usuario
             LoadGroups();
         }
 
-        // Carga los grupos del usuario en el combo cmbGroups
+        // Carga los grupos filtrados por el usuario actual en el combo de grupos
         private void LoadGroups()
         {
             var groups = groupController.GetGroupsForUser(currentUser.Email);
 
             cmbGroups.DataSource = null;
             cmbGroups.DataSource = groups;
-            cmbGroups.DisplayMember = "GroupName";
-            cmbGroups.ValueMember = "GroupId";
+            cmbGroups.DisplayMember = "GroupName";  // Mostrar nombre del grupo
+            cmbGroups.ValueMember = "GroupId";      // Valor interno es el ID del grupo
         }
 
-        // Clase auxiliar para mostrar usuarios en combos y listas
+        // Clase auxiliar para mostrar usuarios en combos y listas con nombre y email
         private sealed class UserItem
         {
             public string Name { get; set; }
             public string Email { get; set; }
 
+            // Muestra nombre si existe, si no, email
             public override string ToString() => string.IsNullOrWhiteSpace(Name) ? Email : Name;
         }
 
-        // Al seleccionar un grupo, carga los usuarios disponibles
+        // Evento al seleccionar un grupo: carga usuarios y llena controles de pagador y miembros
         private void CmbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbGroups.SelectedItem is Group selectedGroup)
+            if (!(cmbGroups.SelectedItem is Group))
             {
-                // Mostrar nombre del grupo (para depuración)
-                MessageBox.Show($"Grupo seleccionado: {selectedGroup.GroupName}");
-
-                // Cargar todos los usuarios registrados (¿debería filtrarse por grupo?)
+                // Cargar todos los usuarios (puede filtrarse si se desea)
                 var users = DataManager.Instance.Users
                     .Select(u => new UserItem { Name = u.Name, Email = u.Email })
                     .ToList();
 
-                MessageBox.Show($"Usuarios encontrados: {users.Count}");
-
-                // Asignar al combo de pagador
+                // Asignar usuarios al combo de pagador
                 cmbPaidBy.DataSource = null;
                 cmbPaidBy.DataSource = users;
                 cmbPaidBy.DisplayMember = "Name";
                 cmbPaidBy.ValueMember = "Email";
 
-                // Mostrar los usuarios en la lista de miembros incluidos
+                // Mostrar todos los usuarios en lista de miembros incluidos, marcados por defecto
                 clbIncludedMembers.Items.Clear();
                 foreach (var userItem in users)
                 {
-                    clbIncludedMembers.Items.Add(userItem, true); // Marcar todos como incluidos por defecto
+                    clbIncludedMembers.Items.Add(userItem, true);
                 }
             }
             else
             {
-                // Limpiar si no hay grupo seleccionado
+                // Si no hay grupo seleccionado, limpiar controles relacionados
                 cmbPaidBy.DataSource = null;
                 clbIncludedMembers.Items.Clear();
             }
         }
 
-        // Validación y registro del gasto al hacer clic en "Agregar"
+        // Evento para validar y registrar un nuevo gasto al presionar el botón
         private void btnAddExpense_Click(object sender, EventArgs e)
         {
+            // Validaciones básicas de selección y datos ingresados
             if (cmbGroups.SelectedItem is not Group selectedGroup)
             {
                 MessageBox.Show("Seleccione un grupo.");
@@ -112,6 +110,7 @@ namespace SplitBuddies.Views
                 return;
             }
 
+            // Obtener emails de los miembros seleccionados
             var involvedEmails = clbIncludedMembers.CheckedItems
                 .Cast<UserItem>()
                 .Select(u => u.Email)
@@ -127,6 +126,7 @@ namespace SplitBuddies.Views
 
             try
             {
+                // Crear el gasto mediante el controlador
                 var expense = expenseController.AddExpense(
                     txtExpenseName.Text.Trim(),
                     txtDescription.Text.Trim(),
@@ -138,6 +138,8 @@ namespace SplitBuddies.Views
                 );
 
                 MessageBox.Show($"Gasto '{expense.Name}' agregado exitosamente.");
+
+                // Limpiar formulario para nuevo ingreso
                 ClearForm();
             }
             catch (Exception ex)
@@ -146,12 +148,14 @@ namespace SplitBuddies.Views
             }
         }
 
+        // Limpia los campos del formulario y selecciona el primer grupo si existe
         private void ClearForm()
         {
             txtExpenseName.Clear();
             txtDescription.Clear();
             txtAmount.Clear();
-            if (cmbGroups.Items.Count > 0) cmbGroups.SelectedIndex = 0;
+            if (cmbGroups.Items.Count > 0)
+                cmbGroups.SelectedIndex = 0;
         }
     }
 }

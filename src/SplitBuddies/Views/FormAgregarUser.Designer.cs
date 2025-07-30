@@ -16,8 +16,8 @@ namespace SplitBuddies.Views
         private TextBox txtEmail;
         private Label lblTipo;
         private ComboBox cmbTipo;
-        private Label lblPassword;       // Nueva etiqueta para contraseña
-        private TextBox txtPassword;     // Nuevo TextBox para contraseña
+        private Label lblPassword;       
+        private TextBox txtPassword;     
         private Button btnGuardar;
         private Button btnCancelar;
 

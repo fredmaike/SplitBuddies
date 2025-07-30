@@ -19,7 +19,6 @@ namespace SplitBuddies.Views
             string nombre = txtNombre.Text.Trim();
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();  
-            string tipo = cmbTipo.SelectedItem?.ToString() ?? "Regular";
 
             // Validar que no falte ningún campo
             if (string.IsNullOrWhiteSpace(nombre) ||
@@ -43,8 +42,7 @@ namespace SplitBuddies.Views
             {
                 Name = nombre,
                 Email = email,
-                Password = password,  // Guardamos la contraseña ingresada
-                Type = tipo
+                Password = password,  
             };
 
             usuarios.Add(UsuarioAgregado);

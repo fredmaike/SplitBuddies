@@ -6,37 +6,45 @@ namespace SplitBuddies.Views
 {
     partial class RegisterForm
     {
-       
+        // Contenedor para los componentes del formulario, para gestionar recursos
         private System.ComponentModel.IContainer components = null;
 
+        // Etiqueta del título del formulario
         private Label lblTitle;
+        // Etiqueta y caja de texto para ingresar el nombre
         private Label lblName;
         private TextBox txtName;
+        // Etiqueta y caja de texto para ingresar el correo electrónico
         private Label lblEmail;
         private TextBox txtEmail;
+        // Etiqueta y caja de texto para ingresar la contraseña
         private Label lblPassword;
         private TextBox txtPassword;
+        // Etiqueta y caja de texto para confirmar la contraseña
         private Label lblConfirmPassword;
         private TextBox txtConfirmPassword;
+        // Botón para registrar el usuario
         private Button btnRegister;
+        // Botón para cancelar el registro y cerrar el formulario
         private Button btnCancel;
 
-
+        // Método para liberar los recursos que use el formulario
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
-                components.Dispose();
+                components.Dispose(); 
             }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+
+            // Configuración general del formulario
             this.Text = "Register";
             this.ClientSize = new Size(350, 340);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -44,6 +52,7 @@ namespace SplitBuddies.Views
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterParent;
 
+            // Variables para el layout de etiquetas y controles
             int labelWidth = 120;
             int controlWidth = 180;
             int labelX = 20;
@@ -51,7 +60,7 @@ namespace SplitBuddies.Views
             int y = 25;
             int spacing = 32;
 
-            // Title
+            // Label título del formulario
             lblTitle = new Label();
             lblTitle.Text = "Registro de usuario";
             lblTitle.Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold);
@@ -59,7 +68,7 @@ namespace SplitBuddies.Views
             lblTitle.Location = new Point(20, 10);
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
 
-            // Name
+            // Label y TextBox para Nombre
             lblName = new Label();
             lblName.Text = "Nombre:";
             lblName.Size = new Size(labelWidth, 23);
@@ -69,7 +78,7 @@ namespace SplitBuddies.Views
             txtName.Size = new Size(controlWidth, 23);
             txtName.Location = new Point(controlX, y);
 
-            // Email
+            // Label y TextBox para Email
             lblEmail = new Label();
             lblEmail.Text = "Correo electrónico:";
             lblEmail.Size = new Size(labelWidth, 23);
@@ -79,7 +88,7 @@ namespace SplitBuddies.Views
             txtEmail.Size = new Size(controlWidth, 23);
             txtEmail.Location = new Point(controlX, y);
 
-            // Password
+            // Label y TextBox para Contraseña
             lblPassword = new Label();
             lblPassword.Text = "Contraseña:";
             lblPassword.Size = new Size(labelWidth, 23);
@@ -88,9 +97,9 @@ namespace SplitBuddies.Views
             txtPassword = new TextBox();
             txtPassword.Size = new Size(controlWidth, 23);
             txtPassword.Location = new Point(controlX, y);
-            txtPassword.PasswordChar = '●';
+            txtPassword.PasswordChar = '●'; // Oculta la contraseña ingresada
 
-            // Confirm Password
+            // Label y TextBox para Confirmar Contraseña
             lblConfirmPassword = new Label();
             lblConfirmPassword.Text = "Confirmar contraseña:";
             lblConfirmPassword.Size = new Size(labelWidth, 23);
@@ -99,24 +108,23 @@ namespace SplitBuddies.Views
             txtConfirmPassword = new TextBox();
             txtConfirmPassword.Size = new Size(controlWidth, 23);
             txtConfirmPassword.Location = new Point(controlX, y);
-            txtConfirmPassword.PasswordChar = '●';
+            txtConfirmPassword.PasswordChar = '●'; // Oculta la contraseña ingresada
 
-
-            // Register Button
+            // Botón para registrar el usuario
             btnRegister = new Button();
             btnRegister.Text = "Registrar";
             btnRegister.Size = new Size(110, 32);
             btnRegister.Location = new Point(70, y += spacing + 18);
-            btnRegister.Click += btnRegister_Click;
+            btnRegister.Click += btnRegister_Click; // Asigna el evento click
 
-            // Cancel Button
+            // Botón para cancelar el registro
             btnCancel = new Button();
             btnCancel.Text = "Cancelar";
             btnCancel.Size = new Size(110, 32);
             btnCancel.Location = new Point(180, y);
-            btnCancel.DialogResult = DialogResult.Cancel;
+            btnCancel.DialogResult = DialogResult.Cancel; // Cierra el formulario
 
-            // Add Controls
+            // Añade todos los controles al formulario
             Controls.Add(lblTitle);
             Controls.Add(lblName);
             Controls.Add(txtName);

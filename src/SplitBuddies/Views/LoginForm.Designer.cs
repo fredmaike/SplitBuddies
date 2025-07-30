@@ -2,17 +2,25 @@
 {
     partial class LoginForm
     {
-
+        // Contenedor para componentes del formulario, usado para liberar recursos
         private System.ComponentModel.IContainer components = null;
 
+        // Etiqueta para el campo Email
         private System.Windows.Forms.Label lblEmail;
+        // Caja de texto para que el usuario ingrese su email
         private System.Windows.Forms.TextBox txtEmail;
+
+        // Etiqueta para el campo Contraseña
         private System.Windows.Forms.Label lblPassword;
+        // Caja de texto para que el usuario ingrese su contraseña 
         private System.Windows.Forms.TextBox txtPassword;
+
+        // Botón para iniciar sesión
         private System.Windows.Forms.Button btnLogin;
+        // Botón para abrir el formulario de registro
         private System.Windows.Forms.Button btnRegister;
 
-        
+        // Método para liberar los recursos usados por el formulario
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,94 +30,75 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-
+        // Método que inicializa y configura los controles del formulario
         private void InitializeComponent()
         {
-            lblEmail = new System.Windows.Forms.Label();
-            txtEmail = new System.Windows.Forms.TextBox();
-            lblPassword = new System.Windows.Forms.Label();
-            txtPassword = new System.Windows.Forms.TextBox();
-            btnLogin = new System.Windows.Forms.Button();
-            btnRegister = new System.Windows.Forms.Button();
-            SuspendLayout();
-            // 
-            // lblEmail
-            // 
-            lblEmail.AutoSize = true;
-            lblEmail.Location = new System.Drawing.Point(25, 28);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new System.Drawing.Size(39, 15);
-            lblEmail.TabIndex = 0;
-            lblEmail.Text = "Email:";
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new System.Drawing.Point(90, 25);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new System.Drawing.Size(170, 23);
-            txtEmail.TabIndex = 1;
-            // 
-            // lblPassword
-            // 
-            lblPassword.AutoSize = true;
-            lblPassword.Location = new System.Drawing.Point(25, 66);
-            lblPassword.Name = "lblPassword";
-            lblPassword.Size = new System.Drawing.Size(60, 15);
-            lblPassword.TabIndex = 2;
-            lblPassword.Text = "Password:";
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new System.Drawing.Point(90, 63);
-            txtPassword.Name = "txtPassword";
-            txtPassword.PasswordChar = '*';
-            txtPassword.Size = new System.Drawing.Size(170, 23);
-            txtPassword.TabIndex = 3;
-            // 
-            // btnLogin
-            // 
-            btnLogin.Location = new System.Drawing.Point(90, 110);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new System.Drawing.Size(80, 27);
-            btnLogin.TabIndex = 4;
-            btnLogin.Text = "Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += btnLogin_Click;
-            // 
-            // btnRegister
-            // 
-            btnRegister.Location = new System.Drawing.Point(180, 110);
-            btnRegister.Name = "btnRegister";
-            btnRegister.Size = new System.Drawing.Size(80, 27);
-            btnRegister.TabIndex = 5;
-            btnRegister.Text = "Register";
-            btnRegister.UseVisualStyleBackColor = true;
-            btnRegister.Click += btnRegister_Click;
-            // 
-            // LoginForm
-            // 
-            AcceptButton = btnLogin;
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(420, 274);
-            Controls.Add(btnRegister);
-            Controls.Add(btnLogin);
-            Controls.Add(txtPassword);
-            Controls.Add(lblPassword);
-            Controls.Add(txtEmail);
-            Controls.Add(lblEmail);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            Name = "LoginForm";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            Text = "Login";
-            ResumeLayout(false);
-            PerformLayout();
-        }
+            // Crear controles
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.btnRegister = new System.Windows.Forms.Button();
 
-        #endregion
+            this.SuspendLayout();
+
+            // Configuración de la etiqueta Email
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(30, 30);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(39, 15);
+            this.lblEmail.Text = "Email:";
+
+            // Configuración de la caja de texto Email
+            this.txtEmail.Location = new System.Drawing.Point(100, 27);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(200, 23);
+
+            // Configuración de la etiqueta Contraseña
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Location = new System.Drawing.Point(30, 70);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(70, 15);
+            this.lblPassword.Text = "Contraseña:";
+
+            // Configuración de la caja de texto Contraseña
+            this.txtPassword.Location = new System.Drawing.Point(100, 67);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(200, 23);
+            this.txtPassword.UseSystemPasswordChar = true;  
+
+            // Configuración del botón Iniciar sesión
+            this.btnLogin.Location = new System.Drawing.Point(100, 110);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(90, 30);
+            this.btnLogin.Text = "Iniciar sesión";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+
+            // Configuración del botón Registrar
+            this.btnRegister.Location = new System.Drawing.Point(210, 110);
+            this.btnRegister.Name = "btnRegister";
+            this.btnRegister.Size = new System.Drawing.Size(90, 30);
+            this.btnRegister.Text = "Registrar";
+            this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+
+            // Configuración general del formulario LoginForm
+            this.ClientSize = new System.Drawing.Size(350, 170);
+            // Añadir controles al formulario
+            this.Controls.Add(this.lblEmail);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.btnRegister);
+
+            this.Name = "LoginForm";
+            this.Text = "Inicio de sesión";
+
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        }
     }
 }

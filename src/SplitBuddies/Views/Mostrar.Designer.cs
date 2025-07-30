@@ -2,10 +2,13 @@
 {
     partial class MostrarForm
     {
+        // Contenedor para los componentes del formulario, usado para liberar recursos
         private System.ComponentModel.IContainer components = null;
+
+        // Control TreeView para mostrar la jerarquía de grupos y detalles relacionados
         private System.Windows.Forms.TreeView treeViewGrupos;
 
-      
+        // Método para liberar los recursos usados por el formulario
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -15,7 +18,7 @@
             base.Dispose(disposing);
         }
 
-     
+        // Método para inicializar y configurar los componentes visuales del formulario
         private void InitializeComponent()
         {
             this.treeViewGrupos = new System.Windows.Forms.TreeView();
@@ -24,6 +27,7 @@
             // 
             // treeViewGrupos
             // 
+            // Ubicación y tamaño del control TreeView en el formulario
             this.treeViewGrupos.Location = new System.Drawing.Point(12, 12);
             this.treeViewGrupos.Name = "treeViewGrupos";
             this.treeViewGrupos.Size = new System.Drawing.Size(500, 400);
@@ -32,6 +36,7 @@
             // 
             // MostrarForm
             // 
+            // Configuración general del formulario
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(540, 430);

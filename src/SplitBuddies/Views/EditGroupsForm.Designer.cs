@@ -4,13 +4,15 @@ namespace SplitBuddies.Views
 {
     partial class EditGroupsForm
     {
-        private ListBox listBoxGroups;
-        private TextBox txtGroupName;
-        private TextBox txtMembers;
-        private Label lblName;
-        private Label lblMembers;
-        private Button btnSaveChanges;
+        // Controles visuales del formulario
+        private ListBox listBoxGroups;   // Lista para mostrar los grupos disponibles
+        private TextBox txtGroupName;    // Campo para editar el nombre del grupo seleccionado
+        private TextBox txtMembers;      // Campo para editar los miembros del grupo (correos separados por coma)
+        private Label lblName;           // Etiqueta para el campo del nombre del grupo
+        private Label lblMembers;        // Etiqueta para el campo de miembros
+        private Button btnSaveChanges;   // Botón para guardar los cambios realizados
 
+        // Método para inicializar y configurar los controles del formulario
         private void InitializeComponent()
         {
             listBoxGroups = new ListBox();
@@ -22,37 +24,37 @@ namespace SplitBuddies.Views
 
             SuspendLayout();
 
-            // listBoxGroups
+            // Configuración de la lista de grupos
             listBoxGroups.FormattingEnabled = true;
             listBoxGroups.Location = new System.Drawing.Point(20, 20);
             listBoxGroups.Size = new System.Drawing.Size(200, 150);
             listBoxGroups.SelectedIndexChanged += listBoxGroups_SelectedIndexChanged;
 
-            // lblName
+            // Configuración etiqueta "Nombre del Grupo"
             lblName.Text = "Nombre del Grupo:";
             lblName.Location = new System.Drawing.Point(240, 20);
             lblName.AutoSize = true;
 
-            // txtGroupName
+            // Configuración textbox para nombre del grupo
             txtGroupName.Location = new System.Drawing.Point(240, 40);
             txtGroupName.Size = new System.Drawing.Size(200, 23);
 
-            // lblMembers
+            // Configuración etiqueta "Miembros"
             lblMembers.Text = "Miembros (separados por coma):";
             lblMembers.Location = new System.Drawing.Point(240, 70);
             lblMembers.AutoSize = true;
 
-            // txtMembers
+            // Configuración textbox para miembros
             txtMembers.Location = new System.Drawing.Point(240, 90);
             txtMembers.Size = new System.Drawing.Size(200, 23);
 
-            // btnSaveChanges
+            // Configuración botón "Guardar Cambios"
             btnSaveChanges.Text = "Guardar Cambios";
             btnSaveChanges.Location = new System.Drawing.Point(240, 130);
             btnSaveChanges.Size = new System.Drawing.Size(200, 30);
             btnSaveChanges.Click += btnSaveChanges_Click;
 
-            // EditGroupsForm
+            // Configuración general del formulario
             ClientSize = new System.Drawing.Size(470, 200);
             Controls.Add(listBoxGroups);
             Controls.Add(lblName);

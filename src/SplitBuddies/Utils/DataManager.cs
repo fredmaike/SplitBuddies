@@ -7,17 +7,23 @@ using System.Windows.Forms;
 
 namespace SplitBuddies.Data
 {
+    // Singleton encargado de gestionar la carga y guardado de datos en la aplicación,
+    // incluyendo usuarios, grupos y gastos, desde y hacia archivos JSON.
     public class DataManager
     {
+        // Instancia única del DataManager (patrón Singleton)
         private static DataManager instance;
         public static DataManager Instance => instance ??= new DataManager();
 
+        // Ruta base donde se almacenan los archivos JSON
         public string BasePath { get; set; } = "";
 
+        // Listas en memoria de los datos cargados
         public List<User> Users { get; private set; } = new List<User>();
         public List<Group> Groups { get; private set; } = new List<Group>();
         public List<Expense> Expenses { get; private set; } = new List<Expense>();
 
+        // Carga los usuarios desde el archivo JSON correspondiente, o crea una lista vacía si no existe el archivo
         public void LoadUsers()
         {
             string path = Path.Combine(BasePath, "usuarios.json");
@@ -32,6 +38,7 @@ namespace SplitBuddies.Data
             }
         }
 
+        // Carga los grupos desde el archivo JSON correspondiente, o crea una lista vacía si no existe el archivo
         public void LoadGroups()
         {
             string path = Path.Combine(BasePath, "grupos.json");
@@ -46,6 +53,7 @@ namespace SplitBuddies.Data
             }
         }
 
+        // Carga los gastos desde el archivo JSON correspondiente, o crea una lista vacía si no existe el archivo
         public void LoadExpenses()
         {
             string path = Path.Combine(BasePath, "gastos.json");
@@ -60,12 +68,13 @@ namespace SplitBuddies.Data
             }
         }
 
+        // Guarda la lista de usuarios en un archivo JSON, mostrando mensajes de estado y capturando excepciones
         public void SaveUsers(string fileName)
         {
             string path = Path.Combine(BasePath, fileName);
             try
             {
-                MessageBox.Show($"Guardando usuarios en: {path}"); 
+                MessageBox.Show($"Guardando usuarios en: {path}");
                 var json = JsonConvert.SerializeObject(Users, Formatting.Indented);
                 File.WriteAllText(path, json);
             }
@@ -75,6 +84,7 @@ namespace SplitBuddies.Data
             }
         }
 
+        // Guarda la lista de grupos en un archivo JSON. Asegura que la carpeta base exista.
         public void SaveGroups(string fileName)
         {
             EnsureBasePathExists();
@@ -83,6 +93,7 @@ namespace SplitBuddies.Data
             File.WriteAllText(path, json);
         }
 
+        // Guarda la lista de gastos en un archivo JSON. Asegura que la carpeta base exista.
         public void SaveExpenses(string fileName)
         {
             EnsureBasePathExists();
@@ -91,6 +102,7 @@ namespace SplitBuddies.Data
             File.WriteAllText(path, json);
         }
 
+        // Verifica que la ruta base exista; si no, la crea para evitar errores al guardar archivos
         private void EnsureBasePathExists()
         {
             if (!string.IsNullOrWhiteSpace(BasePath) && !Directory.Exists(BasePath))
