@@ -5,8 +5,6 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBuddies", "src\SplitBuddies\SplitBuddies.csproj", "{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassController", "ClassController\ClassController.csproj", "{F9559DD7-1065-4DCD-BCAD-B148FAC69665}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,14 +21,6 @@ Global
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|x64.ActiveCfg = Release|x64
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|x64.Build.0 = Release|x64
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Debug|x64.Build.0 = Debug|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Release|x64.ActiveCfg = Release|Any CPU
-		{F9559DD7-1065-4DCD-BCAD-B148FAC69665}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
