@@ -358,5 +358,16 @@
       "carlos@gmail.com"
     ],
     "Expenses": []
+  },
+  {
+    "GroupId": 37,
+    "GroupName": "a",
+    "IMAGE": "tallercocina.jpg",
+    "Members": [
+      "222"
+    ],
+    "Expenses": [
+      102
+    ]
   }
 ]

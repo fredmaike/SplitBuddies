@@ -8,49 +8,52 @@ namespace SplitBuddies.Views
 {
     public partial class RegisterForm : Form
     {
-        // Propiedad para almacenar el usuario registrado
+        // Propiedad para obtener el usuario registrado (aunque actualmente no se usa)
         public User RegisteredUser { get; }
 
         public RegisterForm()
         {
             InitializeComponent();
 
-            // Establece la ruta base de los datos si aún no está configurada
+            // Establece la ruta base de los datos si aún no está definida
             if (string.IsNullOrWhiteSpace(DataManager.Instance.BasePath))
             {
                 DataManager.Instance.BasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
             }
 
-            // Carga la lista de usuarios existentes al iniciar el formulario
+            // Carga los usuarios existentes al abrir el formulario
             DataManager.Instance.LoadUsers();
         }
 
-        // Evento click del botón Registrar
+        /// <summary>
+        /// Evento que se dispara al hacer clic en el botón "Registrar".
+        /// Valida los campos, verifica si el correo ya existe, agrega al nuevo usuario y guarda los datos.
+        /// </summary>
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            // Obtener valores de los campos de texto y quitar espacios en blanco
+            // Obtener los valores ingresados por el usuario
             string name = txtName.Text.Trim();
             string email = txtEmail.Text.Trim();
             string password = txtPassword.Text.Trim();
 
-            // Validar que ningún campo esté vacío
+            // Validar que todos los campos estén completos
             if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Por favor complete todos los campos.");
                 return;
             }
 
-            // Volver a cargar los usuarios para tener la lista actualizada
+            // Recargar la lista de usuarios para asegurarse de tener los datos más recientes
             DataManager.Instance.LoadUsers();
 
-            // Validar que el email no exista ya registrado 
+            // Verificar si el correo ya está registrado
             if (DataManager.Instance.Users.Exists(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase)))
             {
                 MessageBox.Show("Este correo ya está registrado.");
                 return;
             }
 
-            // Crear el nuevo usuario y añadirlo a la lista
+            // Agregar nuevo usuario a la lista
             DataManager.Instance.Users.Add(new User
             {
                 Name = name,
@@ -58,17 +61,20 @@ namespace SplitBuddies.Views
                 Password = password
             });
 
-            // Crear la carpeta de datos si no existe
+            // Asegurar que el directorio de datos exista antes de guardar
             if (!Directory.Exists(DataManager.Instance.BasePath))
             {
                 Directory.CreateDirectory(DataManager.Instance.BasePath);
             }
 
-            // Guardar la lista de usuarios en el archivo JSON
+            // Guardar los usuarios en el archivo JSON
             DataManager.Instance.SaveUsers("usuarios.json");
 
-            // Confirmar al usuario que se registró correctamente
+            // Notificar al usuario que el registro fue exitoso
             MessageBox.Show("Usuario registrado correctamente.");
+
+            // Establecer el resultado como OK para indicar éxito al formulario que lo llamó
+            this.DialogResult = DialogResult.OK;
 
             // Cerrar el formulario
             Close();

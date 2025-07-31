@@ -1,16 +1,24 @@
 namespace SplitBuddies.Models
 {
-    // Representa un usuario dentro de la aplicación SplitBuddies.
-    // Contiene información básica como nombre, correo, contraseña y tipo de usuario.
+    /// <summary>
+    /// Representa un usuario dentro de la aplicación SplitBuddies.
+    /// Contiene información básica como nombre, correo y contraseña.
+    /// </summary>
     public class User
     {
-        // Nombre completo del usuario
+        /// <summary>
+        /// Nombre completo del usuario.
+        /// </summary>
         public string Name { get; set; }
 
-        // Correo electrónico del usuario
+        /// <summary>
+        /// Correo electrónico del usuario.
+        /// </summary>
         public string Email { get; set; }
 
-        // Contraseña del usuario 
+        /// <summary>
+        /// Contraseña del usuario.
+        /// </summary>
         public string Password { get; set; }
     }
 }

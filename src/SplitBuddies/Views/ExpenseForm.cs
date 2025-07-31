@@ -54,7 +54,7 @@ namespace SplitBuddies.Views
         // Evento al seleccionar un grupo: carga usuarios y llena controles de pagador y miembros
         private void CmbGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!(cmbGroups.SelectedItem is Group))
+            if (cmbGroups.SelectedItem is Group)
             {
                 // Cargar todos los usuarios (puede filtrarse si se desea)
                 var users = DataManager.Instance.Users

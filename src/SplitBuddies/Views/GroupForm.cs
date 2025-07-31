@@ -11,8 +11,8 @@ namespace SplitBuddies.Views
 {
     public partial class GroupForm : Form
     {
-        private GroupController groupController; // Controlador para manejar grupos
-        private User currentUser;                 // Usuario actual que usa el formulario
+        private GroupController groupController; 
+        private User currentUser;                 
 
         // Constructor recibe el usuario actual y configura el controlador y la UI
         public GroupForm(User user)
