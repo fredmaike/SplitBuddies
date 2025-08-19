@@ -1,0 +1,38 @@
+[
+  {
+    "Name": "Viaje de verano",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": []
+  },
+  {
+    "Name": "ana",
+    "Members": [
+      {
+        "Name": "Ana",
+        "Email": null
+      },
+      {
+        "Name": "Carlos",
+        "Email": null
+      },
+      {
+        "Name": "Luc\u00EDa",
+        "Email": null
+      }
+    ],
+    "Expenses": []
+  }
+]
