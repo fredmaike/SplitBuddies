@@ -5,12 +5,12 @@ namespace SplitBuddies.Views
     partial class EditGroupsForm
     {
         // Controles visuales del formulario
-        private ListBox listBoxGroups;   // Lista para mostrar los grupos disponibles
-        private TextBox txtGroupName;    // Campo para editar el nombre del grupo seleccionado
-        private TextBox txtMembers;      // Campo para editar los miembros del grupo (correos separados por coma)
-        private Label lblName;           // Etiqueta para el campo del nombre del grupo
-        private Label lblMembers;        // Etiqueta para el campo de miembros
-        private Button btnSaveChanges;   // Botón para guardar los cambios realizados
+        private ListBox listBoxGroups;  
+        private TextBox txtGroupName;    
+        private TextBox txtMembers;      
+        private Label lblName;           
+        private Label lblMembers;        
+        private Button btnSaveChanges;   
 
         // Método para inicializar y configurar los controles del formulario
         private void InitializeComponent()

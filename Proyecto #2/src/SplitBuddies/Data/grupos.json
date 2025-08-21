@@ -337,7 +337,7 @@
     "GroupName": "viaje",
     "IMAGE": null,
     "Members": [
-      "alicia@gmail.com"
+      "alicia@email.com"
     ],
     "Expenses": []
   },
@@ -346,7 +346,7 @@
     "GroupName": "viaje",
     "IMAGE": null,
     "Members": [
-      "andres@gmail.com"
+      "andres@email.com"
     ],
     "Expenses": []
   },
@@ -355,7 +355,7 @@
     "GroupName": "Salida",
     "IMAGE": null,
     "Members": [
-      "carlos@gmail.com"
+      "carlos@email.com"
     ],
     "Expenses": []
   }

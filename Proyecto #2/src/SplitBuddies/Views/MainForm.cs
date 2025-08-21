@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
 using SplitBuddies.Data;
 using SplitBuddies.Models;
+using SplitBuddies.Utils;
 
 namespace SplitBuddies.Views
 {
@@ -14,79 +16,149 @@ namespace SplitBuddies.Views
         public MainForm(User user)
         {
             InitializeComponent();
-            currentUser = user;
+            currentUser = user ?? throw new ArgumentNullException(nameof(user));
             Load += MainForm_Load; // Evento que se ejecuta al cargar el formulario
         }
 
+        // ===== Helpers =====
+        private void EnsureDataLoaded()
+        {
+            var dm = DataManager.Instance;
+
+            // BasePath por si se abrió la app desde otro lugar
+            dm.BasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
+            if (!Directory.Exists(dm.BasePath))
+                Directory.CreateDirectory(dm.BasePath);
+
+            // Cargar datos (idempotente)
+            dm.LoadUsers();
+            dm.LoadGroups();
+            dm.LoadExpenses();
+            try { dm.LoadInvitations(); } catch { /* si no existe, lista vacía */ }
+        }
+
+        private void RefreshWelcome()
+        {
+            var email = currentUser?.Email ?? "(sin email)";
+            var name = currentUser?.Name ?? "(Usuario)";
+            lblWelcome.Text = $"Bienvenido, {name}!";
+            this.Text = $"SplitBuddies — {name} <{email}>";
+        }
+
+        // ===== Eventos =====
         // Evento que se ejecuta cuando el formulario se carga
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // Mostrar mensaje de bienvenida con el nombre del usuario actual
-            lblWelcome.Text = $"Bienvenido, {currentUser.Name}!";
+            // Asegurar datos y sesión
+            EnsureDataLoaded();
+            if (!AppSession.IsAuthenticated && !string.IsNullOrWhiteSpace(currentUser?.Email))
+                AppSession.SignIn(currentUser.Email);
+
+            RefreshWelcome();
+
+            // Si tienes un botón Dashboard en el diseñador, puedes enlazarlo así:
+          
         }
 
         // Evento para abrir el formulario de gestión de grupos
         private void btnGroups_Click(object sender, EventArgs e)
         {
-            if (currentUser == null) return; 
-            var groupForm = new GroupForm(currentUser);
-            groupForm.ShowDialog(); 
+            if (currentUser == null) return;
+            using (var groupForm = new GroupForm(currentUser))
+            {
+                groupForm.ShowDialog();
+            }
         }
 
         // Evento para abrir el formulario de gestión de gastos
         private void btnExpenses_Click(object sender, EventArgs e)
         {
-            if (currentUser == null) return; 
-            var expenseForm = new ExpenseForm(currentUser);
-            expenseForm.ShowDialog();
+            if (currentUser == null) return;
+            using (var expenseForm = new ExpenseForm(currentUser))
+            {
+                expenseForm.ShowDialog();
+            }
         }
 
-        // Evento para guardar todos los datos (usuarios, grupos, gastos) en archivos JSON
+        // Evento para guardar todos los datos (usuarios, grupos, gastos, invitaciones) en archivos JSON
         private void btnSave_Click(object sender, EventArgs e)
         {
-            DataManager.Instance.SaveUsers("usuarios.json");
-            DataManager.Instance.SaveGroups("grupos.json");
-            DataManager.Instance.SaveExpenses("gastos.json");
+            try
+            {
+                var dm = DataManager.Instance;
+                dm.SaveUsers();        // usa usuarios.json
+                dm.SaveGroups();       // usa grupos.json
+                dm.SaveExpenses();     // usa gastos.json
+                try { dm.SaveInvitations(); } catch { /* por si aún no usas invitaciones */ }
 
-            // Mostrar mensaje informando que se guardó correctamente
-            MessageBox.Show("Datos guardados.", "Guardado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Datos guardados.", "Guardado",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar: " + ex.Message, "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         // Evento para mostrar información combinada de grupos y gastos
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            var mostrarForm = new MostrarForm();
-            mostrarForm.ShowDialog();
+            if (currentUser == null) return; 
+            using (var mostrarForm = new MostrarForm(currentUser)) 
+            {
+                mostrarForm.ShowDialog();
+            }
         }
 
         // Evento para cerrar sesión y volver al formulario de login
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            this.Hide(); // Ocultar el formulario actual
+            // Cerrar sesión
+            AppSession.SignOut();
 
+            this.Hide(); // Ocultar el formulario actual
             using (var loginForm = new LoginForm())
             {
-                // Mostrar formulario de login y esperar resultado
-                if (loginForm.ShowDialog() == DialogResult.OK)
+                var result = loginForm.ShowDialog();
+                if (result == DialogResult.OK)
                 {
-                    // Si el login fue exitoso, actualizar el usuario actual y el mensaje de bienvenida
-                    currentUser = loginForm.LoggedInUser;
-                    lblWelcome.Text = $"Bienvenido, {currentUser.Name}!";
-                    this.Show(); 
+                    // Login exitoso: actualizar usuario actual, sesión y UI
+                    currentUser = loginForm.LoggedInUser ?? currentUser;
+                    if (currentUser != null && !string.IsNullOrWhiteSpace(currentUser.Email))
+                        AppSession.SignIn(currentUser.Email);
+
+                    EnsureDataLoaded();
+                    RefreshWelcome();
+                    this.Show();
                 }
                 else
                 {
-                    // Si se canceló el login, cerrar la aplicación
+                    // Cancelado: cerrar la aplicación
                     Application.Exit();
                 }
+            }
+        }
+
+        // (OPCIONAL) Evento para abrir el Dashboard filtrado por el usuario actual
+        // Asigna este handler a un botón "Dashboard" si lo tienes en el diseñador.
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            var email = AppSession.CurrentUserEmail ?? currentUser?.Email ?? string.Empty;
+            using (var dash = new DashboardForm(email))
+            {
+                dash.ShowDialog();
             }
         }
 
         // Evento para abrir un formulario para editar grupos (se asume que existe EditGroupsForm)
         private void btnEditGroups_Click(object sender, EventArgs e)
         {
-            var editForm = new EditGroupsForm();
-            editForm.ShowDialog();
+            if (currentUser == null) return; 
+            using (var editForm = new EditGroupsForm(currentUser)) 
+            {
+                editForm.ShowDialog();
+            }
         }
     }
 }

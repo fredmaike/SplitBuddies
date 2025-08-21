@@ -1,301 +1,301 @@
 [
   {
     "Name": "Ana Martínez",
-    "Email": "ana@gmail.com",
+    "Email": "ana@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Carlos Gómez",
-    "Email": "carlos@gmail.com",
+    "Email": "carlos@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Lucía Rojas",
-    "Email": "lucia@gmail.com",
+    "Email": "lucia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Pedro Sánchez",
-    "Email": "pedro@gmail.com",
+    "Email": "pedro@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "María Fernández",
-    "Email": "maria@gmail.com",
+    "Email": "maria@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Javier Morales",
-    "Email": "javier@gmail.com",
+    "Email": "javier@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Sofía Ramírez",
-    "Email": "sofia@gmail.com",
+    "Email": "sofia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Diego Castro",
-    "Email": "diego@gmail.com",
+    "Email": "diego@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Camila Vargas",
-    "Email": "camila@gmail.com",
+    "Email": "camila@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Andrés Herrera",
-    "Email": "andres@gmail.com",
+    "Email": "andres@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Valentina Navarro",
-    "Email": "valentina@gmail.com",
+    "Email": "valentina@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Fernando Ruiz",
-    "Email": "fernando@gmail.com",
+    "Email": "fernando@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Paula Méndez",
-    "Email": "paula@gmail.com",
+    "Email": "paula@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Héctor Delgado",
-    "Email": "hector@gmail.com",
+    "Email": "hector@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Daniela Pineda",
-    "Email": "daniela@gmail.com",
+    "Email": "daniela@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Ricardo León",
-    "Email": "ricardo@gmail.com",
+    "Email": "ricardo@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Laura Torres",
-    "Email": "laura@gmail.com",
+    "Email": "laura@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Gabriel Silva",
-    "Email": "gabriel@gmail.com",
+    "Email": "gabriel@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Elena Peña",
-    "Email": "elena@gmail.com",
+    "Email": "elena@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Manuel Ortega",
-    "Email": "manuel@gmail.com",
+    "Email": "manuel@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Isabela Molina",
-    "Email": "isabela@gmail.com",
+    "Email": "isabela@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Miguel Arias",
-    "Email": "miguel@gmail.com",
+    "Email": "miguel@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Renata Salas",
-    "Email": "renata@gmail.com",
+    "Email": "renata@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Álvaro Cordero",
-    "Email": "alvaro@gmail.com",
+    "Email": "alvaro@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Julieta Guzmán",
-    "Email": "julieta@gmail.com",
+    "Email": "julieta@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Tomás Ibáñez",
-    "Email": "tomas@gmail.com",
+    "Email": "tomas@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Natalia Fuentes",
-    "Email": "natalia@gmail.com",
+    "Email": "natalia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Sebastián Ríos",
-    "Email": "sebastian@gmail.com",
+    "Email": "sebastian@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Alicia Camacho",
-    "Email": "alicia@gmail.com",
+    "Email": "alicia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Esteban Duarte",
-    "Email": "esteban@gmail.com",
+    "Email": "esteban@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Claudia Solano",
-    "Email": "claudia@gmail.com",
+    "Email": "claudia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Joaquín Paredes",
-    "Email": "joaquin@gmail.com",
+    "Email": "joaquin@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Daniel Salazar",
-    "Email": "daniel@gmail.com",
+    "Email": "daniel@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Melissa Núñez",
-    "Email": "melissa@gmail.com",
+    "Email": "melissa@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Francisco Castaño",
-    "Email": "francisco@gmail.com",
+    "Email": "francisco@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Antonella Carrillo",
-    "Email": "antonella@gmail.com",
+    "Email": "antonella@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Cristian Bravo",
-    "Email": "cristian@gmail.com",
+    "Email": "cristian@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Violeta Murillo",
-    "Email": "violeta@gmail.com",
+    "Email": "violeta@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Rodrigo Quirós",
-    "Email": "rodrigo@gmail.com",
+    "Email": "rodrigo@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Bianca Aguilar",
-    "Email": "bianca@gmail.com",
+    "Email": "bianca@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Oscar Méndez",
-    "Email": "oscar@gmail.com",
+    "Email": "oscar@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Tamara Céspedes",
-    "Email": "tamara@gmail.com",
+    "Email": "tamara@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Luis Vega",
-    "Email": "luis@gmail.com",
+    "Email": "luis@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Andrea Navarro",
-    "Email": "andrean@gmail.com",
+    "Email": "andrean@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Mario Campos",
-    "Email": "mario@gmail.com",
+    "Email": "mario@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Florencia Lobo",
-    "Email": "florencia@gmail.com",
+    "Email": "florencia@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Iván Zamora",
-    "Email": "ivan@gmail.com",
+    "Email": "ivan@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Rebeca Alfaro",
-    "Email": "rebeca@gmail.com",
+    "Email": "rebeca@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Emilio Serrano",
-    "Email": "emilio@gmail.com",
+    "Email": "emilio@email.com",
     "Password": "123",
     "Type": "Regular"
   },
   {
     "Name": "Marina Cordero",
-    "Email": "marina@gmail.com",
+    "Email": "marina@email.com",
     "Password": "123",
     "Type": "Regular"
   }

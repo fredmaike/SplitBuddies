@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fnz6kBHWwrA=",
+  "dgSpecHash": "HJib33VHmjo=",
   "success": true,
-  "projectFilePath": "E:\\SplitBuddies-master\\src\\SplitBuddies\\SplitBuddies.csproj",
+  "projectFilePath": "E:\\proyecto\\SplitBuddies-master\\Proyecto #2\\SplitBuddies-master\\SplitBuddies-master\\SplitBuddies-master\\src\\SplitBuddies\\SplitBuddies.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AMD\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],

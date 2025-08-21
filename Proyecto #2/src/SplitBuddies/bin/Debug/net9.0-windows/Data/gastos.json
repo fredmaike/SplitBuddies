@@ -1003,10 +1003,10 @@
     "Id": 101,
     "Name": "Salida",
     "Description": "Salida con amigos",
-    "PaidByEmail": "ana@gmail.com",
+    "PaidByEmail": "ana@email.com",
     "InvolvedUsersEmails": [
-      "miguel@gmail.com",
-      "alvaro@gmail.com"
+      "miguel@email.com",
+      "alvaro@email.com"
     ],
     "Amount": 3000.0,
     "Date": "2025-07-30T09:47:21.1100634-06:00",

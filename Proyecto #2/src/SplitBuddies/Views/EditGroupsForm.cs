@@ -12,28 +12,32 @@ namespace SplitBuddies.Views
     // modificar nombre y miembros, y guardar cambios en archivo JSON.
     public partial class EditGroupsForm : Form
     {
-        // Lista interna de grupos cargados desde el archivo
         private List<Group> grupos;
-
-        // Ruta al archivo JSON donde se guardan los grupos
         private string jsonPath = "Data/grupos.json";
+        private readonly User currentUser; // ✅ usuario logueado
 
-        // Constructor: inicializa componentes y carga los grupos desde archivo
-        public EditGroupsForm()
+        // Constructor que recibe el usuario logueado
+        public EditGroupsForm(User user)
         {
             InitializeComponent();
+            currentUser = user ?? throw new ArgumentNullException(nameof(user));
             LoadGroups();
         }
 
-        // Carga los grupos desde el archivo JSON y actualiza la lista visual
+        // Carga solo los grupos donde participa el usuario actual
         private void LoadGroups()
         {
             if (File.Exists(jsonPath))
             {
                 string json = File.ReadAllText(jsonPath);
-                grupos = JsonConvert.DeserializeObject<List<Group>>(json) ?? new List<Group>();
+                var todosLosGrupos = JsonConvert.DeserializeObject<List<Group>>(json) ?? new List<Group>();
 
-                // Limpia y llena el ListBox con los nombres de los grupos
+                // ✅ Filtrar solo los grupos donde el usuario está como miembro
+                grupos = todosLosGrupos
+                    .Where(g => g.Members != null &&
+                                g.Members.Contains(currentUser.Email, StringComparer.OrdinalIgnoreCase))
+                    .ToList();
+
                 listBoxGroups.Items.Clear();
                 foreach (var group in grupos)
                 {
@@ -46,8 +50,6 @@ namespace SplitBuddies.Views
             }
         }
 
-        // Evento que se dispara al cambiar la selección en el ListBox
-        // Actualiza los campos de texto con los datos del grupo seleccionado
         private void listBoxGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBoxGroups.SelectedIndex;
@@ -58,8 +60,6 @@ namespace SplitBuddies.Views
             }
         }
 
-        // Evento que se ejecuta al hacer clic en "Guardar Cambios"
-        // Actualiza el grupo seleccionado con los datos editados y guarda en archivo JSON
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
             int index = listBoxGroups.SelectedIndex;
@@ -69,16 +69,27 @@ namespace SplitBuddies.Views
                 grupos[index].Members = txtMembers.Text
                     .Split(',')
                     .Select(m => m.Trim())
+                    .Where(m => !string.IsNullOrWhiteSpace(m))
                     .ToList();
 
-                // Serializa y guarda la lista de grupos actualizada
-                string json = JsonConvert.SerializeObject(grupos, Formatting.Indented);
+                // Guardar nuevamente TODOS los grupos (incluyendo los que no pertenecen al user)
+                string jsonOriginal = File.ReadAllText(jsonPath);
+                var todosLosGrupos = JsonConvert.DeserializeObject<List<Group>>(jsonOriginal) ?? new List<Group>();
+
+                // Reemplazar solo el grupo editado dentro de la lista global
+                var grupoEditado = todosLosGrupos.FirstOrDefault(g => g.GroupId == grupos[index].GroupId);
+                if (grupoEditado != null)
+                {
+                    grupoEditado.GroupName = grupos[index].GroupName;
+                    grupoEditado.Members = grupos[index].Members;
+                }
+
+                string json = JsonConvert.SerializeObject(todosLosGrupos, Formatting.Indented);
                 File.WriteAllText(jsonPath, json);
 
                 MessageBox.Show("Grupo actualizado correctamente.");
 
-                // Recarga la lista para reflejar posibles cambios
-                LoadGroups();
+                LoadGroups(); // refrescar vista
             }
         }
     }

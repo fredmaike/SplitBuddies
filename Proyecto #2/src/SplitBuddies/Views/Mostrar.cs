@@ -9,109 +9,118 @@ namespace SplitBuddies.Views
 {
     public partial class MostrarForm : Form
     {
-        public MostrarForm()
+        private readonly User currentUser; // ✅ usuario logueado
+
+        public MostrarForm(User user)
         {
             InitializeComponent();
+            currentUser = user ?? throw new ArgumentNullException(nameof(user));
+            // Carga solo los grupos en los que participa el usuario
             CargarGruposConDetalles();
         }
 
-        // Método principal que carga los grupos y sus detalles en el TreeView
+        // Método principal que carga los grupos del usuario logueado y sus detalles
         private void CargarGruposConDetalles()
         {
             try
             {
-                // Limpiar nodos previos para evitar duplicados
                 treeViewGrupos.Nodes.Clear();
 
-                // Recorrer cada grupo registrado en DataManager
-                foreach (var grupo in DataManager.Instance.Groups)
+                // ✅ Filtrar solo grupos donde participa el usuario actual
+                var gruposDelUsuario = DataManager.Instance.Groups
+                    .Where(grupo =>
+                        (grupo.Members != null &&
+                         grupo.Members.Contains(currentUser.Email, StringComparer.OrdinalIgnoreCase))
+                        ||
+                        DataManager.Instance.Expenses.Any(g =>
+                            g.GroupId == grupo.GroupId &&
+                            g.InvolvedUsersEmails != null &&
+                            g.InvolvedUsersEmails.Contains(currentUser.Email, StringComparer.OrdinalIgnoreCase))
+                    )
+                    .ToList();
+
+                foreach (var grupo in gruposDelUsuario)
                 {
-                    // Crear nodo principal para el grupo, mostrando nombre e ID
                     var nodoGrupo = new TreeNode($"{grupo.GroupName} (ID: {grupo.GroupId})");
 
-                    // Crear subnodos de miembros y gastos usando métodos auxiliares
                     var nodoMiembros = CrearNodoMiembros(grupo);
                     var nodoGastos = CrearNodoGastos(grupo);
 
-                    // Agregar los subnodos al nodo principal del grupo
                     nodoGrupo.Nodes.Add(nodoMiembros);
                     nodoGrupo.Nodes.Add(nodoGastos);
 
-                    // Agregar el nodo del grupo al TreeView
                     treeViewGrupos.Nodes.Add(nodoGrupo);
                 }
 
-                // Expandir todos los nodos para mostrar detalles
                 treeViewGrupos.ExpandAll();
             }
             catch (Exception ex)
             {
-                // Mostrar mensaje de error si ocurre alguna excepción
-                MessageBox.Show($"Error al cargar grupos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar grupos: {ex.Message}", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // Método estático que crea el nodo de miembros para un grupo dado
+        // ✅ Los métodos CrearNodoMiembros y CrearNodoGastos quedan igual
         private static TreeNode CrearNodoMiembros(Group grupo)
         {
-            // Obtener miembros oficiales del grupo (lista de emails)
             var miembrosOficiales = grupo.Members ?? new List<string>();
 
-            // Obtener miembros que han participado en gastos del grupo, para incluirlos aunque no estén en la lista oficial
             var miembrosDeGastos = DataManager.Instance.Expenses
                 .Where(g => g.GroupId == grupo.GroupId && g.InvolvedUsersEmails != null)
                 .SelectMany(g => g.InvolvedUsersEmails)
-                .Distinct()
+                .Where(email => !string.IsNullOrWhiteSpace(email))
+                .Distinct(StringComparer.OrdinalIgnoreCase)
                 .ToList();
 
-            // Unir ambas listas y eliminar duplicados
-            var miembrosTotales = miembrosOficiales.Union(miembrosDeGastos).Distinct().ToList();
+            var todosLosEmails = miembrosOficiales
+                .Union(miembrosDeGastos, StringComparer.OrdinalIgnoreCase)
+                .Distinct(StringComparer.OrdinalIgnoreCase)
+                .ToList();
 
             var nodoMiembros = new TreeNode("Miembros");
 
-            if (miembrosTotales.Count == 0)
+            if (todosLosEmails.Count == 0)
             {
-                // Si no hay miembros, agregar nodo indicativo
                 nodoMiembros.Nodes.Add("No hay miembros");
             }
             else
             {
-                // Para cada email, buscar el nombre del usuario y agregarlo
-                foreach (var emailMiembro in miembrosTotales)
+                foreach (var email in todosLosEmails)
                 {
                     var usuario = DataManager.Instance.Users
-                        .FirstOrDefault(u => u.Email.Equals(emailMiembro, StringComparison.OrdinalIgnoreCase));
-                    string nombre = usuario != null ? usuario.Name : emailMiembro;
-                    nodoMiembros.Nodes.Add(nombre);
+                        .FirstOrDefault(u => u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
+
+                    string nombreMostrado = usuario != null ? $"{usuario.Name} ({email})" : email;
+
+                    nodoMiembros.Nodes.Add(nombreMostrado);
                 }
             }
+
             return nodoMiembros;
         }
 
-        // Método estático que crea el nodo de gastos para un grupo dado
         private static TreeNode CrearNodoGastos(Group grupo)
         {
             var nodoGastos = new TreeNode("Gastos");
 
-            // Filtrar los gastos correspondientes al grupo
             var gastosDelGrupo = DataManager.Instance.Expenses
                 .Where(g => g.GroupId == grupo.GroupId)
                 .ToList();
 
             if (gastosDelGrupo.Count == 0)
             {
-                // Si no hay gastos, mostrar mensaje indicativo
                 nodoGastos.Nodes.Add("No hay gastos");
             }
             else
             {
-                // Para cada gasto, mostrar nombre, monto y descripción
                 foreach (var gasto in gastosDelGrupo)
                 {
                     string textoGasto = $"{gasto.Name} - {gasto.Amount:C} - {gasto.Description}";
                     nodoGastos.Nodes.Add(new TreeNode(textoGasto));
                 }
             }
+
             return nodoGastos;
         }
     }

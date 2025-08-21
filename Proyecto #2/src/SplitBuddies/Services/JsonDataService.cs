@@ -5,25 +5,37 @@ using System.Text.Json;
 
 namespace SplitBuddies.Services
 {
-    // Servicio estático encargado de guardar y cargar información de usuarios
-    // en formato JSON desde el sistema de archivos.
+    /// <summary>
+    /// Servicio estático encargado de guardar y cargar información de usuarios
+    /// en formato JSON desde el sistema de archivos.
+    /// </summary>
     public static class JsonDataService
     {
-        // Ruta relativa del archivo JSON donde se almacenan los usuarios
+        /// <summary>
+        /// Ruta relativa del archivo JSON donde se almacenan los usuarios.
+        /// </summary>
         private const string UserFile = @"Data\users.json";
 
-        // Guarda la lista de usuarios en el archivo JSON con formato indentado
+        /// <summary>
+        /// Guarda la lista de usuarios en el archivo JSON con formato indentado para mejor legibilidad.
+        /// </summary>
+        /// <param name="users">Lista de usuarios a guardar.</param>
         public static void SaveUsers(List<User> users)
         {
             var json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(UserFile, json);
         }
 
-        // Carga y devuelve la lista de usuarios desde el archivo JSON.
-        // Si el archivo no existe, retorna una lista vacía.
+        /// <summary>
+        /// Carga y devuelve la lista de usuarios desde el archivo JSON.
+        /// Si el archivo no existe, retorna una lista vacía.
+        /// </summary>
+        /// <returns>Lista de usuarios cargados desde el archivo JSON.</returns>
         public static List<User> LoadUsers()
         {
-            if (!File.Exists(UserFile)) return new List<User>();
+            if (!File.Exists(UserFile))
+                return new List<User>();
+
             var json = File.ReadAllText(UserFile);
             return JsonSerializer.Deserialize<List<User>>(json);
         }

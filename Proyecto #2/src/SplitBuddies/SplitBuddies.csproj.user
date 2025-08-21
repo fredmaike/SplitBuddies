@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Views\BalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\DashboardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Views\EditGroupsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -21,9 +27,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\RegisterForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\ReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -6,23 +6,36 @@ using System.Linq;
 
 namespace SplitBuddies.Controllers
 {
-    // Controlador encargado de manejar la lógica relacionada con los usuarios,
-    // como la carga de datos y el inicio de sesión 
+    /// <summary>
+    /// Controlador encargado de manejar la lógica relacionada con los usuarios,
+    /// como la carga de datos y el inicio de sesión.
+    /// </summary>
     public class UserController
     {
-        // Lista de usuarios en memoria
+        /// <summary>
+        /// Lista interna de usuarios en memoria.
+        /// </summary>
         private List<User> usuarios = new List<User>();
 
-        // Carga los usuarios desde el almacenamiento externo
+        /// <summary>
+        /// Carga los usuarios desde el almacenamiento externo.
+        /// </summary>
         public void LoadUsers()
         {
             usuarios = DataStorage.LoadUsers();
         }
 
-        // Valida las credenciales del usuario e inicia sesión si son correctas
+        /// <summary>
+        /// Valida las credenciales del usuario e inicia sesión si son correctas.
+        /// </summary>
+        /// <param name="email">Correo electrónico del usuario.</param>
+        /// <param name="password">Contraseña del usuario.</param>
+        /// <returns>Usuario autenticado si las credenciales son válidas.</returns>
+        /// <exception cref="InvalidOperationException">Si el usuario no existe.</exception>
+        /// <exception cref="UnauthorizedAccessException">Si la contraseña es incorrecta.</exception>
         public User Login(string email, string password)
         {
-            // Buscar usuario por correo 
+            // Buscar usuario por correo (ignorando mayúsculas/minúsculas)
             User user = usuarios.FirstOrDefault(u =>
                 u.Email.Equals(email, StringComparison.OrdinalIgnoreCase));
 

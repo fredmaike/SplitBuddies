@@ -6,39 +6,70 @@ using SplitBuddies.Views;
 
 namespace SplitBuddies
 {
-    static class Program
+    internal static class Program
     {
         [STAThread]
         static void Main()
         {
-            // Habilita estilos visuales para la aplicaci髇 Windows Forms
-            Application.EnableVisualStyles();
-
-            // Configura el modo de renderizado compatible con versiones anteriores de Windows Forms
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            // Obtiene la ruta base de la aplicaci髇 y establece la carpeta "Data" para almacenamiento
-            string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            DataManager.Instance.BasePath = Path.Combine(baseDir, "Data");
-
-            // Carga datos desde archivos JSON para usuarios, grupos y gastos
-            DataManager.Instance.LoadUsers();
-            DataManager.Instance.LoadGroups();
-            DataManager.Instance.LoadExpenses();
-
-            // Muestra el formulario de login en modo modal
-            using (var loginForm = new LoginForm())
+            // Inicializaci贸n moderna de WinForms (.NET 6+)
+            // (Si tu proyecto no tiene ApplicationConfiguration, puedes volver a EnableVisualStyles + SetCompatibleTextRenderingDefault)
+            try
             {
-                // Si el login es exitoso (DialogResult.OK), abre la ventana principal con el usuario logueado
-                if (loginForm.ShowDialog() == DialogResult.OK)
+                ApplicationConfiguration.Initialize();
+            }
+            catch
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+            }
+
+            try
+            {
+                // 1) Preparar carpeta Data junto al ejecutable
+                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
+                string dataDir = Path.Combine(baseDir, "Data");
+                if (!Directory.Exists(dataDir))
+                    Directory.CreateDirectory(dataDir);
+
+                // 2) Configurar DataManager y cargar datos
+                var dm = DataManager.Instance;
+                dm.BasePath = dataDir;
+
+                dm.LoadUsers();
+                dm.LoadGroups();
+                dm.LoadExpenses();
+                dm.LoadInvitations(); // <-- a帽adimos invitaciones
+
+                // 3) Mostrar Login como modal
+                using (var loginForm = new LoginForm())
                 {
-                    Application.Run(new MainForm(loginForm.LoggedInUser));
+                    var result = loginForm.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        // Importante:
+                        // - Mantengo tu flujo actual: abrir MainForm con el usuario logueado
+                        // - Si prefieres abrir Dashboard directamente, aqu铆 podr铆as usar:
+                        //   Application.Run(new DashboardForm(loginForm.LoggedInUser.Email));
+                        Application.Run(new MainForm(loginForm.LoggedInUser));
+                    }
+                    else
+                    {
+                        // Cancelado o fall贸: cierra limpio
+                        Application.Exit();
+                    }
                 }
-                else
-                {
-                    // Si se cancela o falla el login, cierra la aplicaci髇
-                    Application.Exit();
-                }
+            }
+            catch (Exception ex)
+            {
+                // Falla inesperada: mostrar y salir
+                MessageBox.Show(
+                    "Ocurri贸 un error al iniciar la aplicaci贸n:\n\n" + ex.Message,
+                    "SplitBuddies - Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                Environment.Exit(1);
             }
         }
     }
