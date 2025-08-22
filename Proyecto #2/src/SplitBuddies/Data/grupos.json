@@ -7,8 +7,8 @@
       "ana@email.com",
       "carlos@email.com",
       "lucia@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 2,
@@ -17,8 +17,8 @@
     "Members": [
       "pedro@email.com",
       "maria@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 3,
@@ -29,8 +29,8 @@
       "sofia@email.com",
       "diego@email.com",
       "camila@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 4,
@@ -40,8 +40,8 @@
       "andres@email.com",
       "valentina@email.com",
       "fernando@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 5,
@@ -51,8 +51,8 @@
       "paula@email.com",
       "hector@email.com",
       "daniela@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 6,
@@ -62,8 +62,8 @@
       "ricardo@email.com",
       "laura@email.com",
       "gabriel@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 7,
@@ -74,8 +74,8 @@
       "manuel@email.com",
       "isabela@email.com",
       "miguel@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 8,
@@ -85,8 +85,8 @@
       "renata@email.com",
       "alvaro@email.com",
       "julieta@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 9,
@@ -96,8 +96,8 @@
       "tomas@email.com",
       "natalia@email.com",
       "sebastian@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 10,
@@ -107,8 +107,8 @@
       "alicia@email.com",
       "esteban@email.com",
       "claudia@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 11,
@@ -118,8 +118,8 @@
       "joaquin@email.com",
       "daniel@email.com",
       "melissa@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 12,
@@ -129,8 +129,8 @@
       "francisco@email.com",
       "antonella@email.com",
       "cristian@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 13,
@@ -140,8 +140,8 @@
       "violeta@email.com",
       "rodrigo@email.com",
       "bianca@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 14,
@@ -151,8 +151,8 @@
       "oscar@email.com",
       "tamara@email.com",
       "luis@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 15,
@@ -162,8 +162,8 @@
       "andrean@email.com",
       "mario@email.com",
       "florencia@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 16,
@@ -174,8 +174,8 @@
       "rebeca@email.com",
       "emilio@email.com",
       "marina@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 17,
@@ -185,8 +185,8 @@
       "ana@email.com",
       "carlos@email.com",
       "javier@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 18,
@@ -196,8 +196,8 @@
       "lucia@email.com",
       "sofia@email.com",
       "paula@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 19,
@@ -207,8 +207,8 @@
       "hector@email.com",
       "fernando@email.com",
       "andres@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 20,
@@ -218,8 +218,8 @@
       "daniela@email.com",
       "julieta@email.com",
       "manuel@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 21,
@@ -229,8 +229,8 @@
       "miguel@email.com",
       "renata@email.com",
       "tomas@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 22,
@@ -240,8 +240,8 @@
       "alvaro@email.com",
       "sebastian@email.com",
       "alicia@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 23,
@@ -251,8 +251,8 @@
       "esteban@email.com",
       "claudia@email.com",
       "joaquin@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 24,
@@ -262,8 +262,8 @@
       "daniel@email.com",
       "melissa@email.com",
       "francisco@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 25,
@@ -273,8 +273,8 @@
       "antonella@email.com",
       "cristian@email.com",
       "violeta@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 26,
@@ -284,8 +284,8 @@
       "rodrigo@email.com",
       "bianca@email.com",
       "oscar@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 27,
@@ -295,8 +295,8 @@
       "tamara@email.com",
       "luis@email.com",
       "andrean@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 28,
@@ -306,8 +306,8 @@
       "mario@email.com",
       "florencia@email.com",
       "ivan@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 29,
@@ -317,8 +317,8 @@
       "rebeca@email.com",
       "emilio@email.com",
       "marina@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 30,
@@ -329,8 +329,8 @@
       "carlos@email.com",
       "lucia@email.com",
       "pedro@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 32,
@@ -338,8 +338,8 @@
     "IMAGE": null,
     "Members": [
       "alicia@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 34,
@@ -347,8 +347,8 @@
     "IMAGE": null,
     "Members": [
       "andres@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   },
   {
     "GroupId": 36,
@@ -356,7 +356,7 @@
     "IMAGE": null,
     "Members": [
       "carlos@email.com"
-    ],
-    "Expenses": []
+    ]
+   
   }
 ]
