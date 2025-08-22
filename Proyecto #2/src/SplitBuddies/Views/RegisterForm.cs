@@ -68,7 +68,7 @@ namespace SplitBuddies.Views
             }
 
             // Guardar los usuarios en el archivo JSON
-            DataManager.Instance.SaveUsers("usuarios.json");
+            DataManager.Instance.SaveUsers();
 
             // Notificar al usuario que el registro fue exitoso
             MessageBox.Show("Usuario registrado correctamente.");

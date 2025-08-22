@@ -5,71 +5,70 @@ namespace SplitBuddies.Views
 {
     partial class ExpenseForm
     {
-        // Etiqueta para seleccionar el grupo al que pertenece el gasto
         private Label lblGroup;
-        private ComboBox cmbGroups; 
+        private ComboBox cmbGroups;
 
-        // Etiqueta y ComboBox para seleccionar quién pagó el gasto
         private Label lblPaidBy;
         private ComboBox cmbPaidBy;
 
-        // Etiqueta y CheckedListBox para seleccionar los miembros incluidos en el gasto
         private Label lblIncludedMembers;
         private CheckedListBox clbIncludedMembers;
 
-        // Etiqueta y TextBox para ingresar el nombre del gasto
         private Label lblExpenseName;
         private TextBox txtExpenseName;
 
-        // Etiqueta y TextBox para la descripción del gasto
         private Label lblDescription;
         private TextBox txtDescription;
 
-        // Etiqueta y TextBox para ingresar el monto del gasto
         private Label lblAmount;
         private TextBox txtAmount;
 
-        // Botón para agregar el gasto con los datos ingresados
+        private Label lblEffect;     // Debe/Recibe
+        private ComboBox cmbEffect;
+
         private Button btnAddExpense;
 
-        // Método para inicializar y configurar todos los controles del formulario
         private void InitializeComponent()
         {
             this.Text = "Agregar Gasto";
             this.Size = new Size(400, 500);
 
-            // Configuración de etiqueta y comboBox para grupos
+            // Grupo
             lblGroup = new Label() { Text = "Grupo:", Left = 25, Top = 20, Width = 100 };
-            cmbGroups = new ComboBox() { Left = 140, Top = 20, Width = 200 };
-            cmbGroups.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbGroups = new ComboBox() { Left = 140, Top = 20, Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
             cmbGroups.SelectedIndexChanged += new System.EventHandler(this.CmbGroups_SelectedIndexChanged);
 
-            // Configuración de etiqueta y comboBox para "Pagado por"
+            // Pagado por
             lblPaidBy = new Label() { Text = "Pagado por:", Left = 25, Top = 60, Width = 100 };
-            cmbPaidBy = new ComboBox() { Left = 140, Top = 60, Width = 200 };
-            cmbPaidBy.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPaidBy = new ComboBox() { Left = 140, Top = 60, Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
 
-            // Configuración de etiqueta y CheckedListBox para miembros incluidos
+            // Miembros incluidos
             lblIncludedMembers = new Label() { Text = "Miembros incluidos:", Left = 25, Top = 100, Width = 120 };
             clbIncludedMembers = new CheckedListBox() { Left = 140, Top = 100, Width = 200, Height = 100 };
 
-            // Configuración de etiqueta y TextBox para nombre del gasto
+            // Nombre
             lblExpenseName = new Label() { Text = "Nombre:", Left = 25, Top = 210, Width = 100 };
             txtExpenseName = new TextBox() { Left = 140, Top = 210, Width = 200 };
 
-            // Configuración de etiqueta y TextBox para descripción
+            // Descripción
             lblDescription = new Label() { Text = "Descripción:", Left = 25, Top = 250, Width = 100 };
             txtDescription = new TextBox() { Left = 140, Top = 250, Width = 200 };
 
-            // Configuración de etiqueta y TextBox para monto
-            lblAmount = new Label() { Text = "Monto:", Left = 25, Top = 330, Width = 100 };
-            txtAmount = new TextBox() { Left = 140, Top = 330, Width = 200 };
+            // Monto
+            lblAmount = new Label() { Text = "Monto:", Left = 25, Top = 290, Width = 100 };
+            txtAmount = new TextBox() { Left = 140, Top = 290, Width = 200 };
 
-            // Configuración del botón para agregar gasto
+            // Debe / Recibe
+            lblEffect = new Label() { Text = "Efecto:", Left = 25, Top = 330, Width = 100 };
+            cmbEffect = new ComboBox() { Left = 140, Top = 330, Width = 200, DropDownStyle = ComboBoxStyle.DropDownList };
+            cmbEffect.Items.AddRange(new string[] { "Debe", "Recibe" });
+            cmbEffect.SelectedIndex = 0;
+
+            // Botón
             btnAddExpense = new Button() { Text = "Agregar Gasto", Left = 140, Top = 380, Width = 120 };
             btnAddExpense.Click += new System.EventHandler(this.btnAddExpense_Click);
 
-            // Añadir controles al formulario
+            // Añadir controles
             this.Controls.Add(lblGroup);
             this.Controls.Add(cmbGroups);
             this.Controls.Add(lblPaidBy);
@@ -82,6 +81,8 @@ namespace SplitBuddies.Views
             this.Controls.Add(txtDescription);
             this.Controls.Add(lblAmount);
             this.Controls.Add(txtAmount);
+            this.Controls.Add(lblEffect);
+            this.Controls.Add(cmbEffect);
             this.Controls.Add(btnAddExpense);
         }
     }

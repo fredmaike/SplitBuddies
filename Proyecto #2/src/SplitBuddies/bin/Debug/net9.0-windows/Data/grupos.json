@@ -325,6 +325,7 @@
     "GroupName": "Comunidad online",
     "IMAGE": "IMAGE/comunidadonline.jpg",
     "Members": [
+      "ana@email.com",
       "carlos@email.com",
       "lucia@email.com",
       "pedro@email.com"

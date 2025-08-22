@@ -140,17 +140,6 @@ namespace SplitBuddies.Views
             }
         }
 
-        // (OPCIONAL) Evento para abrir el Dashboard filtrado por el usuario actual
-        // Asigna este handler a un botón "Dashboard" si lo tienes en el diseñador.
-        private void btnDashboard_Click(object sender, EventArgs e)
-        {
-            var email = AppSession.CurrentUserEmail ?? currentUser?.Email ?? string.Empty;
-            using (var dash = new DashboardForm(email))
-            {
-                dash.ShowDialog();
-            }
-        }
-
         // Evento para abrir un formulario para editar grupos (se asume que existe EditGroupsForm)
         private void btnEditGroups_Click(object sender, EventArgs e)
         {
@@ -160,5 +149,14 @@ namespace SplitBuddies.Views
                 editForm.ShowDialog();
             }
         }
+        private void BtnInvitations_Click(object sender, EventArgs e)
+        {
+            if (currentUser == null) return;
+            using (var invitationsForm = new InvitationList(currentUser))
+            {
+                invitationsForm.ShowDialog();
+            }
+        }
+
     }
 }

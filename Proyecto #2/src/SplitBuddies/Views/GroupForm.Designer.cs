@@ -6,15 +6,17 @@ namespace SplitBuddies.Views
     partial class GroupForm
     {
         // Controles del formulario
-        private ListBox lstGrupos;         
-        private Label lblGroupName;        
-        private TextBox txtGroupName;     
-        private Label lblImagePath;        
-        private TextBox txtImagePath;     
-        private Button btnCreateGroup;     
-        private Button btnDeleteGroup;      
-        private Button btnSelectImage;      
-        private PictureBox pbGroupImage;    
+        private ListBox lstGrupos;
+        private Label lblGroupName;
+        private TextBox txtGroupName;
+        private Label lblImagePath;
+        private TextBox txtImagePath;
+        private Button btnCreateGroup;
+        private Button btnDeleteGroup;
+        private Button btnSelectImage;
+        private PictureBox pbGroupImage;
+        private Button btnViewBalances;
+        private Button btnSendInvitations;
 
         // Método para inicializar y configurar todos los controles y la interfaz
         private void InitializeComponent()
@@ -29,19 +31,21 @@ namespace SplitBuddies.Views
             btnDeleteGroup = new Button();
             btnSelectImage = new Button();
             pbGroupImage = new PictureBox();
+            btnViewBalances = new Button();
+            btnSendInvitations = new Button();
 
-            SuspendLayout();  // Suspende el redibujado mientras configuramos el formulario
+            SuspendLayout();
 
             // Configuración de la lista de grupos
             lstGrupos.Location = new Point(20, 20);
             lstGrupos.Size = new Size(200, 200);
-            lstGrupos.SelectedIndexChanged += LstGrupos_SelectedIndexChanged; 
+            lstGrupos.SelectedIndexChanged += LstGrupos_SelectedIndexChanged;
 
             // Configuración del PictureBox para la imagen del grupo
             pbGroupImage.Location = new Point(240, 20);
             pbGroupImage.Size = new Size(140, 100);
-            pbGroupImage.SizeMode = PictureBoxSizeMode.Zoom; 
-            pbGroupImage.BorderStyle = BorderStyle.FixedSingle; 
+            pbGroupImage.SizeMode = PictureBoxSizeMode.Zoom;
+            pbGroupImage.BorderStyle = BorderStyle.FixedSingle;
 
             // Etiqueta para el campo nombre del grupo
             lblGroupName.Location = new Point(240, 130);
@@ -66,22 +70,34 @@ namespace SplitBuddies.Views
             btnSelectImage.Location = new Point(240, 230);
             btnSelectImage.Size = new Size(140, 30);
             btnSelectImage.Text = "Seleccionar imagen";
-            btnSelectImage.Click += BtnSelectImage_Click;  
+            btnSelectImage.Click += BtnSelectImage_Click;
 
             // Botón para crear un nuevo grupo
             btnCreateGroup.Location = new Point(20, 230);
             btnCreateGroup.Size = new Size(100, 30);
             btnCreateGroup.Text = "Crear grupo";
-            btnCreateGroup.Click += btnCreateGroup_Click; 
+            btnCreateGroup.Click += btnCreateGroup_Click;
 
             // Botón para eliminar el grupo seleccionado
             btnDeleteGroup.Location = new Point(130, 230);
             btnDeleteGroup.Size = new Size(100, 30);
             btnDeleteGroup.Text = "Eliminar grupo";
-            btnDeleteGroup.Click += btnDeleteGroup_Click;  
+            btnDeleteGroup.Click += btnDeleteGroup_Click;
+
+            //  Botón para ver balances
+            btnViewBalances.Location = new Point(20, 270);
+            btnViewBalances.Size = new Size(100, 30);
+            btnViewBalances.Text = "Ver balances";
+            btnViewBalances.Click += BtnViewBalances_Click;
+
+              // Botón para enviar invitaciones
+            btnSendInvitations.Location = new Point(130, 270);
+            btnSendInvitations.Size = new Size(100, 30);
+            btnSendInvitations.Text = "Enviar invitaciones";
+            btnSendInvitations.Click += BtnSendInvitations_Click;
 
             // Configuración general del formulario
-            ClientSize = new Size(420, 280);
+            ClientSize = new Size(420, 360); // Aumentamos tamaño para que quepan los botones
             Controls.Add(lstGrupos);
             Controls.Add(pbGroupImage);
             Controls.Add(lblGroupName);
@@ -91,12 +107,14 @@ namespace SplitBuddies.Views
             Controls.Add(btnSelectImage);
             Controls.Add(btnCreateGroup);
             Controls.Add(btnDeleteGroup);
+            Controls.Add(btnViewBalances);   
+            Controls.Add(btnSendInvitations); 
             Text = "Gestión de Grupos";
 
-            Load += GroupForm_Load; // Evento para cargar datos al iniciar formulario
+            Load += GroupForm_Load;
 
-            ResumeLayout(false); // Reanuda el redibujado y diseño
-            PerformLayout();     // Aplica el diseño pendiente
+            ResumeLayout(false);
+            PerformLayout();
         }
     }
 }

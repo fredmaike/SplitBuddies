@@ -40,10 +40,12 @@ E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-mas
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.AssemblyReference.cache
-E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.DashboardForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.BalanceForm.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.ExpenseForm.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.GroupForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationList.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.LoginForm.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MainForm.resources
 E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources

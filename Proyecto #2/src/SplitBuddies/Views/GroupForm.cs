@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using SplitBuddies.Controllers;
 using SplitBuddies.Data;
 using SplitBuddies.Models;
 using SplitBuddies.Utils;
-using GroupModel = SplitBuddies.Models.Group; // alias para evitar conflicto con Regex.Group
 
 namespace SplitBuddies.Views
 {
@@ -26,33 +24,26 @@ namespace SplitBuddies.Views
             if (!AppSession.IsAuthenticated && !string.IsNullOrWhiteSpace(currentUser.Email))
                 AppSession.SignIn(currentUser.Email);
 
-            // Asegurar datos
             EnsureDataLoaded();
-
-            // El controlador opera sobre la lista viva del DataManager
             groupController = new GroupController(DataManager.Instance.Groups);
 
-            // Enlaces de eventos (por si no están conectados en el diseñador)
             this.Load += GroupForm_Load;
             lstGrupos.SelectedIndexChanged += LstGrupos_SelectedIndexChanged;
             btnCreateGroup.Click += btnCreateGroup_Click;
             btnDeleteGroup.Click += btnDeleteGroup_Click;
 
-            // Conectar botón de Calcular/Ver balance si existe
-            if (this.Controls.Find("btnCalculateBalance", true).FirstOrDefault() is Button bCalc)
-                bCalc.Click += btnCalculateBalance_Click;
-
-            // Conectar botón de seleccionar imagen si existe
             if (this.Controls.Find("btnSelectImage", true).FirstOrDefault() is Button bImg)
                 bImg.Click += BtnSelectImage_Click;
 
-            // Botón de invitar (opcional Proyecto 2)
-            if (this.Controls.Find("btnInvite", true).FirstOrDefault() is Button bInvite)
-                bInvite.Click += btnInvite_Click;
+            if (this.Controls.Find("btnViewBalances", true).FirstOrDefault() is Button bView)
+                bView.Click += BtnViewBalances_Click;
+
+            if (this.Controls.Find("btnSendInvitations", true).FirstOrDefault() is Button bInvite)
+                bInvite.Click += BtnSendInvitations_Click;
         }
 
         // ========= Infra =========
-        private void EnsureDataLoaded()
+        private static void EnsureDataLoaded()
         {
             var dm = DataManager.Instance;
             dm.BasePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
@@ -62,7 +53,7 @@ namespace SplitBuddies.Views
             dm.LoadUsers();
             dm.LoadGroups();
             dm.LoadExpenses();
-            try { dm.LoadInvitations(); } catch { /* si no existe, lista vacía */ }
+            try { dm.LoadInvitations(); } catch { }
         }
 
         private void SaveAll()
@@ -80,11 +71,11 @@ namespace SplitBuddies.Views
 
         private void LoadGroups()
         {
-            var userGroups = groupController.GetGroupsForUser(currentUser.Email) ?? new List<GroupModel>();
+            var userGroups = groupController.GetGroupsForUser(currentUser.Email) ?? new List<Group>();
 
             lstGrupos.DataSource = null;
             lstGrupos.DataSource = userGroups;
-            lstGrupos.DisplayMember = nameof(GroupModel.GroupName);
+            lstGrupos.DisplayMember = nameof(Group.GroupName);
 
             if (userGroups.Count == 0)
             {
@@ -94,7 +85,32 @@ namespace SplitBuddies.Views
             }
         }
 
-        // Crear grupo
+        // ========= Botones nuevos =========
+        private void BtnViewBalances_Click(object sender, EventArgs e)
+        {
+            if (lstGrupos.SelectedItem is not Group selectedGroup)
+            {
+                MessageBox.Show("Seleccione un grupo.", "Balance", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            using var form = new BalanceForm(selectedGroup);
+            form.ShowDialog(this);
+        }
+
+        private void BtnSendInvitations_Click(object sender, EventArgs e)
+        {
+            if (lstGrupos.SelectedItem is not Group selectedGroup)
+            {
+                MessageBox.Show("Seleccione un grupo.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using var form = new InvitationForm(selectedGroup, currentUser);
+            form.ShowDialog(this);
+        }
+
+        // ========= Crear grupo =========
         private void btnCreateGroup_Click(object sender, EventArgs e)
         {
             string name = (txtGroupName?.Text ?? string.Empty).Trim();
@@ -106,7 +122,6 @@ namespace SplitBuddies.Views
                 return;
             }
 
-            // Evitar duplicados por nombre (del mismo usuario)
             bool exists = DataManager.Instance.Groups
                 .Where(g => (g.Members ?? new List<string>()).Any(m => string.Equals(m, currentUser.Email, StringComparison.OrdinalIgnoreCase)))
                 .Any(g => string.Equals(g.GroupName, name, StringComparison.OrdinalIgnoreCase));
@@ -124,7 +139,6 @@ namespace SplitBuddies.Views
             }
 
             var members = new List<string> { currentUser.Email };
-
             groupController.CreateGroup(name, imageName, members);
 
             SaveAll();
@@ -133,10 +147,10 @@ namespace SplitBuddies.Views
             MessageBox.Show("Grupo creado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        // Eliminar grupo
+        // ========= Eliminar grupo =========
         private void btnDeleteGroup_Click(object sender, EventArgs e)
         {
-            if (lstGrupos.SelectedItem is not GroupModel selectedGroup)
+            if (lstGrupos.SelectedItem is not Group selectedGroup)
             {
                 MessageBox.Show("Seleccione un grupo para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -152,29 +166,11 @@ namespace SplitBuddies.Views
             {
                 groupController.DeleteGroup(selectedGroup.GroupId);
 
-               
                 SaveAll();
                 LoadGroups();
                 LimpiarImagen();
 
                 MessageBox.Show("Grupo eliminado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-        // Selección de grupo
-        private void LstGrupos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstGrupos.SelectedItem is GroupModel selectedGroup)
-            {
-                txtGroupName.Text = selectedGroup.GroupName ?? string.Empty;
-                txtImagePath.Text = selectedGroup.IMAGE ?? string.Empty;
-                MostrarImagenGrupo(selectedGroup);
-            }
-            else
-            {
-                txtGroupName.Clear();
-                txtImagePath.Clear();
-                LimpiarImagen();
             }
         }
 
@@ -189,7 +185,6 @@ namespace SplitBuddies.Views
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string selectedPath = ofd.FileName;
-
                     string imageFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IMAGE");
                     Directory.CreateDirectory(imageFolder);
 
@@ -202,7 +197,7 @@ namespace SplitBuddies.Views
                             File.Copy(selectedPath, destinationPath, overwrite: false);
 
                         txtImagePath.Text = fileName;
-                        MostrarImagenGrupo(new GroupModel { IMAGE = fileName });
+                        MostrarImagenGrupo(new Group { IMAGE = fileName });
                     }
                     catch (Exception ex)
                     {
@@ -212,7 +207,7 @@ namespace SplitBuddies.Views
             }
         }
 
-        private void MostrarImagenGrupo(GroupModel grupo)
+        private void MostrarImagenGrupo(Group grupo)
         {
             try
             {
@@ -242,7 +237,7 @@ namespace SplitBuddies.Views
             }
         }
 
-        private static string ObtenerRutaImagen(GroupModel grupo)
+        private static string ObtenerRutaImagen(Group grupo)
         {
             if (grupo == null || string.IsNullOrWhiteSpace(grupo.IMAGE))
                 return null;
@@ -266,75 +261,20 @@ namespace SplitBuddies.Views
             return ext == ".jpg" || ext == ".jpeg" || ext == ".png";
         }
 
-        // ========= Invitaciones (opcional para Proyecto 2) =========
-        private void btnInvite_Click(object sender, EventArgs e)
+        private void LstGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstGrupos.SelectedItem is not GroupModel selectedGroup)
+            if (lstGrupos.SelectedItem is Group selectedGroup)
             {
-                MessageBox.Show("Seleccione un grupo para invitar usuarios.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                txtGroupName.Text = selectedGroup.GroupName ?? string.Empty;
+                txtImagePath.Text = selectedGroup.IMAGE ?? string.Empty;
+                MostrarImagenGrupo(selectedGroup);
             }
-
-            var txt = this.Controls.Find("txtInviteEmail", true).FirstOrDefault() as TextBox;
-            if (txt == null)
+            else
             {
-                MessageBox.Show("No existe el campo txtInviteEmail en el formulario.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                txtGroupName.Clear();
+                txtImagePath.Clear();
+                LimpiarImagen();
             }
-
-            string invitee = (txt.Text ?? string.Empty).Trim();
-            if (!IsValidEmail(invitee))
-            {
-                MessageBox.Show("Ingrese un email válido para invitar.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            selectedGroup.Members ??= new List<string>();
-            bool alreadyMember = selectedGroup.Members.Any(m => string.Equals(m, invitee, StringComparison.OrdinalIgnoreCase));
-            if (alreadyMember)
-            {
-                MessageBox.Show("Ese email ya es miembro del grupo.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            var dm = DataManager.Instance;
-
-            var inv = new Invitation
-            {
-                InvitationId = dm.GetNextInvitationId(),
-                GroupId = selectedGroup.GroupId,
-                InviteeEmail = invitee,
-                InviterEmail = currentUser?.Email,
-                Status = "Pending"
-            };
-
-            dm.Invitations.Add(inv);
-            dm.SaveInvitations();
-
-            MessageBox.Show("Invitación enviada.", "Invitación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txt.Clear();
-        }
-
-        private static bool IsValidEmail(string email)
-        {
-            try
-            {
-                return Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase);
-            }
-            catch { return false; }
-        }
-
-        // ========= Balance =========
-        private void btnCalculateBalance_Click(object sender, EventArgs e)
-        {
-            if (lstGrupos.SelectedItem is not GroupModel selectedGroup)
-            {
-                MessageBox.Show("Seleccione un grupo.", "Balance", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            using var form = new BalanceForm(selectedGroup);
-            form.ShowDialog(this);
         }
     }
 }

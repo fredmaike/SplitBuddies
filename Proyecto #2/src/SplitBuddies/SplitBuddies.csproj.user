@@ -5,9 +5,6 @@
     <Compile Update="Views\BalanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\DashboardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\EditGroupsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -15,6 +12,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\GroupForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\InvitationForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\LoginForm.cs">
@@ -27,6 +27,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\InvitationList.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
