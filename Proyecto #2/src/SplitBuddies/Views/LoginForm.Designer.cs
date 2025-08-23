@@ -1,104 +1,157 @@
-﻿namespace SplitBuddies.Views
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace SplitBuddies.Views
 {
+    /// <summary>
+    /// Contiene la definición visual del formulario de inicio de sesión.
+    /// Se encarga únicamente de la disposición y configuración de los controles.
+    /// </summary>
     partial class LoginForm
     {
-        // Contenedor para componentes del formulario, usado para liberar recursos
+        /// <summary>
+        /// Contenedor de componentes del formulario.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        // Etiqueta para el campo Email
-        private System.Windows.Forms.Label lblEmail;
-        // Caja de texto para que el usuario ingrese su email
-        private System.Windows.Forms.TextBox txtEmail;
+        // ===== Controles del formulario =====
 
-        // Etiqueta para el campo Contraseña
-        private System.Windows.Forms.Label lblPassword;
-        // Caja de texto para que el usuario ingrese su contraseña 
-        private System.Windows.Forms.TextBox txtPassword;
+        // Etiquetas
+        private Label lblEmail;
+        private Label lblPassword;
 
-        // Botón para iniciar sesión
-        private System.Windows.Forms.Button btnLogin;
-        // Botón para abrir el formulario de registro
-        private System.Windows.Forms.Button btnRegister;
+        // Cajas de texto
+        private TextBox txtEmail;
+        private TextBox txtPassword;
 
-        // Método para liberar los recursos usados por el formulario
+        // Botones
+        private Button btnLogin;
+        private Button btnRegister;
+
+        /// <summary>
+        /// Libera los recursos utilizados por el formulario.
+        /// </summary>
+        /// <param name="disposing">Indica si se deben liberar recursos administrados.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
-            {
                 components.Dispose();
-            }
+
             base.Dispose(disposing);
         }
 
-        // Método que inicializa y configura los controles del formulario
+        /// <summary>
+        /// Inicializa y configura todos los controles del formulario.
+        /// Divide la configuración en métodos especializados por tipo de control.
+        /// </summary>
         private void InitializeComponent()
         {
-            // Crear controles
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblPassword = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegister = new System.Windows.Forms.Button();
+            InitializeLabels();
+            InitializeTextBoxes();
+            InitializeButtons();
+            InitializeForm();
+        }
 
-            this.SuspendLayout();
+        #region Métodos de Inicialización de Controles
 
-            // Configuración de la etiqueta Email
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(30, 30);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(39, 15);
-            this.lblEmail.Text = "Email:";
+        /// <summary>
+        /// Inicializa y configura las etiquetas del formulario.
+        /// </summary>
+        private void InitializeLabels()
+        {
+            lblEmail = new Label
+            {
+                AutoSize = true,
+                Location = new Point(30, 30),
+                Name = "lblEmail",
+                Size = new Size(39, 15),
+                Text = "Email:"
+            };
 
-            // Configuración de la caja de texto Email
-            this.txtEmail.Location = new System.Drawing.Point(100, 27);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(200, 23);
+            lblPassword = new Label
+            {
+                AutoSize = true,
+                Location = new Point(30, 70),
+                Name = "lblPassword",
+                Size = new Size(70, 15),
+                Text = "Contraseña:"
+            };
 
-            // Configuración de la etiqueta Contraseña
-            this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(30, 70);
-            this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(70, 15);
-            this.lblPassword.Text = "Contraseña:";
+            // Agregar etiquetas al formulario
+            this.Controls.Add(lblEmail);
+            this.Controls.Add(lblPassword);
+        }
 
-            // Configuración de la caja de texto Contraseña
-            this.txtPassword.Location = new System.Drawing.Point(100, 67);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(200, 23);
-            this.txtPassword.UseSystemPasswordChar = true;  
+        /// <summary>
+        /// Inicializa y configura las cajas de texto del formulario.
+        /// </summary>
+        private void InitializeTextBoxes()
+        {
+            txtEmail = new TextBox
+            {
+                Location = new Point(100, 27),
+                Name = "txtEmail",
+                Size = new Size(200, 23)
+            };
 
-            // Configuración del botón Iniciar sesión
-            this.btnLogin.Location = new System.Drawing.Point(100, 110);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(90, 30);
-            this.btnLogin.Text = "Iniciar sesión";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            txtPassword = new TextBox
+            {
+                Location = new Point(100, 67),
+                Name = "txtPassword",
+                Size = new Size(200, 23),
+                UseSystemPasswordChar = true // Oculta el texto para la contraseña
+            };
 
-            // Configuración del botón Registrar
-            this.btnRegister.Location = new System.Drawing.Point(210, 110);
-            this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(90, 30);
-            this.btnRegister.Text = "Registrar";
-            this.btnRegister.UseVisualStyleBackColor = true;
-            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
+            // Agregar cajas de texto al formulario
+            this.Controls.Add(txtEmail);
+            this.Controls.Add(txtPassword);
+        }
 
-            // Configuración general del formulario LoginForm
-            this.ClientSize = new System.Drawing.Size(350, 170);
-            // Añadir controles al formulario
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.lblPassword);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.btnRegister);
+        /// <summary>
+        /// Inicializa y configura los botones del formulario.
+        /// </summary>
+        private void InitializeButtons()
+        {
+            btnLogin = new Button
+            {
+                Location = new Point(100, 110),
+                Name = "btnLogin",
+                Size = new Size(90, 30),
+                Text = "Iniciar sesión",
+                UseVisualStyleBackColor = true
+            };
+            btnLogin.Click += new EventHandler(this.btnLogin_Click);
 
+            btnRegister = new Button
+            {
+                Location = new Point(210, 110),
+                Name = "btnRegister",
+                Size = new Size(90, 30),
+                Text = "Registrar",
+                UseVisualStyleBackColor = true
+            };
+            btnRegister.Click += new EventHandler(this.btnRegister_Click);
+
+            // Agregar botones al formulario
+            this.Controls.Add(btnLogin);
+            this.Controls.Add(btnRegister);
+        }
+
+        /// <summary>
+        /// Configura las propiedades generales del formulario (tamaño, título y layout).
+        /// </summary>
+        private void InitializeForm()
+        {
+            this.ClientSize = new Size(350, 170);
             this.Name = "LoginForm";
             this.Text = "Inicio de sesión";
 
+            // Finaliza la inicialización del layout
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        #endregion
     }
 }

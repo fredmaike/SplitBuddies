@@ -6,42 +6,84 @@ using SplitBuddies.Models;
 
 namespace SplitBuddies.Data
 {
+    /// <summary>
+    /// Clase estática responsable de cargar y guardar datos en archivos JSON.
+    /// </summary>
     public static class DataLoader
     {
-        private static string userFile = "usuarios.json";
-        private static string groupFile = "grupos.json";
+        private static readonly string UserFilePath = "usuarios.json";
+        private static readonly string GroupFilePath = "grupos.json";
 
+        private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PropertyNameCaseInsensitive = true
+        };
+
+        /// <summary>
+        /// Carga la lista de usuarios desde el archivo JSON.
+        /// </summary>
         public static List<User> LoadUsers()
         {
-            if (!File.Exists(userFile))
-                return new List<User>();
-
-            string json = File.ReadAllText(userFile);
-            return JsonSerializer.Deserialize<List<User>>(json);
+            return LoadFromFile<User>(UserFilePath);
         }
 
+        /// <summary>
+        /// Guarda la lista de usuarios en el archivo JSON.
+        /// </summary>
         public static void SaveUsers(List<User> users)
         {
-            string json = JsonSerializer.Serialize(users, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(userFile, json);
+            SaveToFile(UserFilePath, users);
         }
 
+        /// <summary>
+        /// Carga la lista de grupos desde el archivo JSON.
+        /// </summary>
         public static List<Group> LoadGroups()
         {
-            if (!File.Exists(groupFile))
-                return new List<Group>();
-
-            string json = File.ReadAllText(groupFile);
-            return JsonSerializer.Deserialize<List<Group>>(json, new JsonSerializerOptions
-            {
-                PropertyNameCaseInsensitive = true
-            });
+            return LoadFromFile<Group>(GroupFilePath);
         }
 
+        /// <summary>
+        /// Guarda la lista de grupos en el archivo JSON.
+        /// </summary>
         public static void SaveGroups(List<Group> groups)
         {
-            string json = JsonSerializer.Serialize(groups, new JsonSerializerOptions { WriteIndented = true });
-            File.WriteAllText(groupFile, json);
+            SaveToFile(GroupFilePath, groups);
         }
+
+        #region Métodos privados genéricos
+
+        private static List<T> LoadFromFile<T>(string filePath)
+        {
+            if (!File.Exists(filePath))
+                return new List<T>();
+
+            try
+            {
+                string json = File.ReadAllText(filePath);
+                return JsonSerializer.Deserialize<List<T>>(json, JsonOptions) ?? new List<T>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar datos desde {filePath}: {ex.Message}");
+                return new List<T>();
+            }
+        }
+
+        private static void SaveToFile<T>(string filePath, List<T> data)
+        {
+            try
+            {
+                string json = JsonSerializer.Serialize(data, JsonOptions);
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar datos en {filePath}: {ex.Message}");
+            }
+        }
+
+        #endregion
     }
 }

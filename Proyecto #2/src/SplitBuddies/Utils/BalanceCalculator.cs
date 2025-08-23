@@ -9,111 +9,125 @@ namespace SplitBuddies.Utils
     public static class BalanceCalculator
     {
         /// <summary>
-        /// Calcula el balance por usuario (clave = email) dentro de un grupo.
-        /// Usa los gastos registrados en DataManager.
+        /// Calcula el balance neto por usuario dentro de un grupo.
+        /// Saldo positivo = acreedor, saldo negativo = deudor.
         /// </summary>
-        public static Dictionary<string, decimal> CalcularBalancePorUsuario(Group grupo)
+        public static Dictionary<string, decimal> CalcularBalancePorUsuario(Group group)
         {
-            var dm = DataManager.Instance;
-            var balance = new Dictionary<string, decimal>(StringComparer.OrdinalIgnoreCase);
-
-            if (grupo == null) return balance;
-
-            // Inicializa los miembros del grupo en 0
-            foreach (var email in (grupo.Members ?? new List<string>()).Where(e => !string.IsNullOrWhiteSpace(e)))
+            var balances = new Dictionary<string, decimal>();
+            foreach (var member in group.Members)
             {
-                if (!balance.ContainsKey(email))
-                    balance[email] = 0m;
+                balances[member] = 0m;
             }
 
-            // Obtener gastos del grupo
-            IEnumerable<Expense> gastosGrupo;
-            if (grupo.Expenses != null && grupo.Expenses.Count > 0)
-                gastosGrupo = dm.Expenses.Where(e => grupo.Expenses.Contains(e.Id));
-            else
-                gastosGrupo = dm.Expenses.Where(e => e.GroupId == grupo.GroupId);
-
-            foreach (var gasto in gastosGrupo)
+            foreach (var expenseId in group.Expenses)
             {
-                if (gasto == null || gasto.Amount <= 0) continue;
+                var expense = DataManager.Instance.Expenses.FirstOrDefault(e => e.Id == expenseId);
+                if (expense == null) continue;
 
-                var participantes = (gasto.InvolvedUsersEmails ?? new List<string>())
-                                    .Where(e => !string.IsNullOrWhiteSpace(e))
-                                    .ToList();
-                if (participantes.Count == 0) continue;
+                // Solo considerar participantes que están en el grupo
+                var participantesValidos = expense.InvolvedUsersEmails.Where(p => group.Members.Contains(p)).ToList();
+                if (!participantesValidos.Any()) continue;
 
-                decimal montoPorPersona = gasto.Amount / participantes.Count;
+                decimal share = expense.Amount / participantesValidos.Count;
 
-                // Cada participante debe su parte
-                foreach (var email in participantes)
+                foreach (var p in participantesValidos)
                 {
-                    if (!balance.ContainsKey(email))
-                        balance[email] = 0m;
-
-                    balance[email] -= montoPorPersona;
-                }
-
-                // El pagador recibe el total
-                if (!string.IsNullOrWhiteSpace(gasto.PaidByEmail))
-                {
-                    if (!balance.ContainsKey(gasto.PaidByEmail))
-                        balance[gasto.PaidByEmail] = 0m;
-
-                    balance[gasto.PaidByEmail] += gasto.Amount;
+                    if (p == expense.PaidByEmail)
+                        balances[p] += expense.Amount - share; // el que paga adelanta el resto
+                    else
+                        balances[p] -= share; // los demás deben pagar su parte
                 }
             }
 
-            return balance;
+            return balances;
         }
 
         /// <summary>
-        /// A partir de un diccionario de netos (email → saldo),
-        /// genera transferencias mínimas entre deudores y acreedores.
+        /// Genera liquidaciones mínimas a partir de los balances netos.
         /// </summary>
-        public static List<Settlement> CalcularDeudas(Dictionary<string, decimal> netos)
+        public static List<Settlement> CalcularDeudas(Dictionary<string, decimal> balances)
         {
-            var deudas = new List<Settlement>();
-
-            if (netos == null || netos.Count == 0)
-                return deudas;
-
-            var debtors = netos
-                .Where(kv => kv.Value < 0)
-                .Select(kv => new KeyValuePair<string, decimal>(kv.Key, Math.Abs(kv.Value)))
-                .OrderBy(kv => kv.Value)
-                .ToList();
-
-            var creditors = netos
-                .Where(kv => kv.Value > 0)
-                .Select(kv => new KeyValuePair<string, decimal>(kv.Key, kv.Value))
-                .OrderBy(kv => kv.Value)
-                .ToList();
+            var deudores = balances.Where(b => b.Value < 0).Select(b => (b.Key, Amount: -b.Value)).ToList();
+            var acreedores = balances.Where(b => b.Value > 0).Select(b => (b.Key, Amount: b.Value)).ToList();
+            var settlements = new List<Settlement>();
 
             int i = 0, j = 0;
-            while (i < debtors.Count && j < creditors.Count)
+            while (i < deudores.Count && j < acreedores.Count)
             {
-                var d = debtors[i];
-                var c = creditors[j];
+                var debtor = deudores[i];
+                var creditor = acreedores[j];
 
-                decimal pay = Math.Min(d.Value, c.Value);
-                if (pay > 0)
+                decimal pago = Math.Min(debtor.Amount, creditor.Amount);
+
+                settlements.Add(new Settlement(debtor.Key, creditor.Key, pago));
+
+                deudores[i] = (debtor.Key, debtor.Amount - pago);
+                acreedores[j] = (creditor.Key, creditor.Amount - pago);
+
+                if (deudores[i].Amount == 0) i++;
+                if (acreedores[j].Amount == 0) j++;
+            }
+
+            return settlements;
+        }
+
+
+        #region Métodos privados
+
+        private static void AplicarGastoAlBalance(Expense gasto, Dictionary<string, decimal> balance)
+        {
+            if (gasto == null || gasto.Amount <= 0) return;
+
+            // Solo participantes que son miembros del grupo
+            var participantesValidos = (gasto.InvolvedUsersEmails ?? new List<string>())
+                                      .Where(email => !string.IsNullOrWhiteSpace(email) && balance.ContainsKey(email))
+                                      .ToList();
+
+            if (participantesValidos.Count == 0) return;
+
+            decimal montoPorPersona = gasto.Amount / participantesValidos.Count;
+
+            foreach (var email in participantesValidos)
+            {
+                balance[email] -= montoPorPersona;
+            }
+
+            if (!string.IsNullOrWhiteSpace(gasto.PaidByEmail) && balance.ContainsKey(gasto.PaidByEmail))
+                balance[gasto.PaidByEmail] += gasto.Amount;
+        }
+
+        private static void ResolverPagos(List<KeyValuePair<string, decimal>> deudores,
+                                          List<KeyValuePair<string, decimal>> acreedores,
+                                          List<Settlement> deudas)
+        {
+            int i = 0, j = 0;
+
+            while (i < deudores.Count && j < acreedores.Count)
+            {
+                var deudor = deudores[i];
+                var acreedor = acreedores[j];
+
+                decimal monto = Math.Min(deudor.Value, acreedor.Value);
+
+                if (monto > 0)
                 {
                     deudas.Add(new Settlement
                     {
-                        FromEmail = d.Key,
-                        ToEmail = c.Key,
-                        Amount = Math.Round(pay, 2, MidpointRounding.AwayFromZero)
+                        FromEmail = deudor.Key,
+                        ToEmail = acreedor.Key,
+                        Amount = Math.Round(monto, 2, MidpointRounding.AwayFromZero)
                     });
 
-                    debtors[i] = new KeyValuePair<string, decimal>(d.Key, d.Value - pay);
-                    creditors[j] = new KeyValuePair<string, decimal>(c.Key, c.Value - pay);
+                    deudores[i] = new KeyValuePair<string, decimal>(deudor.Key, deudor.Value - monto);
+                    acreedores[j] = new KeyValuePair<string, decimal>(acreedor.Key, acreedor.Value - monto);
                 }
 
-                if (debtors[i].Value == 0) i++;
-                if (creditors[j].Value == 0) j++;
+                if (deudores[i].Value == 0) i++;
+                if (acreedores[j].Value == 0) j++;
             }
-
-            return deudas;
         }
+
+        #endregion
     }
 }

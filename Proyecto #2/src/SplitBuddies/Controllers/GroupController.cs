@@ -11,9 +11,9 @@ namespace SplitBuddies.Controllers
     public class GroupController
     {
         /// <summary>
-        /// Lista de grupos que este controlador maneja.
+        /// Lista de grupos gestionados por el controlador.
         /// </summary>
-        private readonly List<Group> groups;
+        private readonly List<Group> _groups;
 
         /// <summary>
         /// Inicializa una nueva instancia de <see cref="GroupController"/> con la lista de grupos existente.
@@ -21,7 +21,7 @@ namespace SplitBuddies.Controllers
         /// <param name="groups">Lista de grupos existentes.</param>
         public GroupController(List<Group> groups)
         {
-            this.groups = groups;
+            _groups = groups ?? new List<Group>();
         }
 
         /// <summary>
@@ -31,7 +31,9 @@ namespace SplitBuddies.Controllers
         /// <returns>Lista de grupos en los que el usuario es miembro.</returns>
         public List<Group> GetGroupsForUser(string email)
         {
-            return groups.Where(g => g.Members.Contains(email)).ToList();
+            return _groups
+                .Where(group => group.Members.Contains(email))
+                .ToList();
         }
 
         /// <summary>
@@ -40,34 +42,47 @@ namespace SplitBuddies.Controllers
         /// <param name="name">Nombre del nuevo grupo.</param>
         /// <param name="imagePath">Ruta de la imagen asociada al grupo.</param>
         /// <param name="memberEmails">Lista de correos electrónicos de los miembros.</param>
-        public void CreateGroup(string name, string imagePath, List<string> memberEmails)
+        /// <returns>El grupo creado.</returns>
+        public Group CreateGroup(string name, string imagePath, List<string> memberEmails)
         {
             var newGroup = new Group
             {
-                // Asignar un ID único al nuevo grupo
-                GroupId = groups.Count > 0 ? groups.Max(g => g.GroupId) + 1 : 1,
-
+                GroupId = GenerateNextGroupId(),
                 GroupName = name,
                 IMAGE = imagePath,
-                Members = memberEmails,
-                Expenses = new List<int>() // Se inicia sin gastos
+                Members = memberEmails ?? new List<string>(),
+                Expenses = new List<int>()
             };
 
-            // Agregar el nuevo grupo a la lista de grupos
-            groups.Add(newGroup);
+            _groups.Add(newGroup);
+            return newGroup;
         }
 
         /// <summary>
         /// Elimina un grupo por su ID si existe.
         /// </summary>
         /// <param name="groupId">ID del grupo a eliminar.</param>
-        public void DeleteGroup(int groupId)
+        /// <returns>True si el grupo fue eliminado, false en caso contrario.</returns>
+        public bool DeleteGroup(int groupId)
         {
-            var groupToRemove = groups.FirstOrDefault(g => g.GroupId == groupId);
-            if (groupToRemove != null)
-            {
-                groups.Remove(groupToRemove);
-            }
+            var groupToRemove = _groups.FirstOrDefault(g => g.GroupId == groupId);
+            if (groupToRemove == null) return false;
+
+            _groups.Remove(groupToRemove);
+            return true;
         }
+
+        #region Métodos privados auxiliares
+
+        /// <summary>
+        /// Genera un nuevo ID único para un grupo.
+        /// </summary>
+        /// <returns>Un ID único.</returns>
+        private int GenerateNextGroupId()
+        {
+            return _groups.Count > 0 ? _groups.Max(g => g.GroupId) + 1 : 1;
+        }
+
+        #endregion
     }
 }

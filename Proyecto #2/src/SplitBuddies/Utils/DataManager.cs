@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace SplitBuddies.Data
 {
     /// <summary>
-    /// Singleton que maneja la carga y almacenamiento de usuarios, grupos, gastos e invitaciones.
+    /// Singleton que gestiona la carga y almacenamiento de usuarios, grupos, gastos e invitaciones.
     /// </summary>
     public class DataManager
     {
@@ -26,7 +26,7 @@ namespace SplitBuddies.Data
         // --------- Ruta base ---------
         public string BasePath { get; set; } = "";
 
-        // --------- Listas en memoria ---------
+        // --------- Listas en memoria (solo lectura pública) ---------
         public List<User> Users { get; private set; } = new List<User>();
         public List<Group> Groups { get; private set; } = new List<Group>();
         public List<Expense> Expenses { get; private set; } = new List<Expense>();
@@ -34,67 +34,114 @@ namespace SplitBuddies.Data
 
         private DataManager() { }
 
-        // ================== CARGA ==================
-        public void LoadUsers() => Users = LoadFromFile<User>(USERS_FILE);
-        public void LoadGroups() => Groups = LoadFromFile<Group>(GROUPS_FILE);
-        public void LoadExpenses() => Expenses = LoadFromFile<Expense>(EXPENSES_FILE);
-        public void LoadInvitations() => Invitations = LoadFromFile<Invitation>(INVITATIONS_FILE);
+        #region CARGA DE DATOS
 
-        private List<T> LoadFromFile<T>(string fileName)
+        /// <summary>
+        /// Carga todos los usuarios desde su archivo JSON.
+        /// </summary>
+        public void LoadUsers() => Users = CargarDesdeArchivo<User>(USERS_FILE);
+
+        /// <summary>
+        /// Carga todos los grupos desde su archivo JSON.
+        /// </summary>
+        public void LoadGroups() => Groups = CargarDesdeArchivo<Group>(GROUPS_FILE);
+
+        /// <summary>
+        /// Carga todos los gastos desde su archivo JSON.
+        /// </summary>
+        public void LoadExpenses() => Expenses = CargarDesdeArchivo<Expense>(EXPENSES_FILE);
+
+        /// <summary>
+        /// Carga todas las invitaciones desde su archivo JSON.
+        /// </summary>
+        public void LoadInvitations() => Invitations = CargarDesdeArchivo<Invitation>(INVITATIONS_FILE);
+
+        /// <summary>
+        /// Lee y deserializa una lista de objetos desde un archivo JSON.
+        /// Si hay error, retorna lista vacía y muestra mensaje.
+        /// </summary>
+        private List<T> CargarDesdeArchivo<T>(string fileName)
         {
             string path = Path.Combine(BasePath, fileName);
-            if (File.Exists(path))
+            if (!File.Exists(path)) return new List<T>();
+
+            try
             {
-                try
-                {
-                    var json = File.ReadAllText(path);
-                    return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
-                }
-                catch
-                {
-                    MessageBox.Show($"Error al leer {fileName}. Se cargará lista vacía.");
-                }
+                var json = File.ReadAllText(path);
+                return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
             }
-            return new List<T>();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al leer {fileName}: {ex.Message}\nSe cargará una lista vacía.",
+                                "Error de lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return new List<T>();
+            }
         }
 
-        // ================== GUARDADO ==================
-        public void SaveUsers() => SaveToFile(Users, USERS_FILE);
-        public void SaveGroups() => SaveToFile(Groups, GROUPS_FILE);
-        public void SaveExpenses() => SaveToFile(Expenses, EXPENSES_FILE);
-        public void SaveInvitations() => SaveToFile(Invitations, INVITATIONS_FILE);
+        #endregion
 
-        private void SaveToFile<T>(List<T> data, string fileName)
+        #region GUARDADO DE DATOS
+
+        public void SaveUsers() => GuardarEnArchivo(Users, USERS_FILE);
+        public void SaveGroups() => GuardarEnArchivo(Groups, GROUPS_FILE);
+        public void SaveExpenses() => GuardarEnArchivo(Expenses, EXPENSES_FILE);
+        public void SaveInvitations() => GuardarEnArchivo(Invitations, INVITATIONS_FILE);
+
+        /// <summary>
+        /// Serializa y guarda una lista de objetos en un archivo JSON.
+        /// </summary>
+        private void GuardarEnArchivo<T>(List<T> data, string fileName)
         {
             EnsureBasePathExists();
             string path = Path.Combine(BasePath, fileName);
+
             try
             {
-                var json = JsonConvert.SerializeObject(data, Formatting.Indented);
+                var json = JsonConvert.SerializeObject(data ?? new List<T>(), Formatting.Indented);
                 File.WriteAllText(path, json);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar {fileName}: {ex.Message}");
+                MessageBox.Show($"Error al guardar {fileName}: {ex.Message}",
+                                "Error de guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        // ================== ID AUTO-INCREMENT ==================
+        #endregion
+
+        #region GENERACIÓN DE IDS
+
+        /// <summary>
+        /// Obtiene el siguiente ID disponible para un gasto.
+        /// </summary>
         public int GetNextExpenseId()
         {
-            return Expenses.Any() ? Expenses.Max(e => e.Id) + 1 : 1;
+            return Expenses.Max(e => e.Id) + 1; // Esto falla si Expenses está vacío
         }
 
+        /// <summary>
+        /// Obtiene el siguiente ID disponible para una invitación.
+        /// </summary>
         public int GetNextInvitationId()
         {
-            return Invitations.Any() ? Invitations.Max(i => i.InvitationId) + 1 : 1;
+            return (Invitations != null && Invitations.Count > 0) ?
+                Invitations.Max(i => i.InvitationId) + 1
+                : 1; 
         }
 
-        // ================== UTILITARIOS ==================
+        #endregion
+
+        #region UTILITARIOS
+
+        /// <summary>
+        /// Asegura que la ruta base exista; si no, la crea.
+        /// </summary>
         private void EnsureBasePathExists()
         {
             if (!string.IsNullOrWhiteSpace(BasePath) && !Directory.Exists(BasePath))
                 Directory.CreateDirectory(BasePath);
         }
+
+        #endregion
     }
 }

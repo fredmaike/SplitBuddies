@@ -3,21 +3,40 @@ using System.Windows.Forms;
 
 namespace SplitBuddies.Views
 {
+    /// <summary>
+    /// Parte del formulario principal MainForm (diseñador).
+    /// Contiene la inicialización de los controles visuales del formulario.
+    /// </summary>
     partial class MainForm
     {
+        /// <summary>
+        /// Contenedor de componentes utilizado para liberar recursos.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        private Label lblWelcome;
-        private Button btnGroups;
-        private Button btnExpenses;
-        private Button btnSave;
-        private Button btnMostrar;
-        private Button btnLogout;
-        private Button btnEditGroups;
-        private Button btnInvitations; 
+        // -----------------------------
+        // Controles principales del formulario
+        // -----------------------------
+        private Label lblWelcome;       // Label de bienvenida del usuario
+        private Button btnGroups;       // Botón para gestionar grupos
+        private Button btnExpenses;     // Botón para gestionar gastos
+        private Button btnSave;         // Botón para guardar cambios
+        private Button btnMostrar;      // Botón para mostrar grupos y gastos
+        private Button btnLogout;       // Botón para cerrar sesión
+        private Button btnEditGroups;   // Botón para modificar grupos y gastos
+        private Button btnInvitations;  // Botón para ver invitaciones pendientes
 
+        // Labels informativos del estado del usuario
+        private Label lblStatus;        // Estado general del usuario
+        private Label lblDebts;         // Deudas del usuario hacia otros
+        private Label lblGroups;        // Grupos a los que pertenece el usuario
+
+        /// <summary>
+        /// Inicializa y configura todos los controles del formulario.
+        /// </summary>
         private void InitializeComponent()
         {
+            // Inicializar controles
             lblWelcome = new Label();
             btnGroups = new Button();
             btnExpenses = new Button();
@@ -25,16 +44,24 @@ namespace SplitBuddies.Views
             btnMostrar = new Button();
             btnLogout = new Button();
             btnEditGroups = new Button();
-            btnInvitations = new Button(); 
+            btnInvitations = new Button();
+
+            lblStatus = new Label();
+            lblDebts = new Label();
+            lblGroups = new Label();
 
             SuspendLayout();
 
-            // Label de bienvenida
+            // -----------------------------
+            // Configuración del label de bienvenida
+            // -----------------------------
             lblWelcome.Location = new Point(20, 20);
             lblWelcome.Size = new Size(200, 23);
             lblWelcome.Text = "Bienvenido";
 
-            // Botones existentes
+            // -----------------------------
+            // Configuración de botones principales
+            // -----------------------------
             btnGroups.Location = new Point(20, 60);
             btnGroups.Size = new Size(100, 30);
             btnGroups.Text = "Grupos";
@@ -50,29 +77,51 @@ namespace SplitBuddies.Views
             btnSave.Text = "Guardar";
             btnSave.Click += btnSave_Click;
 
-            btnMostrar.Location = new Point(140, 100);
-            btnMostrar.Size = new Size(220, 30);
-            btnMostrar.Text = "Mostrar Grupos y Gastos";
-            btnMostrar.Click += btnMostrar_Click;
-
             btnLogout.Location = new Point(20, 100);
             btnLogout.Size = new Size(100, 30);
             btnLogout.Text = "Cerrar Sesión";
             btnLogout.Click += btnLogout_Click;
 
+            btnMostrar.Location = new Point(140, 100);
+            btnMostrar.Size = new Size(220, 30);
+            btnMostrar.Text = "Mostrar Grupos y Gastos";
+            btnMostrar.Click += btnMostrar_Click;
+
             btnEditGroups.Location = new Point(20, 140);
             btnEditGroups.Size = new Size(360, 30);
-            btnEditGroups.Text = "Modificar Grupos";
+            btnEditGroups.Text = "Modificar Grupos y Gastos";
             btnEditGroups.Click += btnEditGroups_Click;
 
-            // Nuevo botón para ver invitaciones pendientes
             btnInvitations.Location = new Point(20, 180);
             btnInvitations.Size = new Size(360, 30);
             btnInvitations.Text = "Ver Invitaciones Pendientes";
-            btnInvitations.Click += BtnInvitations_Click; 
+            btnInvitations.Click += BtnInvitations_Click;
 
+            // -----------------------------
+            // Configuración de labels informativos del usuario
+            // -----------------------------
+            lblStatus.Location = new Point(20, 230);
+            lblStatus.Size = new Size(360, 23);
+            lblStatus.Text = "Estatus: ";
+
+            lblDebts.Location = new Point(20, 260);
+            lblDebts.Size = new Size(360, 23);
+            lblDebts.Text = "Debe a: ";
+
+            lblGroups.Location = new Point(20, 290);
+            lblGroups.Size = new Size(360, 23);
+            lblGroups.Text = "Grupo(s): ";
+
+            // -----------------------------
             // Configuración general del formulario
-            ClientSize = new Size(400, 230); 
+            // -----------------------------
+            ClientSize = new Size(400, 330);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "MainForm";
+            Text = "SplitBuddies - Main";
+
+            // Añadir todos los controles al formulario
             Controls.Add(lblWelcome);
             Controls.Add(btnGroups);
             Controls.Add(btnExpenses);
@@ -80,12 +129,11 @@ namespace SplitBuddies.Views
             Controls.Add(btnMostrar);
             Controls.Add(btnLogout);
             Controls.Add(btnEditGroups);
-            Controls.Add(btnInvitations); // Agregar al formulario
+            Controls.Add(btnInvitations);
 
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            Name = "MainForm";
-            Text = "SplitBuddies - Main";
+            Controls.Add(lblStatus);
+            Controls.Add(lblDebts);
+            Controls.Add(lblGroups);
 
             ResumeLayout(false);
         }

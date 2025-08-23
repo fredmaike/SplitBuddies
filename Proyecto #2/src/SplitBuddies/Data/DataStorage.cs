@@ -14,30 +14,63 @@ namespace SplitBuddies.Data
         /// <summary>
         /// Ruta del archivo donde se almacenan los datos de los usuarios.
         /// </summary>
-        private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "usuarios.json");
+        private static readonly string FilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "usuarios.json");
 
         /// <summary>
         /// Carga la lista de usuarios desde el archivo JSON.
-        /// Si el archivo no existe, retorna una lista vacía.
+        /// Si el archivo no existe o hay error, retorna una lista vacía.
         /// </summary>
-        /// <returns>Lista de usuarios cargados desde el archivo JSON.</returns>
         public static List<User> LoadUsers()
         {
-            if (!File.Exists(filePath))
-                return new List<User>();
+            try
+            {
+                EnsureDirectoryExists();
 
-            string json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<User>>(json) ?? new List<User>();
+                if (!File.Exists(FilePath))
+                    return new List<User>();
+
+                string json = File.ReadAllText(FilePath);
+                return JsonConvert.DeserializeObject<List<User>>(json) ?? new List<User>();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al cargar usuarios: {ex.Message}");
+                return new List<User>();
+            }
         }
 
         /// <summary>
-        /// Guarda la lista de usuarios en el archivo JSON con formato indentado para facilitar su lectura.
+        /// Guarda la lista de usuarios en el archivo JSON con formato indentado.
         /// </summary>
-        /// <param name="usuarios">Lista de usuarios a guardar.</param>
-        public static void SaveUsers(List<User> usuarios)
+        public static void SaveUsers(List<User> users)
         {
-            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
-            File.WriteAllText(filePath, json);
+            try
+            {
+                EnsureDirectoryExists();
+
+                string json = JsonConvert.SerializeObject(users ?? new List<User>(), Formatting.Indented);
+                File.WriteAllText(FilePath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al guardar usuarios: {ex.Message}");
+            }
         }
+
+        #region Métodos privados auxiliares
+
+        /// <summary>
+        /// Asegura que la carpeta donde se guarda el archivo JSON exista.
+        /// </summary>
+        private static void EnsureDirectoryExists()
+        {
+            string directory = Path.GetDirectoryName(FilePath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+        }
+
+        #endregion
     }
 }

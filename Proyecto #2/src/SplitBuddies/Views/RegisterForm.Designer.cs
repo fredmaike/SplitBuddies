@@ -6,40 +6,41 @@ namespace SplitBuddies.Views
 {
     partial class RegisterForm
     {
-        // Contenedor para los componentes del formulario, para gestionar recursos
         private System.ComponentModel.IContainer components = null;
 
-        // Etiqueta del título del formulario
+        // ==========================
+        // Controles del formulario
+        // ==========================
         private Label lblTitle;
-        // Etiqueta y caja de texto para ingresar el nombre
         private Label lblName;
         private TextBox txtName;
-        // Etiqueta y caja de texto para ingresar el correo electrónico
         private Label lblEmail;
         private TextBox txtEmail;
-        // Etiqueta y caja de texto para ingresar la contraseña
         private Label lblPassword;
         private TextBox txtPassword;
-        // Etiqueta y caja de texto para confirmar la contraseña
         private Label lblConfirmPassword;
         private TextBox txtConfirmPassword;
-        // Botón para registrar el usuario
         private Button btnRegister;
-        // Botón para cancelar el registro y cerrar el formulario
         private Button btnCancel;
 
-        // Método para liberar los recursos que use el formulario
+        /// <summary>
+        /// Libera los recursos utilizados por el formulario.
+        /// </summary>
+        /// <param name="disposing">Indica si se deben liberar recursos administrados.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
-                components.Dispose(); 
+                components.Dispose();
             }
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Inicializa y configura todos los controles del formulario de registro.
+        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
@@ -52,91 +53,126 @@ namespace SplitBuddies.Views
             this.MinimizeBox = false;
             this.StartPosition = FormStartPosition.CenterParent;
 
-            // Variables para el layout de etiquetas y controles
-            int labelWidth = 120;
-            int controlWidth = 180;
-            int labelX = 20;
-            int controlX = 140;
+            // ==========================
+            // Variables para layout
+            // ==========================
+            const int labelWidth = 120;
+            const int controlWidth = 180;
+            const int labelX = 20;
+            const int controlX = 140;
             int y = 25;
-            int spacing = 32;
+            const int spacing = 32;
 
-            // Label título del formulario
-            lblTitle = new Label();
-            lblTitle.Text = "Registro de usuario";
-            lblTitle.Font = new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold);
-            lblTitle.Size = new Size(310, 32);
-            lblTitle.Location = new Point(20, 10);
-            lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // ==========================
+            // Controles del formulario
+            // ==========================
 
-            // Label y TextBox para Nombre
-            lblName = new Label();
-            lblName.Text = "Nombre:";
-            lblName.Size = new Size(labelWidth, 23);
-            lblName.Location = new Point(labelX, y += 40);
+            // Título del formulario
+            lblTitle = CrearLabel(
+                "Registro de usuario",
+                new Font(FontFamily.GenericSansSerif, 14, FontStyle.Bold),
+                new Size(310, 32),
+                new Point(20, 10),
+                ContentAlignment.MiddleCenter
+            );
 
-            txtName = new TextBox();
-            txtName.Size = new Size(controlWidth, 23);
-            txtName.Location = new Point(controlX, y);
+            // Nombre
+            lblName = CrearLabel("Nombre:", labelWidth, new Point(labelX, y += 40));
+            txtName = CrearTextBox(new Point(controlX, y), controlWidth);
 
-            // Label y TextBox para Email
-            lblEmail = new Label();
-            lblEmail.Text = "Correo electrónico:";
-            lblEmail.Size = new Size(labelWidth, 23);
-            lblEmail.Location = new Point(labelX, y += spacing);
+            // Correo electrónico
+            lblEmail = CrearLabel("Correo electrónico:", labelWidth, new Point(labelX, y += spacing));
+            txtEmail = CrearTextBox(new Point(controlX, y), controlWidth);
 
-            txtEmail = new TextBox();
-            txtEmail.Size = new Size(controlWidth, 23);
-            txtEmail.Location = new Point(controlX, y);
+            // Contraseña
+            lblPassword = CrearLabel("Contraseña:", labelWidth, new Point(labelX, y += spacing));
+            txtPassword = CrearTextBox(new Point(controlX, y), controlWidth, true);
 
-            // Label y TextBox para Contraseña
-            lblPassword = new Label();
-            lblPassword.Text = "Contraseña:";
-            lblPassword.Size = new Size(labelWidth, 23);
-            lblPassword.Location = new Point(labelX, y += spacing);
+            // Confirmar contraseña
+            lblConfirmPassword = CrearLabel("Confirmar contraseña:", labelWidth, new Point(labelX, y += spacing));
+            txtConfirmPassword = CrearTextBox(new Point(controlX, y), controlWidth, true);
 
-            txtPassword = new TextBox();
-            txtPassword.Size = new Size(controlWidth, 23);
-            txtPassword.Location = new Point(controlX, y);
-            txtPassword.PasswordChar = '●'; // Oculta la contraseña ingresada
+            // Botón Registrar
+            btnRegister = CrearBoton("Registrar", new Size(110, 32), new Point(70, y += spacing + 18), btnRegister_Click);
 
-            // Label y TextBox para Confirmar Contraseña
-            lblConfirmPassword = new Label();
-            lblConfirmPassword.Text = "Confirmar contraseña:";
-            lblConfirmPassword.Size = new Size(labelWidth, 23);
-            lblConfirmPassword.Location = new Point(labelX, y += spacing);
+            // Botón Cancelar
+            btnCancel = CrearBoton("Cancelar", new Size(110, 32), new Point(180, y));
+            btnCancel.DialogResult = DialogResult.Cancel;
 
-            txtConfirmPassword = new TextBox();
-            txtConfirmPassword.Size = new Size(controlWidth, 23);
-            txtConfirmPassword.Location = new Point(controlX, y);
-            txtConfirmPassword.PasswordChar = '●'; // Oculta la contraseña ingresada
-
-            // Botón para registrar el usuario
-            btnRegister = new Button();
-            btnRegister.Text = "Registrar";
-            btnRegister.Size = new Size(110, 32);
-            btnRegister.Location = new Point(70, y += spacing + 18);
-            btnRegister.Click += btnRegister_Click; // Asigna el evento click
-
-            // Botón para cancelar el registro
-            btnCancel = new Button();
-            btnCancel.Text = "Cancelar";
-            btnCancel.Size = new Size(110, 32);
-            btnCancel.Location = new Point(180, y);
-            btnCancel.DialogResult = DialogResult.Cancel; // Cierra el formulario
-
-            // Añade todos los controles al formulario
-            Controls.Add(lblTitle);
-            Controls.Add(lblName);
-            Controls.Add(txtName);
-            Controls.Add(lblEmail);
-            Controls.Add(txtEmail);
-            Controls.Add(lblPassword);
-            Controls.Add(txtPassword);
-            Controls.Add(lblConfirmPassword);
-            Controls.Add(txtConfirmPassword);
-            Controls.Add(btnRegister);
-            Controls.Add(btnCancel);
+            // Agregar todos los controles al formulario
+            Controls.AddRange(new Control[]
+            {
+                lblTitle,
+                lblName, txtName,
+                lblEmail, txtEmail,
+                lblPassword, txtPassword,
+                lblConfirmPassword, txtConfirmPassword,
+                btnRegister, btnCancel
+            });
         }
+
+        #region Helpers
+
+        /// <summary>
+        /// Crea un Label simple con texto, ancho y ubicación.
+        /// </summary>
+        private static Label CrearLabel(string texto, int ancho, Point location)
+        {
+            return new Label
+            {
+                Text = texto,
+                Size = new Size(ancho, 23),
+                Location = location
+            };
+        }
+
+        /// <summary>
+        /// Crea un Label con fuente personalizada, tamaño, ubicación y alineación.
+        /// </summary>
+        private static Label CrearLabel(string texto, Font font, Size size, Point location, ContentAlignment align)
+        {
+            return new Label
+            {
+                Text = texto,
+                Font = font,
+                Size = size,
+                Location = location,
+                TextAlign = align
+            };
+        }
+
+        /// <summary>
+        /// Crea un TextBox en una ubicación específica, opcionalmente con carácter de contraseña.
+        /// </summary>
+        private static TextBox CrearTextBox(Point location, int ancho, bool passwordChar = false)
+        {
+            return new TextBox
+            {
+                Size = new Size(ancho, 23),
+                Location = location,
+                PasswordChar = passwordChar ? '●' : '\0'
+            };
+        }
+
+        /// <summary>
+        /// Crea un botón con texto, tamaño, ubicación y un manejador opcional para el evento Click.
+        /// </summary>
+        private static Button CrearBoton(string texto, Size size, Point location, EventHandler clickHandler = null)
+        {
+            var button = new Button
+            {
+                Text = texto,
+                Size = size,
+                Location = location
+            };
+            if (clickHandler != null)
+                button.Click += clickHandler;
+
+            return button;
+        }
+
+        #endregion
+
+        #endregion
     }
-    #endregion
 }
