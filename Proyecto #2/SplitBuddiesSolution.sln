@@ -5,6 +5,10 @@ VisualStudioVersion = 17.14.36221.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBuddies", "src\SplitBuddies\SplitBuddies.csproj", "{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SplitBuddies.Tests", "SplitBuddies.Tests\SplitBuddies.Tests.csproj", "{7256FEA2-097A-4235-B3D7-AB960A06B208}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +25,20 @@ Global
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|x64.ActiveCfg = Release|x64
 		{1A284D9C-4D7F-4538-961F-E1B6C0D0B671}.Release|x64.Build.0 = Release|x64
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Debug|x64.Build.0 = Debug|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Release|x64.ActiveCfg = Release|Any CPU
+		{7256FEA2-097A-4235-B3D7-AB960A06B208}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7256FEA2-097A-4235-B3D7-AB960A06B208} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6F53D7F-1E32-4847-AB7A-475126B2FAED}
