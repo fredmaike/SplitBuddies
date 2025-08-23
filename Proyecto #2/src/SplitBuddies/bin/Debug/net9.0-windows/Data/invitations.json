@@ -1,9 +1,0 @@
-[
-  {
-    "InvitationId": 1,
-    "GroupId": 30,
-    "InviteeEmail": "maria@email.com",
-    "InviterEmail": "pedro@email.com",
-    "Status": "Accepted"
-  }
-]
