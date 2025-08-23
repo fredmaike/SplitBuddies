@@ -1,0 +1,126 @@
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\usuarios.json
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.exe
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\gastos.json
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\grupos.json
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.deps.json
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.runtimeconfig.json
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.dll
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.AssemblyReference.cache
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.DashboardForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.ExpenseForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.FormAgregarUser.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.FormCrearGrupo.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.FormAgregarUsuario.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.GroupForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.LoginForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MainForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.RegisterForm.resources
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.GenerateResource.cache
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfoInputs.cache
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfo.cs
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.CoreCompileInputs.cache
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBud.0649AE16.Up2Date
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.dll
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\refint\SplitBuddies.dll
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.pdb
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.genruntimeconfig.cache
+C:\Users\fredm\Desktop\Tecnicas de progra\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\ref\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\usuarios.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.exe
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\gastos.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\grupos.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.deps.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.runtimeconfig.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.AssemblyReference.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.BalanceForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.ExpenseForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.GroupForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationList.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.LoginForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MainForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.RegisterForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.GenerateResource.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfoInputs.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfo.cs
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.CoreCompileInputs.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBud.0649AE16.Up2Date
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\refint\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.genruntimeconfig.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\ref\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\usuarios.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.exe
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\gastos.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\grupos.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.deps.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.runtimeconfig.json
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.AssemblyReference.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.BalanceForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.ExpenseForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.GroupForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationList.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.LoginForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MainForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.RegisterForm.resources
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.GenerateResource.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfoInputs.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfo.cs
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.CoreCompileInputs.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBud.0649AE16.Up2Date
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\refint\SplitBuddies.dll
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.genruntimeconfig.cache
+E:\proyecto\SplitBuddies-master\Proyecto #2\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\ref\SplitBuddies.dll
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\usuarios.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.exe
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\gastos.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Data\grupos.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.deps.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.runtimeconfig.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\bin\Debug\net9.0-windows\Newtonsoft.Json.dll
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.AssemblyReference.cache
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.BalanceForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.EditGroupsForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.ExpenseForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.GroupForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.InvitationList.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.LoginForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MainForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.MostrarForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.Views.RegisterForm.resources
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.GenerateResource.cache
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.GeneratedMSBuildEditorConfig.editorconfig
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfoInputs.cache
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.AssemblyInfo.cs
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.csproj.CoreCompileInputs.cache
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.sourcelink.json
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBud.0649AE16.Up2Date
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.dll
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\refint\SplitBuddies.dll
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.pdb
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\SplitBuddies.genruntimeconfig.cache
+E:\proyecto#2\SplitBuddies-master\src\SplitBuddies\obj\Debug\net9.0-windows\ref\SplitBuddies.dll

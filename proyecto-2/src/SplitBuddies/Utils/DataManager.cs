@@ -21,6 +21,7 @@ namespace SplitBuddies.Data
         private const string USERS_FILE = "usuarios.json";
         private const string GROUPS_FILE = "grupos.json";
         private const string EXPENSES_FILE = "gastos.json";
+        private const string INVITATIONS_FILE = "invitations.json";
 
         // --------- Ruta base ---------
         public string BasePath { get; set; } = "";
@@ -50,7 +51,10 @@ namespace SplitBuddies.Data
         /// </summary>
         public void LoadExpenses() => Expenses = CargarDesdeArchivo<Expense>(EXPENSES_FILE);
 
-    
+        /// <summary>
+        /// Carga todas las invitaciones desde su archivo JSON.
+        /// </summary>
+        public void LoadInvitations() => Invitations = CargarDesdeArchivo<Invitation>(INVITATIONS_FILE);
 
         /// <summary>
         /// Lee y deserializa una lista de objetos desde un archivo JSON.
@@ -81,6 +85,7 @@ namespace SplitBuddies.Data
         public void SaveUsers() => GuardarEnArchivo(Users, USERS_FILE);
         public void SaveGroups() => GuardarEnArchivo(Groups, GROUPS_FILE);
         public void SaveExpenses() => GuardarEnArchivo(Expenses, EXPENSES_FILE);
+        public void SaveInvitations() => GuardarEnArchivo(Invitations, INVITATIONS_FILE);
 
         /// <summary>
         /// Serializa y guarda una lista de objetos en un archivo JSON.

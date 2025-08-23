@@ -1,0 +1,44 @@
+[
+  {
+    "InvitationId": 1,
+    "GroupId": 30,
+    "InviteeEmail": "maria@email.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 1
+  },
+  {
+    "InvitationId": 2,
+    "GroupId": 2,
+    "InviteeEmail": "ana@email.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 1
+  },
+  {
+    "InvitationId": 3,
+    "GroupId": 2,
+    "InviteeEmail": "ana@gmail.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 0
+  },
+  {
+    "InvitationId": 4,
+    "GroupId": 2,
+    "InviteeEmail": "ana@email.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 1
+  },
+  {
+    "InvitationId": 5,
+    "GroupId": 2,
+    "InviteeEmail": "ana@email.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 1
+  },
+  {
+    "InvitationId": 6,
+    "GroupId": 2,
+    "InviteeEmail": "ana@email.com",
+    "InviterEmail": "pedro@email.com",
+    "Status": 1
+  }
+]
