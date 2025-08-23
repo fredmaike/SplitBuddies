@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['id_0',['Id',['../class_split_buddies_1_1_models_1_1_expense.html#a5ec067d89e1cf26ab515bdf0d630eb9a',1,'SplitBuddies::Models::Expense']]],
+  ['image_1',['IMAGE',['../class_split_buddies_1_1_models_1_1_group.html#a7f6bf94227e0d599c4023dbafa9d095c',1,'SplitBuddies::Models::Group']]],
+  ['instance_2',['Instance',['../class_split_buddies_1_1_data_1_1_data_manager.html#a319ade7025f4413ccf7981747b255d8f',1,'SplitBuddies::Data::DataManager']]],
+  ['invitation_3',['Invitation',['../class_split_buddies_1_1_models_1_1_invitation.html',1,'SplitBuddies::Models']]],
+  ['invitation_2ecs_4',['Invitation.cs',['../_invitation_8cs.html',1,'']]],
+  ['invitationform_5',['InvitationForm',['../class_split_buddies_1_1_views_1_1_invitation_form.html',1,'SplitBuddies.Views.InvitationForm'],['../class_split_buddies_1_1_views_1_1_invitation_form.html#ae2eeb6f74c9136e26098fb39285574e0',1,'SplitBuddies.Views.InvitationForm.InvitationForm()']]],
+  ['invitationform_2ecs_6',['InvitationForm.cs',['../_invitation_form_8cs.html',1,'']]],
+  ['invitationform_2edesigner_2ecs_7',['InvitationForm.Designer.cs',['../_invitation_form_8_designer_8cs.html',1,'']]],
+  ['invitationid_8',['InvitationId',['../class_split_buddies_1_1_models_1_1_invitation.html#aa5d326ebe421d60673a16e87b2c7b3a7',1,'SplitBuddies::Models::Invitation']]],
+  ['invitationlist_9',['InvitationList',['../class_split_buddies_1_1_views_1_1_invitation_list.html',1,'SplitBuddies.Views.InvitationList'],['../class_split_buddies_1_1_views_1_1_invitation_list.html#aae178c86e10800408d3d83ae42d5f1bf',1,'SplitBuddies.Views.InvitationList.InvitationList()']]],
+  ['invitationlist_2ecs_10',['InvitationList.cs',['../_invitation_list_8cs.html',1,'']]],
+  ['invitationlist_2edesigner_2ecs_11',['InvitationList.Designer.cs',['../_invitation_list_8_designer_8cs.html',1,'']]],
+  ['invitations_12',['Invitations',['../class_split_buddies_1_1_data_1_1_data_manager.html#a57b7b898ac2cb106ffb7bdc1931fedd6',1,'SplitBuddies::Data::DataManager']]],
+  ['invitationstatus_13',['InvitationStatus',['../namespace_split_buddies_1_1_models.html#aa6c01eb289e83667948ae457210a40c6',1,'SplitBuddies::Models']]],
+  ['inviteeemail_14',['InviteeEmail',['../class_split_buddies_1_1_models_1_1_invitation.html#af7de6d1343d87eda98eba661289344b2',1,'SplitBuddies::Models::Invitation']]],
+  ['inviteremail_15',['InviterEmail',['../class_split_buddies_1_1_models_1_1_invitation.html#a788da6bf1b0961399060c68af4fc866d',1,'SplitBuddies::Models::Invitation']]],
+  ['involvedusersemails_16',['InvolvedUsersEmails',['../class_split_buddies_1_1_models_1_1_expense.html#ae3428f0922ac89645749747e45030bf5',1,'SplitBuddies::Models::Expense']]]
+];

@@ -1,0 +1,88 @@
+\doxysection{Split\+Buddies.\+Views.\+Balance\+Form Class Reference}
+\hypertarget{class_split_buddies_1_1_views_1_1_balance_form}{}\label{class_split_buddies_1_1_views_1_1_balance_form}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+
+
+Formulario que muestra el balance de un grupo, incluyendo gastos, balances netos y deudas entre usuarios.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_split_buddies_1_1_views_1_1_balance_form_afe713cea312d4ce37f7c1909d9ef70b2}{Balance\+Form}} (\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} group)
+\item 
+Data\+Table \mbox{\hyperlink{class_split_buddies_1_1_views_1_1_balance_form_a3f7285ae73fdd927af407e6f49bc1987}{Crear\+Data\+Table\+Deudas}} (Dictionary$<$ string, decimal $>$ saldo\+Por\+Usuario)
+\begin{DoxyCompactList}\small\item\em Crea el Data\+Table con la propuesta de deudas entre usuarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Dictionary$<$ string, decimal $>$ \mbox{\hyperlink{class_split_buddies_1_1_views_1_1_balance_form_a8347b0abdb45998b43863625658933ec}{Calcular\+Saldo\+Por\+Usuario}} (List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}} $>$ gastos)
+\begin{DoxyCompactList}\small\item\em Calcula el saldo neto por usuario (positivo = recibe, negativo = debe). \end{DoxyCompactList}\item 
+static Data\+Table \mbox{\hyperlink{class_split_buddies_1_1_views_1_1_balance_form_a1c82588c45f03489c03b272e841fae6b}{Crear\+Data\+Table\+Gastos}} (List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}} $>$ gastos)
+\begin{DoxyCompactList}\small\item\em Crea el Data\+Table con los gastos detallados. \end{DoxyCompactList}\item 
+static Data\+Table \mbox{\hyperlink{class_split_buddies_1_1_views_1_1_balance_form_a20c6cc4493070b1108215614eb214954}{Crear\+Data\+Table\+Netos}} (Dictionary$<$ string, decimal $>$ saldo\+Por\+Usuario)
+\begin{DoxyCompactList}\small\item\em Crea el Data\+Table con el saldo neto por usuario. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Formulario que muestra el balance de un grupo, incluyendo gastos, balances netos y deudas entre usuarios. 
+
+\label{doc-constructors}
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_afe713cea312d4ce37f7c1909d9ef70b2}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}!BalanceForm@{BalanceForm}}
+\index{BalanceForm@{BalanceForm}!SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+\doxysubsubsection{\texorpdfstring{BalanceForm()}{BalanceForm()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_views_1_1_balance_form_afe713cea312d4ce37f7c1909d9ef70b2} 
+Split\+Buddies.\+Views.\+Balance\+Form.\+Balance\+Form (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}}}]{group}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_a8347b0abdb45998b43863625658933ec}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}!CalcularSaldoPorUsuario@{CalcularSaldoPorUsuario}}
+\index{CalcularSaldoPorUsuario@{CalcularSaldoPorUsuario}!SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+\doxysubsubsection{\texorpdfstring{CalcularSaldoPorUsuario()}{CalcularSaldoPorUsuario()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_views_1_1_balance_form_a8347b0abdb45998b43863625658933ec} 
+Dictionary$<$ string, decimal $>$ Split\+Buddies.\+Views.\+Balance\+Form.\+Calcular\+Saldo\+Por\+Usuario (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}} $>$}]{gastos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calcula el saldo neto por usuario (positivo = recibe, negativo = debe). 
+
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_a3f7285ae73fdd927af407e6f49bc1987}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}!CrearDataTableDeudas@{CrearDataTableDeudas}}
+\index{CrearDataTableDeudas@{CrearDataTableDeudas}!SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+\doxysubsubsection{\texorpdfstring{CrearDataTableDeudas()}{CrearDataTableDeudas()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_views_1_1_balance_form_a3f7285ae73fdd927af407e6f49bc1987} 
+Data\+Table Split\+Buddies.\+Views.\+Balance\+Form.\+Crear\+Data\+Table\+Deudas (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, decimal $>$}]{saldo\+Por\+Usuario}{}\end{DoxyParamCaption})}
+
+
+
+Crea el Data\+Table con la propuesta de deudas entre usuarios. 
+
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_a1c82588c45f03489c03b272e841fae6b}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}!CrearDataTableGastos@{CrearDataTableGastos}}
+\index{CrearDataTableGastos@{CrearDataTableGastos}!SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+\doxysubsubsection{\texorpdfstring{CrearDataTableGastos()}{CrearDataTableGastos()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_views_1_1_balance_form_a1c82588c45f03489c03b272e841fae6b} 
+Data\+Table Split\+Buddies.\+Views.\+Balance\+Form.\+Crear\+Data\+Table\+Gastos (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}} $>$}]{gastos}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Crea el Data\+Table con los gastos detallados. 
+
+\Hypertarget{class_split_buddies_1_1_views_1_1_balance_form_a20c6cc4493070b1108215614eb214954}\index{SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}!CrearDataTableNetos@{CrearDataTableNetos}}
+\index{CrearDataTableNetos@{CrearDataTableNetos}!SplitBuddies.Views.BalanceForm@{SplitBuddies.Views.BalanceForm}}
+\doxysubsubsection{\texorpdfstring{CrearDataTableNetos()}{CrearDataTableNetos()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_views_1_1_balance_form_a20c6cc4493070b1108215614eb214954} 
+Data\+Table Split\+Buddies.\+Views.\+Balance\+Form.\+Crear\+Data\+Table\+Netos (\begin{DoxyParamCaption}\item[{Dictionary$<$ string, decimal $>$}]{saldo\+Por\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Crea el Data\+Table con el saldo neto por usuario. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/proyecto\#2/\+Split\+Buddies-\/master/src/\+Split\+Buddies/\+Views/\mbox{\hyperlink{_balance_form_8cs}{Balance\+Form.\+cs}}\item 
+E\+:/proyecto\#2/\+Split\+Buddies-\/master/src/\+Split\+Buddies/\+Views/\mbox{\hyperlink{_balance_form_8_designer_8cs}{Balance\+Form.\+Designer.\+cs}}\end{DoxyCompactItemize}

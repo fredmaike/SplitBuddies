@@ -1,0 +1,83 @@
+\doxysection{Split\+Buddies.\+Models.\+Group Class Reference}
+\hypertarget{class_split_buddies_1_1_models_1_1_group}{}\label{class_split_buddies_1_1_models_1_1_group}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+
+
+Representa un grupo dentro de la aplicación \doxylink{namespace_split_buddies}{Split\+Buddies}. Cada grupo tiene un nombre, una imagen, una lista de miembros y una lista de gastos asociados.  
+
+
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group_a6b77a30a24da5cc1e8ab956653f94bc0}{Group\+Id}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Identificador único del grupo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group_a800affb6d1d4225aec1c6029c437fc2a}{Group\+Name}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Nombre del grupo. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group_a7f6bf94227e0d599c4023dbafa9d095c}{IMAGE}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Ruta de la imagen asociada al grupo. Se serializa y deserializa con la clave "{}\+IMAGE"{} en JSON. \end{DoxyCompactList}\item 
+List$<$ string $>$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group_a81a6cd26d7838ad4083c115da3e4dcc0}{Members}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Lista de correos electrónicos de los miembros que pertenecen al grupo. \end{DoxyCompactList}\item 
+List$<$ int $>$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group_ac9e647e2fafdd0d207fc3d89104a89dd}{Expenses}} = new List$<$int$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Lista de IDs de gastos asociados a este grupo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representa un grupo dentro de la aplicación \doxylink{namespace_split_buddies}{Split\+Buddies}. Cada grupo tiene un nombre, una imagen, una lista de miembros y una lista de gastos asociados. 
+
+\label{doc-property-members}
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_ac9e647e2fafdd0d207fc3d89104a89dd}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}!Expenses@{Expenses}}
+\index{Expenses@{Expenses}!SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+\doxysubsubsection{\texorpdfstring{Expenses}{Expenses}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_models_1_1_group_ac9e647e2fafdd0d207fc3d89104a89dd} 
+List$<$int$>$ Split\+Buddies.\+Models.\+Group.\+Expenses = new List$<$int$>$()\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Lista de IDs de gastos asociados a este grupo. 
+
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_a6b77a30a24da5cc1e8ab956653f94bc0}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}!GroupId@{GroupId}}
+\index{GroupId@{GroupId}!SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+\doxysubsubsection{\texorpdfstring{GroupId}{GroupId}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_models_1_1_group_a6b77a30a24da5cc1e8ab956653f94bc0} 
+int Split\+Buddies.\+Models.\+Group.\+Group\+Id\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Identificador único del grupo. 
+
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_a800affb6d1d4225aec1c6029c437fc2a}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}!GroupName@{GroupName}}
+\index{GroupName@{GroupName}!SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+\doxysubsubsection{\texorpdfstring{GroupName}{GroupName}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_models_1_1_group_a800affb6d1d4225aec1c6029c437fc2a} 
+string Split\+Buddies.\+Models.\+Group.\+Group\+Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Nombre del grupo. 
+
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_a7f6bf94227e0d599c4023dbafa9d095c}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}!IMAGE@{IMAGE}}
+\index{IMAGE@{IMAGE}!SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+\doxysubsubsection{\texorpdfstring{IMAGE}{IMAGE}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_models_1_1_group_a7f6bf94227e0d599c4023dbafa9d095c} 
+string Split\+Buddies.\+Models.\+Group.\+IMAGE\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Ruta de la imagen asociada al grupo. Se serializa y deserializa con la clave "{}\+IMAGE"{} en JSON. 
+
+\Hypertarget{class_split_buddies_1_1_models_1_1_group_a81a6cd26d7838ad4083c115da3e4dcc0}\index{SplitBuddies.Models.Group@{SplitBuddies.Models.Group}!Members@{Members}}
+\index{Members@{Members}!SplitBuddies.Models.Group@{SplitBuddies.Models.Group}}
+\doxysubsubsection{\texorpdfstring{Members}{Members}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_models_1_1_group_a81a6cd26d7838ad4083c115da3e4dcc0} 
+List$<$string$>$ Split\+Buddies.\+Models.\+Group.\+Members\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Lista de correos electrónicos de los miembros que pertenecen al grupo. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/proyecto\#2/\+Split\+Buddies-\/master/src/\+Split\+Buddies/\+Models/\mbox{\hyperlink{_group_8cs}{Group.\+cs}}\end{DoxyCompactItemize}

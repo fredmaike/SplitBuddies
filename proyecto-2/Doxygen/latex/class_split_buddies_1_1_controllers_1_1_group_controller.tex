@@ -1,0 +1,109 @@
+\doxysection{Split\+Buddies.\+Controllers.\+Group\+Controller Class Reference}
+\hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller}{}\label{class_split_buddies_1_1_controllers_1_1_group_controller}\index{SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}}
+
+
+Controlador responsable de gestionar operaciones relacionadas con grupos, como crear, eliminar y obtener grupos por usuario.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_split_buddies_1_1_controllers_1_1_group_controller_ad29ab66c73de6535cb76d710304d55a4}{Group\+Controller}} (List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} $>$ groups)
+\begin{DoxyCompactList}\small\item\em Inicializa una nueva instancia de \doxylink{class_split_buddies_1_1_controllers_1_1_group_controller}{Group\+Controller} con la lista de grupos existente. \end{DoxyCompactList}\item 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} $>$ \mbox{\hyperlink{class_split_buddies_1_1_controllers_1_1_group_controller_a7f66f1e55bc3547e39cd963fa7936cea}{Get\+Groups\+For\+User}} (string email)
+\begin{DoxyCompactList}\small\item\em Retorna todos los grupos a los que pertenece un usuario según su correo electrónico. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} \mbox{\hyperlink{class_split_buddies_1_1_controllers_1_1_group_controller_a87794b9d1932e22739f9be6a06da2ccb}{Create\+Group}} (string name, string image\+Path, List$<$ string $>$ member\+Emails)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo grupo con nombre, imagen y lista de miembros, asignando un ID único. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_split_buddies_1_1_controllers_1_1_group_controller_a8ecc009df42692e20ede5547d902b42a}{Delete\+Group}} (int group\+Id)
+\begin{DoxyCompactList}\small\item\em Elimina un grupo por su ID si existe. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Controlador responsable de gestionar operaciones relacionadas con grupos, como crear, eliminar y obtener grupos por usuario. 
+
+\label{doc-constructors}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_ad29ab66c73de6535cb76d710304d55a4}\index{SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}!GroupController@{GroupController}}
+\index{GroupController@{GroupController}!SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}}
+\doxysubsubsection{\texorpdfstring{GroupController()}{GroupController()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_controllers_1_1_group_controller_ad29ab66c73de6535cb76d710304d55a4} 
+Split\+Buddies.\+Controllers.\+Group\+Controller.\+Group\+Controller (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} $>$}]{groups}{}\end{DoxyParamCaption})}
+
+
+
+Inicializa una nueva instancia de \doxylink{class_split_buddies_1_1_controllers_1_1_group_controller}{Group\+Controller} con la lista de grupos existente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em groups} & Lista de grupos existentes.\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_a87794b9d1932e22739f9be6a06da2ccb}\index{SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}!CreateGroup@{CreateGroup}}
+\index{CreateGroup@{CreateGroup}!SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}}
+\doxysubsubsection{\texorpdfstring{CreateGroup()}{CreateGroup()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_controllers_1_1_group_controller_a87794b9d1932e22739f9be6a06da2ccb} 
+\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} Split\+Buddies.\+Controllers.\+Group\+Controller.\+Create\+Group (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{string}]{image\+Path}{, }\item[{List$<$ string $>$}]{member\+Emails}{}\end{DoxyParamCaption})}
+
+
+
+Crea un nuevo grupo con nombre, imagen y lista de miembros, asignando un ID único. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Nombre del nuevo grupo.\\
+\hline
+{\em image\+Path} & Ruta de la imagen asociada al grupo.\\
+\hline
+{\em member\+Emails} & Lista de correos electrónicos de los miembros.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+El grupo creado.
+\end{DoxyReturn}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_a8ecc009df42692e20ede5547d902b42a}\index{SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}!DeleteGroup@{DeleteGroup}}
+\index{DeleteGroup@{DeleteGroup}!SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}}
+\doxysubsubsection{\texorpdfstring{DeleteGroup()}{DeleteGroup()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_controllers_1_1_group_controller_a8ecc009df42692e20ede5547d902b42a} 
+bool Split\+Buddies.\+Controllers.\+Group\+Controller.\+Delete\+Group (\begin{DoxyParamCaption}\item[{int}]{group\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Elimina un grupo por su ID si existe. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em group\+Id} & ID del grupo a eliminar.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True si el grupo fue eliminado, false en caso contrario.
+\end{DoxyReturn}
+\Hypertarget{class_split_buddies_1_1_controllers_1_1_group_controller_a7f66f1e55bc3547e39cd963fa7936cea}\index{SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}!GetGroupsForUser@{GetGroupsForUser}}
+\index{GetGroupsForUser@{GetGroupsForUser}!SplitBuddies.Controllers.GroupController@{SplitBuddies.Controllers.GroupController}}
+\doxysubsubsection{\texorpdfstring{GetGroupsForUser()}{GetGroupsForUser()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_controllers_1_1_group_controller_a7f66f1e55bc3547e39cd963fa7936cea} 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} $>$ Split\+Buddies.\+Controllers.\+Group\+Controller.\+Get\+Groups\+For\+User (\begin{DoxyParamCaption}\item[{string}]{email}{}\end{DoxyParamCaption})}
+
+
+
+Retorna todos los grupos a los que pertenece un usuario según su correo electrónico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & Correo electrónico del usuario.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lista de grupos en los que el usuario es miembro.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/proyecto\#2/\+Split\+Buddies-\/master/src/\+Split\+Buddies/\+Controllers/\mbox{\hyperlink{_group_controller_8cs}{Group\+Controller.\+cs}}\end{DoxyCompactItemize}

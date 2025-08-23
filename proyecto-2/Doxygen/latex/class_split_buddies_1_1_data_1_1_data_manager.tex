@@ -1,0 +1,183 @@
+\doxysection{Split\+Buddies.\+Data.\+Data\+Manager Class Reference}
+\hypertarget{class_split_buddies_1_1_data_1_1_data_manager}{}\label{class_split_buddies_1_1_data_1_1_data_manager}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+
+
+Singleton que gestiona la carga y almacenamiento de usuarios, grupos, gastos e invitaciones.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a76d2b20b5b0ff14c0bfbff538cd7cef7}{Load\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Carga todos los usuarios desde su archivo JSON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_abff648604b394174ed5bd115a0cc04bd}{Load\+Groups}} ()
+\begin{DoxyCompactList}\small\item\em Carga todos los grupos desde su archivo JSON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_ae37bf44c70fb78abd33b154e0c61b11a}{Load\+Expenses}} ()
+\begin{DoxyCompactList}\small\item\em Carga todos los gastos desde su archivo JSON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a993a2ea7fd899fa1b271875e71ef2871}{Load\+Invitations}} ()
+\begin{DoxyCompactList}\small\item\em Carga todas las invitaciones desde su archivo JSON. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a52644d3e20cb09a02eed40da53211fe5}{Save\+Users}} ()
+\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a2587de29e870b48178641c64191d9700}{Save\+Groups}} ()
+\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_ad5876da02563a2d6e5c8bce08f24a846}{Save\+Expenses}} ()
+\item 
+void \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a5e3bd0029b746c8c2c3642e50fba96e4}{Save\+Invitations}} ()
+\item 
+int \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a5078ff6aca4a193bfedb86e8c881b0c8}{Get\+Next\+Expense\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el siguiente ID disponible para un gasto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a7317dd3cd0063fa5cc4530459cfda314}{Get\+Next\+Invitation\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Obtiene el siguiente ID disponible para una invitación. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager}{Data\+Manager}} \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a319ade7025f4413ccf7981747b255d8f}{Instance}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+string \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_aeb0a51e5410b7291aebf74321d1bbc74}{Base\+Path}} = "{}"{}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_user}{User}} $>$ \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_ab0c2eb5b6c65ed575b905dd8c233235b}{Users}} = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_user}{User}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}} $>$ \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a98b46cd16c7d07cc5927d4ca11f6ed57}{Groups}} = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}} $>$ \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a7a0c3bf34a6096bf72f2b236ed77cb81}{Expenses}} = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_split_buddies_1_1_models_1_1_invitation}{Invitation}} $>$ \mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager_a57b7b898ac2cb106ffb7bdc1931fedd6}{Invitations}} = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_invitation}{Invitation}}$>$()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Singleton que gestiona la carga y almacenamiento de usuarios, grupos, gastos e invitaciones. 
+
+\label{doc-func-members}
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a5078ff6aca4a193bfedb86e8c881b0c8}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!GetNextExpenseId@{GetNextExpenseId}}
+\index{GetNextExpenseId@{GetNextExpenseId}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{GetNextExpenseId()}{GetNextExpenseId()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a5078ff6aca4a193bfedb86e8c881b0c8} 
+int Split\+Buddies.\+Data.\+Data\+Manager.\+Get\+Next\+Expense\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene el siguiente ID disponible para un gasto. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a7317dd3cd0063fa5cc4530459cfda314}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!GetNextInvitationId@{GetNextInvitationId}}
+\index{GetNextInvitationId@{GetNextInvitationId}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{GetNextInvitationId()}{GetNextInvitationId()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a7317dd3cd0063fa5cc4530459cfda314} 
+int Split\+Buddies.\+Data.\+Data\+Manager.\+Get\+Next\+Invitation\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Obtiene el siguiente ID disponible para una invitación. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_ae37bf44c70fb78abd33b154e0c61b11a}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!LoadExpenses@{LoadExpenses}}
+\index{LoadExpenses@{LoadExpenses}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{LoadExpenses()}{LoadExpenses()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_ae37bf44c70fb78abd33b154e0c61b11a} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Load\+Expenses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carga todos los gastos desde su archivo JSON. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_abff648604b394174ed5bd115a0cc04bd}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!LoadGroups@{LoadGroups}}
+\index{LoadGroups@{LoadGroups}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{LoadGroups()}{LoadGroups()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_abff648604b394174ed5bd115a0cc04bd} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Load\+Groups (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carga todos los grupos desde su archivo JSON. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a993a2ea7fd899fa1b271875e71ef2871}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!LoadInvitations@{LoadInvitations}}
+\index{LoadInvitations@{LoadInvitations}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{LoadInvitations()}{LoadInvitations()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a993a2ea7fd899fa1b271875e71ef2871} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Load\+Invitations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carga todas las invitaciones desde su archivo JSON. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a76d2b20b5b0ff14c0bfbff538cd7cef7}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!LoadUsers@{LoadUsers}}
+\index{LoadUsers@{LoadUsers}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{LoadUsers()}{LoadUsers()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a76d2b20b5b0ff14c0bfbff538cd7cef7} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Load\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Carga todos los usuarios desde su archivo JSON. 
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_ad5876da02563a2d6e5c8bce08f24a846}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!SaveExpenses@{SaveExpenses}}
+\index{SaveExpenses@{SaveExpenses}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{SaveExpenses()}{SaveExpenses()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_ad5876da02563a2d6e5c8bce08f24a846} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Save\+Expenses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a2587de29e870b48178641c64191d9700}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!SaveGroups@{SaveGroups}}
+\index{SaveGroups@{SaveGroups}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{SaveGroups()}{SaveGroups()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a2587de29e870b48178641c64191d9700} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Save\+Groups (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a5e3bd0029b746c8c2c3642e50fba96e4}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!SaveInvitations@{SaveInvitations}}
+\index{SaveInvitations@{SaveInvitations}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{SaveInvitations()}{SaveInvitations()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a5e3bd0029b746c8c2c3642e50fba96e4} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Save\+Invitations (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a52644d3e20cb09a02eed40da53211fe5}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!SaveUsers@{SaveUsers}}
+\index{SaveUsers@{SaveUsers}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{SaveUsers()}{SaveUsers()}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a52644d3e20cb09a02eed40da53211fe5} 
+void Split\+Buddies.\+Data.\+Data\+Manager.\+Save\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_aeb0a51e5410b7291aebf74321d1bbc74}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!BasePath@{BasePath}}
+\index{BasePath@{BasePath}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{BasePath}{BasePath}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_aeb0a51e5410b7291aebf74321d1bbc74} 
+string Split\+Buddies.\+Data.\+Data\+Manager.\+Base\+Path = "{}"{}\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a7a0c3bf34a6096bf72f2b236ed77cb81}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!Expenses@{Expenses}}
+\index{Expenses@{Expenses}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{Expenses}{Expenses}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a7a0c3bf34a6096bf72f2b236ed77cb81} 
+List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}}$>$ Split\+Buddies.\+Data.\+Data\+Manager.\+Expenses = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_expense}{Expense}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a98b46cd16c7d07cc5927d4ca11f6ed57}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!Groups@{Groups}}
+\index{Groups@{Groups}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{Groups}{Groups}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a98b46cd16c7d07cc5927d4ca11f6ed57} 
+List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}}$>$ Split\+Buddies.\+Data.\+Data\+Manager.\+Groups = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_group}{Group}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a319ade7025f4413ccf7981747b255d8f}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!Instance@{Instance}}
+\index{Instance@{Instance}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a319ade7025f4413ccf7981747b255d8f} 
+\mbox{\hyperlink{class_split_buddies_1_1_data_1_1_data_manager}{Data\+Manager}} Split\+Buddies.\+Data.\+Data\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_a57b7b898ac2cb106ffb7bdc1931fedd6}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!Invitations@{Invitations}}
+\index{Invitations@{Invitations}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{Invitations}{Invitations}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_a57b7b898ac2cb106ffb7bdc1931fedd6} 
+List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_invitation}{Invitation}}$>$ Split\+Buddies.\+Data.\+Data\+Manager.\+Invitations = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_invitation}{Invitation}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_split_buddies_1_1_data_1_1_data_manager_ab0c2eb5b6c65ed575b905dd8c233235b}\index{SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}!Users@{Users}}
+\index{Users@{Users}!SplitBuddies.Data.DataManager@{SplitBuddies.Data.DataManager}}
+\doxysubsubsection{\texorpdfstring{Users}{Users}}
+{\footnotesize\ttfamily \label{class_split_buddies_1_1_data_1_1_data_manager_ab0c2eb5b6c65ed575b905dd8c233235b} 
+List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_user}{User}}$>$ Split\+Buddies.\+Data.\+Data\+Manager.\+Users = new List$<$\mbox{\hyperlink{class_split_buddies_1_1_models_1_1_user}{User}}$>$()\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+E\+:/proyecto\#2/\+Split\+Buddies-\/master/src/\+Split\+Buddies/\+Utils/\mbox{\hyperlink{_data_manager_8cs}{Data\+Manager.\+cs}}\end{DoxyCompactItemize}
