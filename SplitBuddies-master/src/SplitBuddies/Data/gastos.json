@@ -1,0 +1,1015 @@
+[
+  {
+    "Id": 1,
+    "Name": "Libros",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 275.02,
+    "Date": "07/15/2024",
+    "GroupId": 5
+  },
+  {
+    "Id": 2,
+    "Name": "Donación",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 844.68,
+    "Date": "08/15/2024",
+    "GroupId": 22
+  },
+  {
+    "Id": 3,
+    "Name": "Cena grupal",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 486.42,
+    "Date": "04/15/2024",
+    "GroupId": 3
+  },
+  {
+    "Id": 4,
+    "Name": "Snacks",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 104.02,
+    "Date": "03/15/2024",
+    "GroupId": 17
+  },
+  {
+    "Id": 5,
+    "Name": "Accesorios",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 608.93,
+    "Date": "01/15/2024",
+    "GroupId": 11
+  },
+  {
+    "Id": 6,
+    "Name": "Donación",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 544.98,
+    "Date": "09/01/2024",
+    "GroupId": 14
+  },
+  {
+    "Id": 7,
+    "Name": "Alquiler de equipo",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 626.64,
+    "Date": "07/05/2024",
+    "GroupId": 2
+  },
+  {
+    "Id": 8,
+    "Name": "Ropa del grupo",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 22.68,
+    "Date": "07/20/2024",
+    "GroupId": 24
+  },
+  {
+    "Id": 9,
+    "Name": "Excursión",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 334.23,
+    "Date": "07/11/2024",
+    "GroupId": 25
+  },
+  {
+    "Id": 10,
+    "Name": "Comida rápida",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 548.74,
+    "Date": "07/13/2024",
+    "GroupId": 18
+  },
+  {
+    "Id": 11,
+    "Name": "Transporte",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 403.56,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 12,
+    "Name": "Ropa del grupo",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 863.47,
+    "Date": "07/15/2024",
+    "GroupId": 10
+  },
+  {
+    "Id": 13,
+    "Name": "Boletos de bus",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 240.5,
+    "Date": "07/15/2024",
+    "GroupId": 6
+  },
+  {
+    "Id": 14,
+    "Name": "Compra de bebidas",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 761.31,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 15,
+    "Name": "Comida rápida",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 917.61,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 16,
+    "Name": "Snacks",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 140.17,
+    "Date": "07/15/2024",
+    "GroupId": 17
+  },
+  {
+    "Id": 17,
+    "Name": "Herramientas",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 12.75,
+    "Date": "07/15/2024",
+    "GroupId": 1
+  },
+  {
+    "Id": 18,
+    "Name": "Excursión",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 690.09,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 19,
+    "Name": "Entrada a evento",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 660.43,
+    "Date": "07/15/2024",
+    "GroupId": 8
+  },
+  {
+    "Id": 20,
+    "Name": "Música",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 597.01,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 21,
+    "Name": "Pintura",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 491.18,
+    "Date": "07/15/2024",
+    "GroupId": 17
+  },
+  {
+    "Id": 22,
+    "Name": "Decoración",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 356.15,
+    "Date": "07/15/2024",
+    "GroupId": 5
+  },
+  {
+    "Id": 23,
+    "Name": "Celebración",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 500.73,
+    "Date": "07/15/2024",
+    "GroupId": 23
+  },
+  {
+    "Id": 24,
+    "Name": "Transporte",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 177.72,
+    "Date": "07/15/2024",
+    "GroupId": 6
+  },
+  {
+    "Id": 25,
+    "Name": "Snacks",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 128.72,
+    "Date": "07/15/2024",
+    "GroupId": 16
+  },
+  {
+    "Id": 26,
+    "Name": "Snacks",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 11.86,
+    "Date": "07/15/2024",
+    "GroupId": 27
+  },
+  {
+    "Id": 27,
+    "Name": "Boletos de bus",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 90.4,
+    "Date": "07/15/2024",
+    "GroupId": 11
+  },
+  {
+    "Id": 28,
+    "Name": "Snacks",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 443.07,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 29,
+    "Name": "Implementos deportivos",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 135.47,
+    "Date": "07/15/2024",
+    "GroupId": 9
+  },
+  {
+    "Id": 30,
+    "Name": "Música",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 979.35,
+    "Date": "07/15/2024",
+    "GroupId": 30
+  },
+  {
+    "Id": 31,
+    "Name": "Comida rápida",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 416.24,
+    "Date": "07/15/2024",
+    "GroupId": 24
+  },
+  {
+    "Id": 32,
+    "Name": "Libros",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 237.73,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 33,
+    "Name": "Comida compartida",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 649.61,
+    "Date": "07/15/2024",
+    "GroupId": 19
+  },
+  {
+    "Id": 34,
+    "Name": "Taxis",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 95.44,
+    "Date": "07/15/2024",
+    "GroupId": 9
+  },
+  {
+    "Id": 35,
+    "Name": "Boletos de bus",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 601.01,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 36,
+    "Name": "Suscripción",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 888.7,
+    "Date": "07/15/2024",
+    "GroupId": 23
+  },
+  {
+    "Id": 37,
+    "Name": "Ropa del grupo",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 337.15,
+    "Date": "07/15/2024",
+    "GroupId": 1
+  },
+  {
+    "Id": 38,
+    "Name": "Comida rápida",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 230.24,
+    "Date": "07/15/2024",
+    "GroupId": 30
+  },
+  {
+    "Id": 39,
+    "Name": "Boletos de bus",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 191.59,
+    "Date": "07/15/2024",
+    "GroupId": 7
+  },
+  {
+    "Id": 40,
+    "Name": "Herramientas",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 397.05,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 41,
+    "Name": "Herramientas",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 206.1,
+    "Date": "07/15/2024",
+    "GroupId": 15
+  },
+  {
+    "Id": 42,
+    "Name": "Comida rápida",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 260.8,
+    "Date": "07/15/2024",
+    "GroupId": 23
+  },
+  {
+    "Id": 43,
+    "Name": "Entradas al cine",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 931.78,
+    "Date": "07/15/2024",
+    "GroupId": 27
+  },
+  {
+    "Id": 44,
+    "Name": "Viaje corto",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 873.93,
+    "Date": "07/15/2024",
+    "GroupId": 9
+  },
+  {
+    "Id": 45,
+    "Name": "Souvenirs",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 352.02,
+    "Date": "07/15/2024",
+    "GroupId": 15
+  },
+  {
+    "Id": 46,
+    "Name": "Taxis",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 345.36,
+    "Date": "07/15/2024",
+    "GroupId": 28
+  },
+  {
+    "Id": 47,
+    "Name": "Donación",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 723.68,
+    "Date": "07/15/2024",
+    "GroupId": 12
+  },
+  {
+    "Id": 48,
+    "Name": "Transporte",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 905.69,
+    "Date": "07/15/2024",
+    "GroupId": 8
+  },
+  {
+    "Id": 49,
+    "Name": "Implementos deportivos",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 550.57,
+    "Date": "07/15/2024",
+    "GroupId": 14
+  },
+  {
+    "Id": 50,
+    "Name": "Hotel",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 921.35,
+    "Date": "07/15/2024",
+    "GroupId": 28
+  },
+  {
+    "Id": 51,
+    "Name": "Alquiler de equipo",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 677.03,
+    "Date": "07/15/2024",
+    "GroupId": 10
+  },
+  {
+    "Id": 52,
+    "Name": "Comida rápida",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 990.0,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 53,
+    "Name": "Hotel",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 182.1,
+    "Date": "07/15/2024",
+    "GroupId": 9
+  },
+  {
+    "Id": 54,
+    "Name": "Taxis",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 475.2,
+    "Date": "07/15/2024",
+    "GroupId": 7
+  },
+  {
+    "Id": 55,
+    "Name": "Hotel",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 857.21,
+    "Date": "07/15/2024",
+    "GroupId": 22
+  },
+  {
+    "Id": 56,
+    "Name": "Souvenirs",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 787.23,
+    "Date": "07/15/2024",
+    "GroupId": 11
+  },
+  {
+    "Id": 57,
+    "Name": "Entrada a evento",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 564.03,
+    "Date": "07/15/2024",
+    "GroupId": 19
+  },
+  {
+    "Id": 58,
+    "Name": "Entradas al cine",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 532.92,
+    "Date": "07/15/2024",
+    "GroupId": 27
+  },
+  {
+    "Id": 59,
+    "Name": "Boletos de bus",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 242.27,
+    "Date": "07/15/2024",
+    "GroupId": 30
+  },
+  {
+    "Id": 60,
+    "Name": "Regalos",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 816.01,
+    "Date": "07/15/2024",
+    "GroupId": 6
+  },
+  {
+    "Id": 61,
+    "Name": "Implementos deportivos",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 638.44,
+    "Date": "07/15/2024",
+    "GroupId": 30
+  },
+  {
+    "Id": 62,
+    "Name": "Taxis",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 478.42,
+    "Date": "07/15/2024",
+    "GroupId": 9
+  },
+  {
+    "Id": 63,
+    "Name": "Alquiler de equipo",
+    "Description": "Pago compartido por actividad del grupo",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 458.23,
+    "Date": "07/15/2024",
+    "GroupId": 22
+  },
+  {
+    "Id": 64,
+    "Name": "Comida compartida",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 321.79,
+    "Date": "07/15/2024",
+    "GroupId": 18
+  },
+  {
+    "Id": 65,
+    "Name": "Pintura",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 607.29,
+    "Date": "07/15/2024",
+    "GroupId": 25
+  },
+  {
+    "Id": 66,
+    "Name": "Snacks",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 309.68,
+    "Date": "07/15/2024",
+    "GroupId": 14
+  },
+  {
+    "Id": 67,
+    "Name": "Celebración",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 383.3,
+    "Date": "07/15/2024",
+    "GroupId": 5
+  },
+  {
+    "Id": 68,
+    "Name": "Decoración",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 125.03,
+    "Date": "07/15/2024",
+    "GroupId": 8
+  },
+  {
+    "Id": 69,
+    "Name": "Alquiler salón",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 908.06,
+    "Date": "07/15/2024",
+    "GroupId": 1
+  },
+  {
+    "Id": 70,
+    "Name": "Libros",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 544.6,
+    "Date": "07/15/2024",
+    "GroupId": 20
+  },
+  {
+    "Id": 71,
+    "Name": "Música",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 205.25,
+    "Date": "07/15/2024",
+    "GroupId": 27
+  },
+  {
+    "Id": 72,
+    "Name": "Regalos",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 252.73,
+    "Date": "07/15/2024",
+    "GroupId": 13
+  },
+  {
+    "Id": 73,
+    "Name": "Alquiler de equipo",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 680.24,
+    "Date": "07/15/2024",
+    "GroupId": 15
+  },
+  {
+    "Id": 74,
+    "Name": "Viaje corto",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 356.52,
+    "Date": "07/15/2024",
+    "GroupId": 5
+  },
+  {
+    "Id": 75,
+    "Name": "Cena grupal",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 404.07,
+    "Date": "07/15/2024",
+    "GroupId": 25
+  },
+  {
+    "Id": 76,
+    "Name": "Herramientas",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 347.58,
+    "Date": "07/15/2024",
+    "GroupId": 17
+  },
+  {
+    "Id": 77,
+    "Name": "Hotel",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 80.97,
+    "Date": "07/15/2024",
+    "GroupId": 4
+  },
+  {
+    "Id": 78,
+    "Name": "Comida rápida",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 81.38,
+    "Date": "07/15/2024",
+    "GroupId": 7
+  },
+  {
+    "Id": 79,
+    "Name": "Boletos de bus",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 983.95,
+    "Date": "07/15/2024",
+    "GroupId": 19
+  },
+  {
+    "Id": 80,
+    "Name": "Ropa del grupo",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 688.07,
+    "Date": "07/15/2024",
+    "GroupId": 29
+  },
+  {
+    "Id": 81,
+    "Name": "Transporte",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 739.85,
+    "Date": "07/15/2024",
+    "GroupId": 10
+  },
+  {
+    "Id": 82,
+    "Name": "Snacks",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 321.81,
+    "Date": "07/15/2024",
+    "GroupId": 22
+  },
+  {
+    "Id": 83,
+    "Name": "Transporte",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 635.95,
+    "Date": "07/15/2024",
+    "GroupId": 29
+  },
+  {
+    "Id": 84,
+    "Name": "Comida compartida",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 764.65,
+    "Date": "07/15/2024",
+    "GroupId": 4
+  },
+  {
+    "Id": 85,
+    "Name": "Transporte",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 413.42,
+    "Date": "07/15/2024",
+    "GroupId": 8
+  },
+  {
+    "Id": 86,
+    "Name": "Materiales",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 415.8,
+    "Date": "07/15/2024",
+    "GroupId": 19
+  },
+  {
+    "Id": 87,
+    "Name": "Compra de bebidas",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 364.52,
+    "Date": "07/15/2024",
+    "GroupId": 29
+  },
+  {
+    "Id": 88,
+    "Name": "Suscripción",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 704.31,
+    "Date": "07/15/2024",
+    "GroupId": 26
+  },
+  {
+    "Id": 89,
+    "Name": "Implementos deportivos",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 494.01,
+    "Date": "07/15/2024",
+    "GroupId": 4
+  },
+  {
+    "Id": 90,
+    "Name": "Alquiler de equipo",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 773.4,
+    "Date": "07/15/2024",
+    "GroupId": 25
+  },
+  {
+    "Id": 91,
+    "Name": "Accesorios",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 270.03,
+    "Date": "07/15/2024",
+    "GroupId": 26
+  },
+  {
+    "Id": 92,
+    "Name": "Hotel",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 223.68,
+    "Date": "07/15/2024",
+    "GroupId": 30
+  },
+  {
+    "Id": 93,
+    "Name": "Comida rápida",
+    "Description": "Parte del presupuesto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 45.85,
+    "Date": "07/15/2024",
+    "GroupId": 20
+  },
+  {
+    "Id": 94,
+    "Name": "Excursión",
+    "Description": "Compra entre todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 284.93,
+    "Date": "07/15/2024",
+    "GroupId": 25
+  },
+  {
+    "Id": 95,
+    "Name": "Excursión",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 238.06,
+    "Date": "07/15/2024",
+    "GroupId": 3
+  },
+  {
+    "Id": 96,
+    "Name": "Entrada a evento",
+    "Description": "Costo grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 434.25,
+    "Date": "07/15/2024",
+    "GroupId": 6
+  },
+  {
+    "Id": 97,
+    "Name": "Transporte",
+    "Description": "Pago necesario para todos",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 530.2,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 98,
+    "Name": "Entradas al cine",
+    "Description": "División de gasto grupal",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 178.17,
+    "Date": "07/15/2024",
+    "GroupId": 21
+  },
+  {
+    "Id": 99,
+    "Name": "Materiales",
+    "Description": "Gasto general del evento",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 659.69,
+    "Date": "07/15/2024",
+    "GroupId": 11
+  },
+  {
+    "Id": 100,
+    "Name": "Pintura",
+    "Description": "Adquisición común",
+    "PaidByEmail": null,
+    "InvolvedUsersEmails": null,
+    "Amount": 268.33,
+    "Date": "07/15/2024",
+    "GroupId": 20
+  },
+  {
+    "Id": 101,
+    "Name": "Salida",
+    "Description": "Salida con amigos",
+    "PaidByEmail": "ana@email.com",
+    "InvolvedUsersEmails": [
+      "miguel@email.com",
+      "alvaro@email.com"
+    ],
+    "Amount": 3000.0,
+    "Date": "02/03/2025",
+    "GroupId": 37
+  }
+]
